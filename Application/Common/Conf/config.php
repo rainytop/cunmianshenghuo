@@ -2,7 +2,7 @@
 // +----------------------------------------------------------------------
 // | 系统总配置
 // +----------------------------------------------------------------------
-return array(
+$config = array(
     //'配置项'=>'配置值'
     //插件预加载地址
     //'AUTOLOAD_NAMESPACE' => array('Addons' => './Addons/'),
@@ -33,7 +33,7 @@ return array(
     /* 数据库设置 */
     'DB_TYPE' => 'mysql', // 数据库类型
     'DB_HOST' => 'localhost', // 服务器地址
-    'DB_NAME' => 'cunmianshenghuo', // 数据库名
+    'DB_NAME' => 'chunmianshenghuo', // 数据库名
     'DB_USER' => 'root', // 用户名
     'DB_PWD' => '', // 密码
     'DB_PORT' => '3306', // 端口
@@ -58,3 +58,15 @@ return array(
         'REPLY_NAME' => '', //回复名称（留空则为发件人名称）
     ),
 );
+
+
+$serverName = \Vendor\Hiland\Utils\Web\WebHelper::getHostName();
+if (\Vendor\Hiland\Utils\Web\EnvironmentHelper::isLocalServer($serverName)) {
+    $db = include dirname(__FILE__) . "/db_local.php";
+} else {
+    $db = include dirname(__FILE__) . "/db_remote.php";
+}
+
+$hilandConfig = include dirname(__FILE__) . '/hiland_config.php';
+
+return array_merge($config, $db, $hilandConfig);
