@@ -8,7 +8,7 @@ use Vendor\Hiland\Utils\Data\ReflectionHelper;
  * User: xiedalie
  * Date: 2016/6/30
  * Time: 7:31
- * 说明： 如果启用第三方的loger，请在配置文件中设置LogProviderName
+ * 说明：如果启用第三方的loger，请在配置文件中设置LogProviderName
  */
 class CommonLoger
 {
