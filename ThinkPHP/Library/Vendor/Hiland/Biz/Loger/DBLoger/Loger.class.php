@@ -28,7 +28,7 @@ CREATE TABLE `【前缀】_system_infolog` (
   `content` varchar(1024) NOT NULL,
   `category` varchar(20) NOT NULL,
   `other` varchar(200) NOT NULL,
-  `misc1` int(11) NOT NULL,
+  `misc` int(11) NOT NULL,
   `status` varchar(50) NOT NULL,
   `createtime` int(11) NOT NULL,
   PRIMARY KEY (`id`)
@@ -54,7 +54,7 @@ class Loger
      *            日志状态信息
      * @return boolean 日志记录的成功与失败
      */
-    public function log($title, $content = '', $status = '', $categoryname = 'develop', $other = '', $misc1 = 0)
+    public function log($title, $content = '', $status = '', $categoryname = 'develop', $other = '', $misc = 0)
     {
         $result = true;
 
@@ -66,7 +66,7 @@ class Loger
             $data['content'] = (string)$content;
             $data['category'] = $categoryname;
             $data['other'] = $other;
-            $data['misc1'] = $misc1;
+            $data['misc'] = $misc;
             $data['status'] = $status;
             $data['createtime'] = date('Y-m-d H:i:s',time());
 
