@@ -8,7 +8,7 @@ use Vendor\Hiland\Utils\Data\ReflectionHelper;
  * User: xiedalie
  * Date: 2016/6/30
  * Time: 7:31
- * 说明：如果启用第三方的loger，请在配置文件中设置LogProviderName
+ * 说明: 如果启用第三方的loger，请在配置文件中设置LogProviderName
  */
 class CommonLoger
 {
@@ -29,7 +29,7 @@ class CommonLoger
      *      int $misc 日志附加信息
      *      string $status 日志状态信息
      */
-    public static function log($title, $content = '', $logLevel = CommonLoger::LOGLEVEL_DEBUG, $option = array(status => '', categoryname => 'develop', other => '', misc => 0))
+    public static function log($title, $content = '', $logLevel = CommonLoger::LOGLEVEL_DEBUG, $option = array(status => '', category => 'develop', other => '', misc => 0))
     {
         $systemLogLevel = C("SYSTEM_LOG_LEVEL");
         if (empty($systemLogLevel)) {
