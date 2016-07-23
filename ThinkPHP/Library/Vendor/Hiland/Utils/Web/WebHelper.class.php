@@ -126,12 +126,16 @@ class WebHelper
      * Ajax方式返回数据到客户端
      * @access protected
      * @param mixed $data 要返回的数据
-     * @param String $type AJAX返回数据格式
-     * @param int $json_option 传递给json_encode的option参数
+     * @param String $type AJAX返回数据格式,默认值为JSON
+     * @param int $json_option 传递给json_encode的option参数(为避免中午转码请使用JSON_UNESCAPED_UNICODE)
      * @return void
      */
-    public static function serverReturn($data, $type = 'JSON', $json_option = 0)
+    public static function serverReturn($data, $type = '', $json_option = 0)
     {
+        if(empty($type)){
+            $type= 'JSON';
+        }
+
         switch (strtoupper($type)) {
             case 'JSON' :
                 // 返回JSON数据格式到客户端 包含状态信息

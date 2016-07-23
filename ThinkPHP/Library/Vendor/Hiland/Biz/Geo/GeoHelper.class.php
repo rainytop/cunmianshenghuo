@@ -1,5 +1,8 @@
 <?php
 namespace Vendor\Hiland\Biz\Geo;
+
+use Vendor\Hiland\Utils\Web\NetHelper;
+
 /**
  * Created by PhpStorm.
  * User: xiedalie
@@ -85,5 +88,116 @@ class GeoHelper
     public static function getRadian($angle)
     {
         return $angle * 3.1415926535898 / 180.0;
+    }
+
+    /**
+     * @param $lat float
+     * @param $lng float
+     * @param string $serviceProviderName 地图提供商的名称
+     * @param string $appKey
+     * @return bool|array 获取失败返回false，获取成功返回的数组，其成员为
+     * array(9) {
+     * ["cityCode"] => int(172)
+     * ["detailAddress"] => string(36) "山东省枣庄市薛城区深圳路"
+     * ["business"] => string(0) ""
+     * ["province"] => string(9) "山东省"
+     * ["city"] => string(9) "枣庄市"
+     * ["district"] => string(9) "薛城区"
+     * ["street"] => string(9) "深圳路"
+     * ["streetNumber"] => string(0) ""
+     * ["adcode"] => string(6) "370403" //行政区编码
+     * }
+     */
+    public static function getGeoInformation($lat, $lng, $serviceProviderName = 'amap', $appKey = '')
+    {
+        if (strtolower($serviceProviderName) == 'amap') {
+            return self::getGeoInformationByAmap($lat, $lng, $appKey);
+        } else {
+            return self::getGeoInformationByBaidu($lat, $lng, $appKey);
+        }
+    }
+
+    private static function getGeoInformationByAmap($lat, $lng, $appKey = '')
+    {
+        if (empty($appKey)) {
+            $appKey = C('GEO_AMAP_AK');//获取高德地理信息的使用的appkey http://lbs.amap.com/dev
+        }
+
+        if (empty($appKey)) {
+            $appKey = 'a75530497ceebeecb56e9dc2b933440c';
+        }
+
+        $url= "http://restapi.amap.com/v3/geocode/regeo?key=$appKey&location=$lng,$lat";
+
+        $jsonString = NetHelper::request($url);
+        $jsonArray = json_decode($jsonString, true);
+
+        //return $jsonArray;
+
+        if ($jsonArray) {
+            if ($jsonArray['status'] == 1) {
+                $resultDepart = $jsonArray['regeocode'];
+                $addressDepart = $resultDepart['addressComponent'];
+
+                $data['detailAddress'] = $resultDepart['formatted_address'];
+                $data['cityCode'] = $addressDepart['citycode'];
+                $data['business'] = '';
+
+                $data['province'] = $addressDepart['province'];
+                $data['city'] = $addressDepart['city'];
+                $data['district'] = $addressDepart['district'];
+                $data['adcode'] = $addressDepart['adcode'];
+
+                $streetDepart=  $addressDepart['streetNumber'];
+                $data['street'] = $streetDepart['street'];
+                $data['streetNumber'] = $streetDepart['number'];
+
+                return $data;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    private static function getGeoInformationByBaidu($lat, $lng, $appKey = '')
+    {
+        if (empty($appKey)) {
+            $appKey = C('GEO_BAIDU_AK');//获取百度地理信息的使用的appkey http://lbsyun.baidu.com/apiconsole/key
+        }
+
+        if (empty($appKey)) {
+            $appKey = '4b89518117a374f0db7548bb816f88f4';
+        }
+
+        $url = "http://api.map.baidu.com/geocoder/v2/?ak=$appKey&location=$lat,$lng&output=json&pois=0";
+
+        $jsonString = NetHelper::request($url);
+        $jsonArray = json_decode($jsonString, true);
+
+        if ($jsonArray) {
+            if ($jsonArray['status'] == 0) {
+                $resultDepart = $jsonArray['result'];
+                $addressDepart = $resultDepart['addressComponent'];
+
+                $data['cityCode'] = $resultDepart['cityCode'];
+                $data['detailAddress'] = $resultDepart['formatted_address'];
+                $data['business'] = $resultDepart['business'];
+
+                $data['province'] = $addressDepart['province'];
+                $data['city'] = $addressDepart['city'];
+                $data['district'] = $addressDepart['district'];
+                $data['street'] = $addressDepart['street'];
+                $data['streetNumber'] = $addressDepart['street_number'];
+                $data['adcode'] = $addressDepart['adcode'];
+
+                return $data;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 }

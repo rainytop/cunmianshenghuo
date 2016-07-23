@@ -16,11 +16,10 @@ class ReflectionHelper
     {
         if (empty($args)) {
             return new $className();
+        } else {
+            $class = self::getReflectionClass($className, $args);
+            return $class->newInstanceArgs((array)$args);
         }
-
-        $class = self::getClassReflectionInfo($className, $args);
-
-        return $class->newInstanceArgs((array)$args);
     }
 
     /**
@@ -29,7 +28,7 @@ class ReflectionHelper
      * @param array $args 类构造器参数数组
      * @return \ReflectionClass
      */
-    private static function getClassReflectionInfo($className, &$args = null)
+    public static function getReflectionClass($className, &$args = null)
     {
         $refClass = new \ReflectionClass($className);
         if (isset($args) && !isset($args[0])) {
@@ -57,7 +56,7 @@ class ReflectionHelper
      */
     public static function executeMethod($className, $methodName, array $constructArgs = null, array $methodArgs = null)
     {
-        $class = self::getClassReflectionInfo($className, $constructArgs);
+        $class = self::getReflectionClass($className, $constructArgs);
         $instance = $class->newInstanceArgs((array)$constructArgs);
 
         $method = $class->getMethod($methodName);
