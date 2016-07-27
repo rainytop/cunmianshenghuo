@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eafe96d6-3fe8-4b6a-bea8-8dddedb70c6b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Common/Conf/db_local.php" afterPath="$PROJECT_DIR$/Application/Common/Conf/db_local.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Common/Conf/db_remote.php" afterPath="$PROJECT_DIR$/Application/Common/Conf/db_remote.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Geo/GeoHelper.class.php" afterPath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Geo/GeoHelper.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Loger/CommonLoger.class.php" afterPath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Loger/CommonLoger.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Resource/好看的CSS样式表格.html" afterPath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Resource/好看的CSS样式表格.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/Data/ReflectionHelper.class.php" afterPath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/Data/ReflectionHelper.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/Data/XmlHelper.class.php" afterPath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/Data/XmlHelper.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/Web/JavaScriptHelper.class.php" afterPath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/Web/JavaScriptHelper.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/Web/WebHelper.class.php" afterPath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/Web/WebHelper.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/composer.json" afterPath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Common/Conf/hiland_config.php" afterPath="$PROJECT_DIR$/Application/Common/Conf/hiland_config.php" />
     </list>
     <ignored path="wfx.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,61 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wheel.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Data/wheel.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Common/Conf/config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1200">
-              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="db_remote.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Application/Common/Conf/db_remote.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="db_local.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Common/Conf/db_local.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="5" column="28" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hiland_config.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="hiland_config.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Application/Common/Conf/hiland_config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="11" column="50" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
+            <state relative-caret-position="140">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -228,10 +168,10 @@
         <option value="$PROJECT_DIR$/Tpl/Admin/Shop_set.html" />
         <option value="$PROJECT_DIR$/Application/Admin/Controller/UploadController.class.php" />
         <option value="$PROJECT_DIR$/Tpl/Admin/Index_help.html" />
-        <option value="$PROJECT_DIR$/Application/Common/Conf/hiland_config.php" />
         <option value="$PROJECT_DIR$/Application/Common/Conf/config.php" />
         <option value="$PROJECT_DIR$/Application/Common/Conf/db_local.php" />
         <option value="$PROJECT_DIR$/Application/Common/Conf/db_remote.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Conf/hiland_config.php" />
       </list>
     </option>
   </component>
@@ -248,7 +188,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1378" />
+    <option name="width" value="1370" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -302,6 +242,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -322,7 +263,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -394,17 +334,18 @@
       <workItem from="1468922531468" duration="3198000" />
       <workItem from="1468926909216" duration="314000" />
       <workItem from="1469242625864" duration="616000" />
+      <workItem from="1469582464790" duration="32000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4128000" />
+    <option name="totallyTimeSpent" value="4160000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30411586" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -704,23 +645,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Data/wheel.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Common/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -784,14 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Common/Conf/hiland_config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="50" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Geo/GeoHelper.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -799,10 +716,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Conf/db_remote.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Common/Conf/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
+        <state relative-caret-position="493">
           <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/wheel.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -815,10 +756,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Common/Conf/db_remote.php">
+    <entry file="file://$PROJECT_DIR$/Application/Common/Conf/hiland_config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+        <state relative-caret-position="140">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
