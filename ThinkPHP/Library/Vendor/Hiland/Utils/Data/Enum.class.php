@@ -11,7 +11,7 @@ namespace Vendor\Hiland\Utils\Data;
  * without passing enum value.
  *
  * @author Marijan Šuflaj <msufflaj32@gmail.com&gt
- * @link http://php4every1.com
+ * @link http://www.php4every1.com/scripts/php-enum/
  */
 abstract class Enum
 {

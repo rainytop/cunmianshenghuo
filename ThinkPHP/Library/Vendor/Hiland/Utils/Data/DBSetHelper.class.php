@@ -71,5 +71,4 @@ class DBSetHelper
         return ArrayHelper::friendlyDisplayDbSet($dbSet, $mapArray, $funcArray);
     }
 }
-
 ?>
