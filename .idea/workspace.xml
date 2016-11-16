@@ -46,10 +46,10 @@
       <file leaf-file-name="Wechat.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Util/Wx/Wechat.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="258" column="21" selection-start-line="258" selection-start-column="21" selection-end-line="258" selection-end-column="21" />
+            <state relative-caret-position="420">
+              <caret line="261" column="24" selection-start-line="261" selection-start-column="24" selection-end-line="261" selection-end-column="24" />
               <folding>
-                <marker date="1479338733930" expanded="true" signature="36506:36647" ph="..." />
+                <marker date="1479338802689" expanded="true" signature="36498:36639" ph="..." />
               </folding>
             </state>
           </provider>
@@ -420,12 +420,12 @@
       <workItem from="1469242625864" duration="616000" />
       <workItem from="1469582464790" duration="373000" />
       <workItem from="1478315287247" duration="651000" />
-      <workItem from="1479286863724" duration="1492000" />
+      <workItem from="1479286863724" duration="1561000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6644000" />
+    <option name="totallyTimeSpent" value="6713000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
@@ -839,10 +839,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Util/Wx/Wechat.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="258" column="21" selection-start-line="258" selection-start-column="21" selection-end-line="258" selection-end-column="21" />
+        <state relative-caret-position="420">
+          <caret line="261" column="24" selection-start-line="261" selection-start-column="24" selection-end-line="261" selection-end-column="24" />
           <folding>
-            <marker date="1479338733930" expanded="true" signature="36506:36647" ph="..." />
+            <marker date="1479338802689" expanded="true" signature="36498:36639" ph="..." />
           </folding>
         </state>
       </provider>

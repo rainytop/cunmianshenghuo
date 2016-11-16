@@ -257,12 +257,12 @@ class Wechat
         //dump($tmpStr);
 
         //TODO 展示先不验证
-        return true;
-//        if ($tmpStr == $signature) {
-//            return true;
-//        } else {
-//            return false;
-//        }
+        //return true;
+        if ($tmpStr == $signature) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
