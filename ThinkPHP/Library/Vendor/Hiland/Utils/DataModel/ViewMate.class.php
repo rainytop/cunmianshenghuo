@@ -121,7 +121,7 @@ class ViewMate extends ModelMate
      * $where['openid'] = $openId;
      * $relation = $buyerShopMate->select($where);
      */
-    public function select($condition = array(), $useRelation = true, $orderBy = "id desc", $pageIndex = 0, $itemCountPerPage = 0, $limit = 0)
+    public function select($condition = array(), $useRelation = true, $orderBy = "", $pageIndex = 0, $itemCountPerPage = 0, $limit = 0)
     {
         if(empty($useRelation)){
             $useRelation= false;

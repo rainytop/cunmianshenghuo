@@ -2,6 +2,7 @@
 namespace Vendor\Hiland\Utils\DataModel;
 
 use Think\Model;
+use Vendor\Hiland\Biz\Loger\CommonLoger;
 
 /**
  * 模型辅助器
@@ -94,8 +95,12 @@ class ModelMate
      * $where['openid'] = $openId;
      * $relation = $buyerShopMate->select($where);
      */
-    public function select($condition = array(), $orderBy = "id desc", $pageIndex = 0, $itemCountPerPage = 0, $limit = 0)
+    public function select($condition = array(), $orderBy = "", $pageIndex = 0, $itemCountPerPage = 0, $limit = 0)
     {
+        if (empty($orderBy)) {
+            $orderBy = "id desc";
+        }
+
         $model = $this->getModel_Select($condition, $orderBy, $pageIndex, $itemCountPerPage, $limit);
 
         return $model->select();
@@ -127,6 +132,17 @@ class ModelMate
         }
 
         return $model;
+    }
+
+    /**
+     * 获取满足条件的记录数
+     * @param array $condition
+     * @return mixed
+     */
+    public function getCount($condition = array())
+    {
+        $model = $this->getModel_Where($condition);
+        return $model->count();
     }
 
     /**
@@ -250,9 +266,6 @@ class ModelMate
         $recordID = 0;
         $isAddOperation = true;
 
-        //$content= json_encode($data);
-        //CommonHelper::log('sssss',$content);
-
         /* 添加或新增基础内容 */
         if (empty($data[$keyName])) { // 新增数据
 
@@ -282,5 +295,56 @@ class ModelMate
 
         // 内容添加或更新完成
         return $recordID;
+    }
+
+    /**
+     * 按照主键集合批量更新数据
+     * @param $keys string 主键集合（用逗号分隔的主键字符串，例如“1,5,6”）
+     * @param $data array 需要更新的数据（可以是目标实体的部分属性构成的array，比如本data内只包含status信息，这样就可以批量更新数据库内的记录状态）
+     * @param string $keyName 主键的名称，缺省为“id”
+     * @return bool
+     */
+    public function updateByKeys($keys = "", $data = null, $keyName = 'id')
+    {
+        if (empty($data)) {
+            $data = I("get.");
+        }
+
+        if (empty($keys && array_key_exists($keyName, $data))) {
+            $keys = $data["$keyName"];
+        }
+
+        if (array_key_exists($keyName, $data)) {
+            unset($data["$keyName"]);
+        }
+
+        //CommonLoger::log("$keyName-$keys", json_encode($data));
+        $condition = array("$keyName" => array("in", $keys));
+
+        return $this->model->where($condition)->data($data)->save();
+    }
+
+    /**
+     * @param $condition
+     * @param $field
+     * @param int $step
+     * @param int $lazyTime
+     * @return bool
+     */
+    public function setInc($condition, $field, $step = 1, $lazyTime = 0)
+    {
+        return $this->model->where($condition)->setInc($field, $step, $lazyTime);
+    }
+
+    /**
+     * @param $condition
+     * @param $field
+     * @param int $step
+     * @param int $lazyTime
+     * @return bool
+     */
+    public function setDec($condition, $field, $step = 1, $lazyTime = 0)
+    {
+        return $this->model->where($condition)->setDec($field, $step, $lazyTime);
     }
 }

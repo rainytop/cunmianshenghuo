@@ -1,6 +1,7 @@
 <?php
 namespace Vendor\Hiland\Biz\Tencent\Packet;
 
+use Vendor\Hiland\Biz\Loger\CommonLoger;
 use Vendor\Hiland\Biz\Tencent\Common\WechatConfig;
 use Vendor\Hiland\Biz\Tencent\Common\WechatException;
 use Vendor\Hiland\Utils\Data\ArrayHelper;
@@ -40,9 +41,10 @@ class WxPacket
             $path . 'apiclient_key.pem',
             $path . 'rootca.pem'
         );
-        $responseXml = NetHelper::request($url, $postXml, 30, false, array(), $certfilearray);
 
-        // return $responseXml;
+        $responseXml = NetHelper::request($url, $postXml, 30, false, array(), $certfilearray);
+        //CommonLoger::log('hongbao-allResult',$responseXml);
+
         $responseObj = simplexml_load_string($responseXml, 'SimpleXMLElement', LIBXML_NOCDATA);
         return $responseObj->return_code;
     }
@@ -132,5 +134,4 @@ class WxPacket
         }
     }
 }
-
 ?>

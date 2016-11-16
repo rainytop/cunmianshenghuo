@@ -155,6 +155,30 @@ class WebHelper
         }
         exit ($data);
     }
+
+    /**
+     * 获取应用程序地址
+     * @return string
+     */
+    public static function getWebApp(){
+        return (__APP__);
+    }
+
+    /**
+     * 获取应用程序入口页面地址（在模式下，比getWebApp少一个问号）
+     * @return string
+     */
+    public static function getWebGate(){
+        return _PHP_FILE_;
+    }
+
+    /**
+     * 获取应用程序的根
+     * @return string
+     */
+    public static function getWebRoot(){
+        return __ROOT__;
+    }
 }
 
 ?>
