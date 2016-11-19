@@ -297,7 +297,7 @@ class Wechat
             }
         } elseif (isset($_GET["echostr"])) {
             $echoStr = $_GET["echostr"];
-            dump($echoStr);
+            //dump($echoStr);
             if ($return) {
                 if ($this->checkSignature())
                     return $echoStr;
@@ -311,6 +311,7 @@ class Wechat
             }
         }
 
+        dump($encryptStr);
         if (!$this->checkSignature($encryptStr)) {
             if ($return)
                 return false;
