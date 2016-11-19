@@ -6,6 +6,7 @@ namespace Home\Controller;
 
 use App\QRcode;
 use Think\Controller;
+use Vendor\Hiland\Biz\Loger\CommonLoger;
 
 class WxController extends Controller
 {
@@ -62,13 +63,14 @@ class WxController extends Controller
 
         self::$WAP['vipset'] = $this->checkVipSet();
 
+        CommonLoger::log("option",json_encode($options));
         //判断验证模式
         if (IS_GET) {
-            //self::$_wx->valid();
+            self::$_wx->valid();
         } else {
-//            if (!self::$_wx->valid(true)) {
-//                die('no access!!!');
-//            }
+            if (!self::$_wx->valid(true)) {
+                die('no access!!!');
+            }
             //读取微信平台推送来的信息类型存全局
             self::$_revtype = self::$_wx->getRev()->getRevType();
             //读取微型平台推送来的信息存全局

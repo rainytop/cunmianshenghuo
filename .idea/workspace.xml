@@ -36,8 +36,8 @@
       <file leaf-file-name="WxController.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="70" column="15" selection-start-line="68" selection-start-column="14" selection-end-line="70" selection-end-column="15" />
+            <state relative-caret-position="300">
+              <caret line="65" column="57" selection-start-line="65" selection-start-column="57" selection-end-line="65" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -49,6 +49,8 @@
             <state relative-caret-position="214">
               <caret line="326" column="10" selection-start-line="326" selection-start-column="10" selection-end-line="326" selection-end-column="10" />
               <folding>
+                <marker date="1479522726434" expanded="true" signature="1350:142091" ph="{...}" />
+                <marker date="1479522726434" expanded="true" signature="14422:15238" ph="{...}" />
                 <marker date="1479522726434" expanded="true" signature="36603:36744" ph="..." />
               </folding>
             </state>
@@ -421,12 +423,12 @@
       <workItem from="1469582464790" duration="373000" />
       <workItem from="1478315287247" duration="651000" />
       <workItem from="1479286863724" duration="3082000" />
-      <workItem from="1479514678587" duration="4349000" />
+      <workItem from="1479514678587" duration="5118000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12583000" />
+    <option name="totallyTimeSpent" value="13352000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
@@ -470,7 +472,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/Application/Home/Controller/WxController.class.php</url>
-          <line>881</line>
+          <line>883</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -835,6 +837,8 @@
         <state relative-caret-position="214">
           <caret line="326" column="10" selection-start-line="326" selection-start-column="10" selection-end-line="326" selection-end-column="10" />
           <folding>
+            <marker date="1479522726434" expanded="true" signature="1350:142091" ph="{...}" />
+            <marker date="1479522726434" expanded="true" signature="14422:15238" ph="{...}" />
             <marker date="1479522726434" expanded="true" signature="36603:36744" ph="..." />
           </folding>
         </state>
@@ -842,8 +846,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="70" column="15" selection-start-line="68" selection-start-column="14" selection-end-line="70" selection-end-column="15" />
+        <state relative-caret-position="300">
+          <caret line="65" column="57" selection-start-line="65" selection-start-column="57" selection-end-line="65" selection-end-column="57" />
           <folding />
         </state>
       </provider>
