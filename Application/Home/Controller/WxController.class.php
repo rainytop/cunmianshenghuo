@@ -37,7 +37,7 @@ class WxController extends Controller
 
     public function __construct($options)
     {
-        CommonLoger::log('1111');
+        //CommonLoger::log('1111');
         // 读取商城全局配置
         self::$_shop = M('Shop_set')->find();
         //读取用户配置存全局
@@ -46,6 +46,7 @@ class WxController extends Controller
         self::$_token = self::$_set['wxtoken'];
         //检测token是否合法
         $tk = $_GET['token'];
+        CommonLoger::log('222');
         //dump($tk);
         if ($tk != self::$_token) {
             die('token error');
@@ -55,6 +56,7 @@ class WxController extends Controller
         $options['appid'] = self::$_set['wxappid'];
         $options['appsecret'] = self::$_set['wxappsecret'];
         self::$_wx = new \Util\Wx\Wechat($options);
+        CommonLoger::log('333');
         //缓存通行证数据模型
         self::$_ppvip = M('Vip');
         self::$_ppvipmessage = M('Vip_message');
@@ -63,12 +65,14 @@ class WxController extends Controller
         self::$_demployee = D('Employee');
 
         self::$WAP['vipset'] = $this->checkVipSet();
-
+        CommonLoger::log('4444');
         //CommonLoger::log("option",json_encode($options));
         //判断验证模式
         if (IS_GET) {
+            CommonLoger::log('5555');
             self::$_wx->valid();
         } else {
+            CommonLoger::log('666');
             if (!self::$_wx->valid(true)) {
                 die('no access!!!');
             }
