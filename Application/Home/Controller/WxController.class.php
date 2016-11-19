@@ -407,7 +407,8 @@ class WxController extends Controller
                     }
 
                     $tourl = self::$_url . '/App/Shop/index/ppid/' . $isold['id'] . '/';
-                    $str = "<a href='" . $tourl . "'>" . htmlspecialchars_decode(self::$_set['wxsummary']) . "</a>";
+                    //$str = "<a href='" . $tourl . "'>" . htmlspecialchars_decode(self::$_set['wxsummary']) . "</a>";
+                    $str= htmlspecialchars_decode(self::$_set['wxsummary']);
                     self::$_wx->text($str)->reply();
                 } else {
                     $pid = 0;
