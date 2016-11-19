@@ -163,7 +163,21 @@ class Wechat
     const CARD_LUCKYMONEY_UPDATE = '/card/luckymoney/updateuserbalance?';     //更新红包金额
     const SEMANTIC_API_URL = '/semantic/semproxy/search?'; //语义理解
     ///数据分析接口
-    static $DATACUBE_URL_ARR = array(        //用户分析
+const SHAKEAROUND_DEVICE_APPLYID = '/shakearound/device/applyid?';
+    ///微信摇一摇周边
+    const SHAKEAROUND_DEVICE_UPDATE = '/shakearound/device/update?';//申请设备ID
+    const SHAKEAROUND_DEVICE_SEARCH = '/shakearound/device/search?';//编辑设备信息
+    const SHAKEAROUND_DEVICE_BINDLOCATION = '/shakearound/device/bindlocation?';//查询设备列表
+    const SHAKEAROUND_DEVICE_BINDPAGE = '/shakearound/device/bindpage?';//配置设备与门店ID的关系
+    const SHAKEAROUND_MATERIAL_ADD = '/shakearound/material/add?';//配置设备与页面的绑定关系
+    const SHAKEAROUND_PAGE_ADD = '/shakearound/page/add?';//上传摇一摇图片素材
+    const SHAKEAROUND_PAGE_UPDATE = '/shakearound/page/update?';//增加页面
+    const SHAKEAROUND_PAGE_SEARCH = '/shakearound/page/search?';//编辑页面
+    const SHAKEAROUND_PAGE_DELETE = '/shakearound/page/delete?';//查询页面列表
+    const SHAKEAROUND_USER_GETSHAKEINFO = '/shakearound/user/getshakeinfo?';//删除页面
+    const SHAKEAROUND_STATISTICS_DEVICE = '/shakearound/statistics/device?';//获取摇周边的设备及用户信息
+    const SHAKEAROUND_STATISTICS_PAGE = '/shakearound/statistics/page?';//以设备为维度的数据统计接口
+        static $DATACUBE_URL_ARR = array(        //用户分析
         'user' => array(
             'summary' => '/datacube/getusersummary?',        //获取用户增减数据（getusersummary）
             'cumulate' => '/datacube/getusercumulate?',        //获取累计用户数据（getusercumulate）
@@ -189,22 +203,11 @@ class Wechat
             'summary' => '/datacube/getinterfacesummary?',    //获取接口分析数据（getinterfacesummary）
             'summaryhour' => '/datacube/getinterfacesummaryhour?',    //获取接口分析分时数据（getinterfacesummaryhour）
         )
-    );
-    ///微信摇一摇周边
-    const SHAKEAROUND_DEVICE_APPLYID = '/shakearound/device/applyid?';//申请设备ID
-    const SHAKEAROUND_DEVICE_UPDATE = '/shakearound/device/update?';//编辑设备信息
-    const SHAKEAROUND_DEVICE_SEARCH = '/shakearound/device/search?';//查询设备列表
-    const SHAKEAROUND_DEVICE_BINDLOCATION = '/shakearound/device/bindlocation?';//配置设备与门店ID的关系
-    const SHAKEAROUND_DEVICE_BINDPAGE = '/shakearound/device/bindpage?';//配置设备与页面的绑定关系
-    const SHAKEAROUND_MATERIAL_ADD = '/shakearound/material/add?';//上传摇一摇图片素材
-    const SHAKEAROUND_PAGE_ADD = '/shakearound/page/add?';//增加页面
-    const SHAKEAROUND_PAGE_UPDATE = '/shakearound/page/update?';//编辑页面
-    const SHAKEAROUND_PAGE_SEARCH = '/shakearound/page/search?';//查询页面列表
-    const SHAKEAROUND_PAGE_DELETE = '/shakearound/page/delete?';//删除页面
-    const SHAKEAROUND_USER_GETSHAKEINFO = '/shakearound/user/getshakeinfo?';//获取摇周边的设备及用户信息
-    const SHAKEAROUND_STATISTICS_DEVICE = '/shakearound/statistics/device?';//以设备为维度的数据统计接口
-    const SHAKEAROUND_STATISTICS_PAGE = '/shakearound/statistics/page?';//以页面为维度的数据统计接口
-
+    );//以页面为维度的数据统计接口
+    public $debug = false;
+    public $errCode = 40001;
+    public $errMsg = "no access";
+    public $logcallback;
     private $token;
     private $encodingAesKey;
     private $encrypt_type;
@@ -221,10 +224,6 @@ class Wechat
     private $_funcflag = false;
     private $_receive;
     private $_text_filter = true;
-    public $debug = false;
-    public $errCode = 40001;
-    public $errMsg = "no access";
-    public $logcallback;
 
     public function __construct($options)
     {
@@ -234,36 +233,6 @@ class Wechat
         $this->appsecret = isset($options['appsecret']) ? $options['appsecret'] : '';
         $this->debug = isset($options['debug']) ? $options['debug'] : false;
         $this->logcallback = isset($options['logcallback']) ? $options['logcallback'] : false;
-    }
-
-    /**
-     * For weixin server validation
-     */
-    private function checkSignature($str = '')
-    {
-        $signature = isset($_GET["signature"]) ? $_GET["signature"] : '';
-
-        //dump($signature);
-        $signature = isset($_GET["msg_signature"]) ? $_GET["msg_signature"] : $signature; //如果存在加密验证则用加密验证段
-        //dump($signature);
-        $timestamp = isset($_GET["timestamp"]) ? $_GET["timestamp"] : '';
-        $nonce = isset($_GET["nonce"]) ? $_GET["nonce"] : '';
-
-        $token = $this->token;
-        $tmpArr = array($token, $timestamp, $nonce, $str);
-        sort($tmpArr, SORT_STRING);
-        $tmpStr = implode($tmpArr);
-        $tmpStr = sha1($tmpStr);
-        dump($str);
-        //dump($tmpStr);
-
-        //TODO 展示先不验证
-        //return true;
-        if ($tmpStr == $signature) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     /**
@@ -311,7 +280,7 @@ class Wechat
             }
         }
 
-        dump($encryptStr);
+        //dump($encryptStr);
         if (!$this->checkSignature($encryptStr)) {
             if ($return)
                 return false;
@@ -319,35 +288,6 @@ class Wechat
                 die('no access 2');
         }
         return true;
-    }
-
-    /**
-     * 设置发送消息
-     * @param array $msg 消息数组
-     * @param bool $append 是否在原消息数组追加
-     */
-    public function Message($msg = '', $append = false)
-    {
-        if (is_null($msg)) {
-            $this->_msg = array();
-        } elseif (is_array($msg)) {
-            if ($append)
-                $this->_msg = array_merge($this->_msg, $msg);
-            else
-                $this->_msg = $msg;
-            return $this->_msg;
-        } else {
-            return $this->_msg;
-        }
-    }
-
-    /**
-     * 设置消息的星标标志，官方已取消对此功能的支持
-     */
-    public function setFuncFlag($flag)
-    {
-        $this->_funcflag = $flag;
-        return $this;
     }
 
     /**
@@ -361,6 +301,47 @@ class Wechat
             if (is_array($log)) $log = print_r($log, true);
             return call_user_func($this->logcallback, $log);
         }
+    }
+
+    /**
+     * For weixin server validation
+     */
+    private function checkSignature($str = '')
+    {
+        $signature = isset($_GET["signature"]) ? $_GET["signature"] : '';
+
+        //dump($signature);
+        $signature = isset($_GET["msg_signature"]) ? $_GET["msg_signature"] : $signature; //如果存在加密验证则用加密验证段
+        //dump($signature);
+        $timestamp = isset($_GET["timestamp"]) ? $_GET["timestamp"] : '';
+        $nonce = isset($_GET["nonce"]) ? $_GET["nonce"] : '';
+
+        $token = $this->token;
+
+        //dump($nonce);
+        $tmpArr = array($token, $timestamp, $nonce, $str);
+        sort($tmpArr, SORT_STRING);
+        $tmpStr = implode($tmpArr);
+        $tmpStr = sha1($tmpStr);
+        //dump($str);
+        //dump($tmpStr);
+
+        //TODO 暂时先不验证
+        //return true;
+        if ($tmpStr == $signature) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * 设置消息的星标标志，官方已取消对此功能的支持
+     */
+    public function setFuncFlag($flag)
+    {
+        $this->_funcflag = $flag;
+        return $this;
     }
 
     /**
@@ -384,28 +365,6 @@ class Wechat
     public function getRevData()
     {
         return $this->_receive;
-    }
-
-    /**
-     * 获取消息发送者
-     */
-    public function getRevFrom()
-    {
-        if (isset($this->_receive['FromUserName']))
-            return $this->_receive['FromUserName'];
-        else
-            return false;
-    }
-
-    /**
-     * 获取消息接受者
-     */
-    public function getRevTo()
-    {
-        if (isset($this->_receive['ToUserName']))
-            return $this->_receive['ToUserName'];
-        else
-            return false;
     }
 
     /**
@@ -847,67 +806,6 @@ class Wechat
         }
     }
 
-    public static function xmlSafeStr($str)
-    {
-        return '<![CDATA[' . preg_replace("/[\\x00-\\x08\\x0b-\\x0c\\x0e-\\x1f]/", '', $str) . ']]>';
-    }
-
-    /**
-     * 数据XML编码
-     * @param mixed $data 数据
-     * @return string
-     */
-    public static function data_to_xml($data)
-    {
-        $xml = '';
-        foreach ($data as $key => $val) {
-            is_numeric($key) && $key = "item id=\"$key\"";
-            $xml .= "<$key>";
-            $xml .= (is_array($val) || is_object($val)) ? self::data_to_xml($val) : self::xmlSafeStr($val);
-            list($key,) = explode(' ', $key);
-            $xml .= "</$key>";
-        }
-        return $xml;
-    }
-
-    /**
-     * XML编码
-     * @param mixed $data 数据
-     * @param string $root 根节点名
-     * @param string $item 数字索引的子节点名
-     * @param string $attr 根节点属性
-     * @param string $id 数字索引子节点key转换的属性名
-     * @param string $encoding 数据编码
-     * @return string
-     */
-    public function xml_encode($data, $root = 'xml', $item = 'item', $attr = '', $id = 'id', $encoding = 'utf-8')
-    {
-        if (is_array($attr)) {
-            $_attr = array();
-            foreach ($attr as $key => $value) {
-                $_attr[] = "{$key}=\"{$value}\"";
-            }
-            $attr = implode(' ', $_attr);
-        }
-        $attr = trim($attr);
-        $attr = empty($attr) ? '' : " {$attr}";
-        $xml = "<{$root}{$attr}>";
-        $xml .= self::data_to_xml($data, $item, $id);
-        $xml .= "</{$root}>";
-        return $xml;
-    }
-
-    /**
-     * 过滤文字回复\r\n换行符
-     * @param string $text
-     * @return string|mixed
-     */
-    private function _auto_text_filter($text)
-    {
-        if (!$this->_text_filter) return $text;
-        return str_replace("\r\n", "\n", $text);
-    }
-
     /**
      * 设置回复消息
      * Example: $obj->text('hello')->reply();
@@ -926,6 +824,59 @@ class Wechat
         );
         $this->Message($msg);
         return $this;
+    }
+
+    /**
+     * 获取消息发送者
+     */
+    public function getRevFrom()
+    {
+        if (isset($this->_receive['FromUserName']))
+            return $this->_receive['FromUserName'];
+        else
+            return false;
+    }
+
+    /**
+     * 获取消息接受者
+     */
+    public function getRevTo()
+    {
+        if (isset($this->_receive['ToUserName']))
+            return $this->_receive['ToUserName'];
+        else
+            return false;
+    }
+
+    /**
+     * 过滤文字回复\r\n换行符
+     * @param string $text
+     * @return string|mixed
+     */
+    private function _auto_text_filter($text)
+    {
+        if (!$this->_text_filter) return $text;
+        return str_replace("\r\n", "\n", $text);
+    }
+
+    /**
+     * 设置发送消息
+     * @param array $msg 消息数组
+     * @param bool $append 是否在原消息数组追加
+     */
+    public function Message($msg = '', $append = false)
+    {
+        if (is_null($msg)) {
+            $this->_msg = array();
+        } elseif (is_array($msg)) {
+            if ($append)
+                $this->_msg = array_merge($this->_msg, $msg);
+            else
+                $this->_msg = $msg;
+            return $this->_msg;
+        } else {
+            return $this->_msg;
+        }
     }
 
     /**
@@ -1096,6 +1047,56 @@ class Wechat
     }
 
     /**
+     * XML编码
+     * @param mixed $data 数据
+     * @param string $root 根节点名
+     * @param string $item 数字索引的子节点名
+     * @param string $attr 根节点属性
+     * @param string $id 数字索引子节点key转换的属性名
+     * @param string $encoding 数据编码
+     * @return string
+     */
+    public function xml_encode($data, $root = 'xml', $item = 'item', $attr = '', $id = 'id', $encoding = 'utf-8')
+    {
+        if (is_array($attr)) {
+            $_attr = array();
+            foreach ($attr as $key => $value) {
+                $_attr[] = "{$key}=\"{$value}\"";
+            }
+            $attr = implode(' ', $_attr);
+        }
+        $attr = trim($attr);
+        $attr = empty($attr) ? '' : " {$attr}";
+        $xml = "<{$root}{$attr}>";
+        $xml .= self::data_to_xml($data, $item, $id);
+        $xml .= "</{$root}>";
+        return $xml;
+    }
+
+    /**
+     * 数据XML编码
+     * @param mixed $data 数据
+     * @return string
+     */
+    public static function data_to_xml($data)
+    {
+        $xml = '';
+        foreach ($data as $key => $val) {
+            is_numeric($key) && $key = "item id=\"$key\"";
+            $xml .= "<$key>";
+            $xml .= (is_array($val) || is_object($val)) ? self::data_to_xml($val) : self::xmlSafeStr($val);
+            list($key,) = explode(' ', $key);
+            $xml .= "</$key>";
+        }
+        return $xml;
+    }
+
+    public static function xmlSafeStr($str)
+    {
+        return '<![CDATA[' . preg_replace("/[\\x00-\\x08\\x0b-\\x0c\\x0e-\\x1f]/", '', $str) . ']]>';
+    }
+
+    /**
      * xml格式加密，仅请求为加密方式时再用
      */
     private function generate($encrypt, $signature, $timestamp, $nonce)
@@ -1111,89 +1112,16 @@ class Wechat
     }
 
     /**
-     * GET 请求
-     * @param string $url
+     * 删除验证数据
+     * @param string $appid
      */
-    private function http_get($url)
+    public function resetAuth($appid = '')
     {
-        $oCurl = curl_init();
-        if (stripos($url, "https://") !== FALSE) {
-            curl_setopt($oCurl, CURLOPT_SSL_VERIFYPEER, FALSE);
-            curl_setopt($oCurl, CURLOPT_SSL_VERIFYHOST, FALSE);
-            curl_setopt($oCurl, CURLOPT_SSLVERSION, 1); //CURL_SSLVERSION_TLSv1
-        }
-        curl_setopt($oCurl, CURLOPT_URL, $url);
-        curl_setopt($oCurl, CURLOPT_RETURNTRANSFER, 1);
-        $sContent = curl_exec($oCurl);
-        $aStatus = curl_getinfo($oCurl);
-        curl_close($oCurl);
-        if (intval($aStatus["http_code"]) == 200) {
-            return $sContent;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * POST 请求
-     * @param string $url
-     * @param array $param
-     * @param boolean $post_file 是否文件上传
-     * @return string content
-     */
-    private function http_post($url, $param, $post_file = false)
-    {
-        $oCurl = curl_init();
-        if (stripos($url, "https://") !== FALSE) {
-            curl_setopt($oCurl, CURLOPT_SSL_VERIFYPEER, FALSE);
-            curl_setopt($oCurl, CURLOPT_SSL_VERIFYHOST, false);
-            curl_setopt($oCurl, CURLOPT_SSLVERSION, 1); //CURL_SSLVERSION_TLSv1
-        }
-        if (is_string($param) || $post_file) {
-            $strPOST = $param;
-        } else {
-            $aPOST = array();
-            foreach ($param as $key => $val) {
-                $aPOST[] = $key . "=" . urlencode($val);
-            }
-            $strPOST = join("&", $aPOST);
-        }
-        curl_setopt($oCurl, CURLOPT_URL, $url);
-        curl_setopt($oCurl, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($oCurl, CURLOPT_POST, true);
-        curl_setopt($oCurl, CURLOPT_POSTFIELDS, $strPOST);
-        $sContent = curl_exec($oCurl);
-        $aStatus = curl_getinfo($oCurl);
-        curl_close($oCurl);
-        if (intval($aStatus["http_code"]) == 200) {
-            return $sContent;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * 设置缓存，按需重载
-     * @param string $cachename
-     * @param mixed $value
-     * @param int $expired
-     * @return boolean
-     */
-    protected function setCache($cachename, $value, $expired)
-    {
-        //TODO: set cache implementation
-        return false;
-    }
-
-    /**
-     * 获取缓存，按需重载
-     * @param string $cachename
-     * @return mixed
-     */
-    protected function getCache($cachename)
-    {
-        //TODO: get cache implementation
-        return false;
+        if (!$appid) $appid = $this->appid;
+        $this->access_token = '';
+        $authname = 'wechat_access_token' . $appid;
+        $this->removeCache($authname);
+        return true;
     }
 
     /**
@@ -1204,6 +1132,88 @@ class Wechat
     protected function removeCache($cachename)
     {
         //TODO: remove cache implementation
+        return false;
+    }
+
+    /**
+     * 删除JSAPI授权TICKET
+     * @param string $appid 用于多个appid时使用
+     */
+    public function resetJsTicket($appid = '')
+    {
+        if (!$appid) $appid = $this->appid;
+        $this->jsapi_ticket = '';
+        $authname = 'wechat_jsapi_ticket' . $appid;
+        $this->removeCache($authname);
+        return true;
+    }
+
+    /**
+     * 获取JsApi使用签名
+     * @param string $url 网页的URL，自动处理#及其后面部分
+     * @param string $timestamp 当前时间戳 (为空则自动生成)
+     * @param string $noncestr 随机串 (为空则自动生成)
+     * @param string $appid 用于多个appid时使用,可空
+     * @return array|bool 返回签名字串
+     */
+    public function getJsSign($url, $timestamp = 0, $noncestr = '', $appid = '')
+    {
+        if (!$this->jsapi_ticket && !$this->getJsTicket($appid) || !$url) return false;
+        if (!$timestamp)
+            $timestamp = time();
+        if (!$noncestr)
+            $noncestr = $this->generateNonceStr();
+        $ret = strpos($url, '#');
+        if ($ret)
+            $url = substr($url, 0, $ret);
+        $url = trim($url);
+        if (empty($url))
+            return false;
+        $arrdata = array("timestamp" => $timestamp, "noncestr" => $noncestr, "url" => $url, "jsapi_ticket" => $this->jsapi_ticket);
+        $sign = $this->getSignature($arrdata);
+        if (!$sign)
+            return false;
+        $signPackage = array(
+            "appid" => $this->appid,
+            "noncestr" => $noncestr,
+            "timestamp" => $timestamp,
+            "url" => $url,
+            "signature" => $sign
+        );
+        return $signPackage;
+    }
+
+    /**
+     * 获取JSAPI授权TICKET
+     * @param string $appid 用于多个appid时使用,可空
+     * @param string $jsapi_ticket 手动指定jsapi_ticket，非必要情况不建议用
+     */
+    public function getJsTicket($appid = '', $jsapi_ticket = '')
+    {
+        if (!$this->access_token && !$this->checkAuth()) return false;
+        if (!$appid) $appid = $this->appid;
+        if ($jsapi_ticket) { //手动指定token，优先使用
+            $this->jsapi_ticket = $jsapi_ticket;
+            return $this->jsapi_ticket;
+        }
+        $authname = 'wechat_jsapi_ticket' . $appid;
+        if ($rs = $this->getCache($authname)) {
+            $this->jsapi_ticket = $rs;
+            return $rs;
+        }
+        $result = $this->http_get(self::API_URL_PREFIX . self::GET_TICKET_URL . 'access_token=' . $this->access_token . '&type=jsapi');
+        if ($result) {
+            $json = json_decode($result, true);
+            if (!$json || !empty($json['errcode'])) {
+                $this->errCode = $json['errcode'];
+                $this->errMsg = $json['errmsg'];
+                return false;
+            }
+            $this->jsapi_ticket = $json['ticket'];
+            $expire = $json['expires_in'] ? intval($json['expires_in']) - 100 : 3600;
+            $this->setCache($authname, $this->jsapi_ticket, $expire);
+            return $this->jsapi_ticket;
+        }
         return false;
     }
 
@@ -1247,148 +1257,67 @@ class Wechat
     }
 
     /**
-     * 删除验证数据
-     * @param string $appid
+     * 获取缓存，按需重载
+     * @param string $cachename
+     * @return mixed
      */
-    public function resetAuth($appid = '')
+    protected function getCache($cachename)
     {
-        if (!$appid) $appid = $this->appid;
-        $this->access_token = '';
-        $authname = 'wechat_access_token' . $appid;
-        $this->removeCache($authname);
-        return true;
-    }
-
-    /**
-     * 删除JSAPI授权TICKET
-     * @param string $appid 用于多个appid时使用
-     */
-    public function resetJsTicket($appid = '')
-    {
-        if (!$appid) $appid = $this->appid;
-        $this->jsapi_ticket = '';
-        $authname = 'wechat_jsapi_ticket' . $appid;
-        $this->removeCache($authname);
-        return true;
-    }
-
-    /**
-     * 获取JSAPI授权TICKET
-     * @param string $appid 用于多个appid时使用,可空
-     * @param string $jsapi_ticket 手动指定jsapi_ticket，非必要情况不建议用
-     */
-    public function getJsTicket($appid = '', $jsapi_ticket = '')
-    {
-        if (!$this->access_token && !$this->checkAuth()) return false;
-        if (!$appid) $appid = $this->appid;
-        if ($jsapi_ticket) { //手动指定token，优先使用
-            $this->jsapi_ticket = $jsapi_ticket;
-            return $this->jsapi_ticket;
-        }
-        $authname = 'wechat_jsapi_ticket' . $appid;
-        if ($rs = $this->getCache($authname)) {
-            $this->jsapi_ticket = $rs;
-            return $rs;
-        }
-        $result = $this->http_get(self::API_URL_PREFIX . self::GET_TICKET_URL . 'access_token=' . $this->access_token . '&type=jsapi');
-        if ($result) {
-            $json = json_decode($result, true);
-            if (!$json || !empty($json['errcode'])) {
-                $this->errCode = $json['errcode'];
-                $this->errMsg = $json['errmsg'];
-                return false;
-            }
-            $this->jsapi_ticket = $json['ticket'];
-            $expire = $json['expires_in'] ? intval($json['expires_in']) - 100 : 3600;
-            $this->setCache($authname, $this->jsapi_ticket, $expire);
-            return $this->jsapi_ticket;
-        }
+        //TODO: get cache implementation
         return false;
     }
 
-
     /**
-     * 获取JsApi使用签名
-     * @param string $url 网页的URL，自动处理#及其后面部分
-     * @param string $timestamp 当前时间戳 (为空则自动生成)
-     * @param string $noncestr 随机串 (为空则自动生成)
-     * @param string $appid 用于多个appid时使用,可空
-     * @return array|bool 返回签名字串
+     * GET 请求
+     * @param string $url
      */
-    public function getJsSign($url, $timestamp = 0, $noncestr = '', $appid = '')
+    private function http_get($url)
     {
-        if (!$this->jsapi_ticket && !$this->getJsTicket($appid) || !$url) return false;
-        if (!$timestamp)
-            $timestamp = time();
-        if (!$noncestr)
-            $noncestr = $this->generateNonceStr();
-        $ret = strpos($url, '#');
-        if ($ret)
-            $url = substr($url, 0, $ret);
-        $url = trim($url);
-        if (empty($url))
+        $oCurl = curl_init();
+        if (stripos($url, "https://") !== FALSE) {
+            curl_setopt($oCurl, CURLOPT_SSL_VERIFYPEER, FALSE);
+            curl_setopt($oCurl, CURLOPT_SSL_VERIFYHOST, FALSE);
+            curl_setopt($oCurl, CURLOPT_SSLVERSION, 1); //CURL_SSLVERSION_TLSv1
+        }
+        curl_setopt($oCurl, CURLOPT_URL, $url);
+        curl_setopt($oCurl, CURLOPT_RETURNTRANSFER, 1);
+        $sContent = curl_exec($oCurl);
+        $aStatus = curl_getinfo($oCurl);
+        curl_close($oCurl);
+        if (intval($aStatus["http_code"]) == 200) {
+            return $sContent;
+        } else {
             return false;
-        $arrdata = array("timestamp" => $timestamp, "noncestr" => $noncestr, "url" => $url, "jsapi_ticket" => $this->jsapi_ticket);
-        $sign = $this->getSignature($arrdata);
-        if (!$sign)
-            return false;
-        $signPackage = array(
-            "appid" => $this->appid,
-            "noncestr" => $noncestr,
-            "timestamp" => $timestamp,
-            "url" => $url,
-            "signature" => $sign
-        );
-        return $signPackage;
+        }
     }
 
     /**
-     * 微信api不支持中文转义的json结构
-     * @param array $arr
+     * 设置缓存，按需重载
+     * @param string $cachename
+     * @param mixed $value
+     * @param int $expired
+     * @return boolean
      */
-    static function json_encode($arr)
+    protected function setCache($cachename, $value, $expired)
     {
-        $parts = array();
-        $is_list = false;
-        //Find out if the given array is a numerical array
-        $keys = array_keys($arr);
-        $max_length = count($arr) - 1;
-        if (($keys [0] === 0) && ($keys [$max_length] === $max_length)) { //See if the first key is 0 and last key is length - 1
-            $is_list = true;
-            for ($i = 0; $i < count($keys); $i++) { //See if each key correspondes to its position
-                if ($i != $keys [$i]) { //A key fails at position check.
-                    $is_list = false; //It is an associative array.
-                    break;
-                }
-            }
+        //TODO: set cache implementation
+        return false;
+    }
+
+    /**
+     * 生成随机字串
+     * @param number $length 长度，默认为16，最长为32字节
+     * @return string
+     */
+    public function generateNonceStr($length = 16)
+    {
+        // 密码字符集，可任意添加你需要的字符
+        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $str = "";
+        for ($i = 0; $i < $length; $i++) {
+            $str .= $chars[mt_rand(0, strlen($chars) - 1)];
         }
-        foreach ($arr as $key => $value) {
-            if (is_array($value)) { //Custom handling for arrays
-                if ($is_list)
-                    $parts [] = self::json_encode($value); /* :RECURSION: */
-                else
-                    $parts [] = '"' . $key . '":' . self::json_encode($value); /* :RECURSION: */
-            } else {
-                $str = '';
-                if (!$is_list)
-                    $str = '"' . $key . '":';
-                //Custom handling for multiple data types
-                if (!is_string($value) && is_numeric($value) && $value < 2000000000)
-                    $str .= $value; //Numbers
-                elseif ($value === false)
-                    $str .= 'false'; //The booleans
-                elseif ($value === true)
-                    $str .= 'true';
-                else
-                    $str .= '"' . addslashes($value) . '"'; //All other things
-                // :TODO: Is there any more datatype we should be in the lookout for? (Object?)
-                $parts [] = $str;
-            }
-        }
-        $json = implode(',', $parts);
-        if ($is_list)
-            return '[' . $json . ']'; //Return numerical JSON
-        return '{' . $json . '}'; //Return associative JSON
+        return $str;
     }
 
     /**
@@ -1410,22 +1339,6 @@ class Wechat
         }
         $Sign = $method($paramstring);
         return $Sign;
-    }
-
-    /**
-     * 生成随机字串
-     * @param number $length 长度，默认为16，最长为32字节
-     * @return string
-     */
-    public function generateNonceStr($length = 16)
-    {
-        // 密码字符集，可任意添加你需要的字符
-        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        $str = "";
-        for ($i = 0; $i < $length; $i++) {
-            $str .= $chars[mt_rand(0, strlen($chars) - 1)];
-        }
-        return $str;
     }
 
     /**
@@ -1515,6 +1428,93 @@ class Wechat
             return true;
         }
         return false;
+    }
+
+    /**
+     * POST 请求
+     * @param string $url
+     * @param array $param
+     * @param boolean $post_file 是否文件上传
+     * @return string content
+     */
+    private function http_post($url, $param, $post_file = false)
+    {
+        $oCurl = curl_init();
+        if (stripos($url, "https://") !== FALSE) {
+            curl_setopt($oCurl, CURLOPT_SSL_VERIFYPEER, FALSE);
+            curl_setopt($oCurl, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($oCurl, CURLOPT_SSLVERSION, 1); //CURL_SSLVERSION_TLSv1
+        }
+        if (is_string($param) || $post_file) {
+            $strPOST = $param;
+        } else {
+            $aPOST = array();
+            foreach ($param as $key => $val) {
+                $aPOST[] = $key . "=" . urlencode($val);
+            }
+            $strPOST = join("&", $aPOST);
+        }
+        curl_setopt($oCurl, CURLOPT_URL, $url);
+        curl_setopt($oCurl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($oCurl, CURLOPT_POST, true);
+        curl_setopt($oCurl, CURLOPT_POSTFIELDS, $strPOST);
+        $sContent = curl_exec($oCurl);
+        $aStatus = curl_getinfo($oCurl);
+        curl_close($oCurl);
+        if (intval($aStatus["http_code"]) == 200) {
+            return $sContent;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * 微信api不支持中文转义的json结构
+     * @param array $arr
+     */
+    static function json_encode($arr)
+    {
+        $parts = array();
+        $is_list = false;
+        //Find out if the given array is a numerical array
+        $keys = array_keys($arr);
+        $max_length = count($arr) - 1;
+        if (($keys [0] === 0) && ($keys [$max_length] === $max_length)) { //See if the first key is 0 and last key is length - 1
+            $is_list = true;
+            for ($i = 0; $i < count($keys); $i++) { //See if each key correspondes to its position
+                if ($i != $keys [$i]) { //A key fails at position check.
+                    $is_list = false; //It is an associative array.
+                    break;
+                }
+            }
+        }
+        foreach ($arr as $key => $value) {
+            if (is_array($value)) { //Custom handling for arrays
+                if ($is_list)
+                    $parts [] = self::json_encode($value); /* :RECURSION: */
+                else
+                    $parts [] = '"' . $key . '":' . self::json_encode($value); /* :RECURSION: */
+            } else {
+                $str = '';
+                if (!$is_list)
+                    $str = '"' . $key . '":';
+                //Custom handling for multiple data types
+                if (!is_string($value) && is_numeric($value) && $value < 2000000000)
+                    $str .= $value; //Numbers
+                elseif ($value === false)
+                    $str .= 'false'; //The booleans
+                elseif ($value === true)
+                    $str .= 'true';
+                else
+                    $str .= '"' . addslashes($value) . '"'; //All other things
+                // :TODO: Is there any more datatype we should be in the lookout for? (Object?)
+                $parts [] = $str;
+            }
+        }
+        $json = implode(',', $parts);
+        if ($is_list)
+            return '[' . $json . ']'; //Return numerical JSON
+        return '{' . $json . '}'; //Return associative JSON
     }
 
     /**
@@ -4297,6 +4297,22 @@ class Prpcrypt
     }
 
     /**
+     * 随机生成16位字符串
+     * @return string 生成的字符串
+     */
+    function getRandomStr()
+    {
+
+        $str = "";
+        $str_pol = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
+        $max = strlen($str_pol) - 1;
+        for ($i = 0; $i < 16; $i++) {
+            $str .= $str_pol[mt_rand(0, $max)];
+        }
+        return $str;
+    }
+
+    /**
      * 对密文进行解密
      * @param string $encrypted 需要解密的密文
      * @return string 解密得到的明文
@@ -4343,23 +4359,6 @@ class Prpcrypt
         //不注释上边两行，避免传入appid是错误的情况
         return array(0, $xml_content, $from_appid); //增加appid，为了解决后面加密回复消息的时候没有appid的订阅号会无法回复
 
-    }
-
-
-    /**
-     * 随机生成16位字符串
-     * @return string 生成的字符串
-     */
-    function getRandomStr()
-    {
-
-        $str = "";
-        $str_pol = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
-        $max = strlen($str_pol) - 1;
-        for ($i = 0; $i < 16; $i++) {
-            $str .= $str_pol[mt_rand(0, $max)];
-        }
-        return $str;
     }
 
 }

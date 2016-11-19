@@ -44,6 +44,7 @@ class WxController extends Controller
         self::$_token = self::$_set['wxtoken'];
         //检测token是否合法
         $tk = $_GET['token'];
+        //dump($tk);
         if ($tk != self::$_token) {
             die('token error');
         }
