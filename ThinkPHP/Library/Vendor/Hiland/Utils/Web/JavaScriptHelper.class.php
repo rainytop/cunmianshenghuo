@@ -78,5 +78,6 @@ class JavaScriptHelper
             exit();
         }
     }
+
 }
 ?>

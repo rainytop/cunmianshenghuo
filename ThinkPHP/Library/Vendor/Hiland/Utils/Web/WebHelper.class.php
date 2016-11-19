@@ -25,17 +25,6 @@ class WebHelper
     }
 
     /**
-     * 获取网站的域名信息
-     * 不包括前面的"http://"和后面的"/"
-     *
-     * @return string
-     */
-    public static function getHostName()
-    {
-        return EnvironmentHelper::getServerHostName();
-    }
-
-    /**
      * 网页跳转
      *
      * @param string $targetUrl
@@ -115,12 +104,6 @@ class WebHelper
         }
         return $result;
     }
-//
-//    public static function getWebPhysicalRootPath()
-//    {
-//        return dirname('/');
-//        //return $_SERVER['DOCUMENT_ROOT'];
-//    }
 
     /**
      * Ajax方式返回数据到客户端
@@ -132,8 +115,8 @@ class WebHelper
      */
     public static function serverReturn($data, $type = '', $json_option = 0)
     {
-        if(empty($type)){
-            $type= 'JSON';
+        if (empty($type)) {
+            $type = 'JSON';
         }
 
         switch (strtoupper($type)) {
@@ -155,28 +138,89 @@ class WebHelper
         }
         exit ($data);
     }
+//
+//    public static function getWebPhysicalRootPath()
+//    {
+//        return dirname('/');
+//        //return $_SERVER['DOCUMENT_ROOT'];
+//    }
+
+    /**
+     * 获取应用程序地址
+     * @param string $schema
+     * @return string
+     */
+    public static function getWebAppFull($schema = "http://")
+    {
+        return $schema . self::getHostName() . self::getWebApp();
+    }
+
+    /**
+     * 获取网站的域名信息
+     * 不包括前面的"http://"和后面的"/"
+     *
+     * @return string
+     */
+    public static function getHostName()
+    {
+        return EnvironmentHelper::getServerHostName();
+    }
 
     /**
      * 获取应用程序地址
      * @return string
      */
-    public static function getWebApp(){
+    public static function getWebApp()
+    {
         return (__APP__);
+    }
+
+    /**
+     * 获取应用程序入口页面地址（在模式下，比getWebApp少一个问号）
+     * @param string $schema
+     * @return string
+     */
+    public static function getWebGateFull($schema = "http://")
+    {
+        return $schema . self::getHostName() . self::getWebGate();
     }
 
     /**
      * 获取应用程序入口页面地址（在模式下，比getWebApp少一个问号）
      * @return string
      */
-    public static function getWebGate(){
+    public static function getWebGate()
+    {
         return _PHP_FILE_;
+    }
+
+    /**
+     * 获取网站的域名信息
+     * 不包括后面的"/"
+     * @param string $schema
+     * @return string
+     */
+    public static function getHostNameFull($schema = "http://")
+    {
+        return $schema . self::getHostName();
+    }
+
+    /**
+     * 获取全路径的应用程序的根
+     * @param string $schema
+     * @return string
+     */
+    public static function getWebRootFull($schema = "http://")
+    {
+        return $schema . self::getHostName() . self::getWebRoot();
     }
 
     /**
      * 获取应用程序的根
      * @return string
      */
-    public static function getWebRoot(){
+    public static function getWebRoot()
+    {
         return __ROOT__;
     }
 }

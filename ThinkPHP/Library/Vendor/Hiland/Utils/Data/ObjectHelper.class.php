@@ -3,7 +3,6 @@ namespace Vendor\Hiland\Utils\Data;
 
 class ObjectHelper
 {
-
     /**
      * 将带有名值对类型数组的各成员，赋值给复杂对象的属性上
      * 如果对象已经拥有该属性，那么数组成员的值将会覆盖对象原有的属性值
@@ -82,28 +81,103 @@ class ObjectHelper
         return $name;
     }
 
+    /**
+     *判断两个值是否相等
+     * @param $dataA
+     * @param $dataB
+     * @param bool $strictlyCompare 是否进行严格比较（严格模式是先比较类型，再比较值；非严格模式下 trure和“true”是相等的）
+     * @return bool
+     */
+    public static function equal($dataA, $dataB, $strictlyCompare = false)
+    {
+        $typeA = self::getType($dataA);
+        $typeB = self::getType($dataB);
+
+        if ($strictlyCompare) {
+            if ($typeA != $typeB) {
+                return false;
+            } else {
+                if ($dataA == $dataB) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        } else {
+            $convertedDataA = self::getString($dataA);
+            $convertedDataB = self::getString($dataB);
+
+            if ($convertedDataA == $convertedDataB) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+    }
+
+    /**
+     * 判断数据类型（由于php本身的gettype函数有可能改变，此处使用自定义的函数进行判断）
+     * @param $data
+     * @return string
+     */
+    public static function getType($data)
+    {
+        if (is_bool($data)) {
+            return ObjectTypes::BOOLEAN;
+        }
+
+        if (is_string($data)) {
+            return ObjectTypes::STRING;
+        }
+
+        if (is_int($data)) {
+            return ObjectTypes::INTEGER;
+        }
+
+        if (is_array($data)) {
+            return ObjectTypes::ARRAYS;
+        }
+
+        if (is_float($data)) {
+            return ObjectTypes::FLOAT;
+        }
+
+        if (is_double($data)) {
+            return ObjectTypes::DOUBLE;
+        }
+
+        if (is_null($data)) {
+            return ObjectTypes::NULL;
+        }
+
+        if (is_resource($data)) {
+            return ObjectTypes::RESOURCE;
+        }
+
+        if (is_object($data)) {
+            return ObjectTypes::OBJECT;
+        }
+    }
+
     public static function getString($data)
     {
-        //$result = '';
-        $type = gettype($data);
-        //return $type;
+        $type = self::gettype($data);
         switch ($type) {
-            case 'boolean':
+            case ObjectTypes::BOOLEAN:
                 if ($data == true) {
                     $result = 'true';
                 } else {
                     $result = 'false';
                 }
                 break;
-            case 'array':
-            case 'object':
+            case ObjectTypes::ARRAYS:
+            case ObjectTypes::OBJECT:
                 $result = json_encode($data);
                 break;
-            case 'NULL':
+            case ObjectTypes::NULL:
                 $result = '';
-            case 'double':
-            case 'integer':
-            case 'string':
+                break;
             default:
                 $result = (string)$data;
         }

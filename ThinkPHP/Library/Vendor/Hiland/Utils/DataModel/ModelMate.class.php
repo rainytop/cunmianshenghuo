@@ -2,7 +2,6 @@
 namespace Vendor\Hiland\Utils\DataModel;
 
 use Think\Model;
-use Vendor\Hiland\Biz\Loger\CommonLoger;
 
 /**
  * 模型辅助器
@@ -68,6 +67,7 @@ class ModelMate
     /**
      * 根据条件获取一条记录
      * @param array $condition 过滤条件
+     * @param string $orderBy
      * @return array 符合条件的结果，一维数组
      * @example
      * $where= array();
@@ -75,10 +75,10 @@ class ModelMate
      * $where['openid'] = $openId;
      * $result = $buyerShopMate->find($where);
      */
-    public function find($condition = array())
+    public function find($condition = array(), $orderBy = '')
     {
         $model = $this->getModel_Where($condition);
-        return $model->find();
+        return $model->order($orderBy)->find();
     }
 
     /**
@@ -304,23 +304,25 @@ class ModelMate
      * @param string $keyName 主键的名称，缺省为“id”
      * @return bool
      */
-    public function updateByKeys($keys = "", $data = null, $keyName = 'id')
+    public function maintenanceData($keys = "", $data = null, $keyName = 'id')
     {
         if (empty($data)) {
             $data = I("get.");
         }
 
-        if (empty($keys && array_key_exists($keyName, $data))) {
+        if (empty($keys) && array_key_exists($keyName, $data)) {
             $keys = $data["$keyName"];
+        }
+
+        if (is_numeric($keys)) {
+            $keys = "$keys";
         }
 
         if (array_key_exists($keyName, $data)) {
             unset($data["$keyName"]);
         }
 
-        //CommonLoger::log("$keyName-$keys", json_encode($data));
         $condition = array("$keyName" => array("in", $keys));
-
         return $this->model->where($condition)->data($data)->save();
     }
 

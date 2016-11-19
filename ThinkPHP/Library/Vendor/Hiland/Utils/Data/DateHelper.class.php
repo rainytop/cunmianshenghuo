@@ -41,7 +41,7 @@ class DateHelper
      *            w:星期
      *
      *            h:小时
-     *            m:分钟
+     *            m或者i:分钟
      *            s:秒钟
      *
      * @param int $intervalValue
@@ -59,27 +59,35 @@ class DateHelper
         $year = $datetimearray["year"];
         switch ($intervalType) {
             case "y":
+            case "Y":
                 $year += $intervalValue;
                 break;
             case "q":
+            case "Q":
                 $month += ($intervalValue * 3);
                 break;
             case "M":
                 $month += $intervalValue;
                 break;
             case "d":
+            case "D":
                 $day += $intervalValue;
                 break;
             case "w":
+            case "W":
                 $day += ($intervalValue * 7);
                 break;
             case "h":
+            case "H":
                 $hours += $intervalValue;
                 break;
             case "m":
+            case "i":
+            case "I":
                 $minutes += $intervalValue;
                 break;
             case "s":
+            case "S":
                 $seconds += $intervalValue;
                 break;
         }
@@ -129,6 +137,7 @@ class DateHelper
         $date = "$datePart $timePart";
         return strtotime($date);
     }
+
 
 
 }

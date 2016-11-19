@@ -1,6 +1,7 @@
 <?php
 namespace Vendor\Hiland\Biz\Tencent;
 
+use Vendor\Hiland\Biz\Loger\CommonLoger;
 use Vendor\Hiland\Biz\Tencent\Common\WechatConfig;
 use Vendor\Hiland\Utils\Data\RandHelper;
 use Vendor\Hiland\Utils\DataModel\ModelMate;
@@ -59,6 +60,16 @@ class WechatHelper
         return $ticket;
     }
 
+    public static function cleanAccessTokenCache(){
+        //CommonLoger::log("cleanAccessTokenCache","sssssssssssssssssss");
+        $cacheKey= self::getAccessTokenCacheKey();
+        S($cacheKey,null);
+    }
+
+    private static function getAccessTokenCacheKey(){
+        return "weixin_accesstoken_20140225";
+    }
+
     /**
      * 根据微信公众平台应用id和安全信息获取访问令牌
      *
@@ -73,6 +84,8 @@ class WechatHelper
      */
     public static function getAccessToken($appID = '', $appSecret = '', $useCache = true, $cacheSeconds = 3600)
     {
+         //$useCache= false;
+
         if (empty($appID)) {
             $appID = WechatConfig::APPID;
         }
@@ -82,7 +95,7 @@ class WechatHelper
         }
 
         $result = false;
-        $cachekey = sprintf("apptoken20140224-appid:%s-secret:%s", $appID, $appSecret);
+        $cachekey = self::getAccessTokenCacheKey();
         if ($useCache == true) {
             $result = S($cachekey);
             if ($result != false && $result != "") {
@@ -106,6 +119,7 @@ class WechatHelper
             }
         }
 
+        CommonLoger::log("accessToken", $result);
         return $result;
     }
 
@@ -230,7 +244,6 @@ class WechatHelper
         } else {
             $result = false;
         }
-
 
         return $result;
     }
@@ -671,23 +684,23 @@ class WechatHelper
      * @return bool|number
      * 需要数据库支持，数据库的建表语句为
      *
-
-    SET FOREIGN_KEY_CHECKS=0;
-    -- ----------------------------
-    -- Table structure for `multi_weixin_information`
-    -- ----------------------------
-    DROP TABLE IF EXISTS `multi_weixin_information`;
-    CREATE TABLE `multi_weixin_information` (
-    `id` int(11) NOT NULL AUTO_INCREMENT,
-    `msgid` varchar(50) DEFAULT NULL,
-    `openid` varchar(50) DEFAULT NULL,
-    `createtime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-    `remark` text,
-    PRIMARY KEY (`id`),
-    KEY `index_msgid` (`msgid`),
-    KEY `index_openid` (`openid`),
-    KEY `index_createtime` (`createtime`)
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+     *
+     * SET FOREIGN_KEY_CHECKS=0;
+     * -- ----------------------------
+     * -- Table structure for `multi_weixin_information`
+     * -- ----------------------------
+     * DROP TABLE IF EXISTS `multi_weixin_information`;
+     * CREATE TABLE `multi_weixin_information` (
+     * `id` int(11) NOT NULL AUTO_INCREMENT,
+     * `msgid` varchar(50) DEFAULT NULL,
+     * `openid` varchar(50) DEFAULT NULL,
+     * `createtime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+     * `remark` text,
+     * PRIMARY KEY (`id`),
+     * KEY `index_msgid` (`msgid`),
+     * KEY `index_openid` (`openid`),
+     * KEY `index_createtime` (`createtime`)
+     * ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
      */
     public static function checkNeedResponse($wxMessageRawData)
     {
@@ -723,4 +736,5 @@ class WechatHelper
         }
     }
 }
+
 ?>

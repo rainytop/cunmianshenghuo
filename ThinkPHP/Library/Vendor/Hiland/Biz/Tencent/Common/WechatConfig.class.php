@@ -33,6 +33,8 @@ class WechatConfig
     // 微信二次开发入口token
     const GATETOKEN = 'bigseaguall20160608';
 
+    const AESKEY= 'pvSkWJ92m5XK4EbatX61xCJYuxgx5y4fxYLDIIPRhwg';
+
     // 微信公众平台商户的名称
     const MCHNAME = '福轮网络';
 

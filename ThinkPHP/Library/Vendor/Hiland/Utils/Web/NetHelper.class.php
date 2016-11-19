@@ -99,8 +99,8 @@ class NetHelper
             // 检测服务器的域名与证书上的是否一致
             curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2); // 严格校验
         } else {
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE); //不需要验证主机
+            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE); //不需要证书验证
         }
 
         foreach ($cretfilearray as $key) {
