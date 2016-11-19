@@ -37,7 +37,6 @@ class WxController extends Controller
 
     public function __construct($options)
     {
-        //CommonLoger::log('1111');
         // 读取商城全局配置
         self::$_shop = M('Shop_set')->find();
         //读取用户配置存全局
@@ -46,19 +45,17 @@ class WxController extends Controller
         self::$_token = self::$_set['wxtoken'];
         //检测token是否合法
         $tk = $_GET['token'];
-        //CommonLoger::log($tk,self::$_token);
-        //dump($tk);
         if ($tk != self::$_token) {
             die('token error');
         }
-        //CommonLoger::log('2111');
+
         //缓存微信API模型类
         $options['token'] = self::$_token;
         $options['appid'] = self::$_set['wxappid'];
         $options['appsecret'] = self::$_set['wxappsecret'];
         //CommonLoger::log('21222');
         self::$_wx = new \Util\Wx\Wechat($options);
-        //CommonLoger::log('333');
+
         //缓存通行证数据模型
         self::$_ppvip = M('Vip');
         self::$_ppvipmessage = M('Vip_message');
@@ -67,14 +64,11 @@ class WxController extends Controller
         self::$_demployee = D('Employee');
 
         self::$WAP['vipset'] = $this->checkVipSet();
-        //CommonLoger::log('4444');
-        //CommonLoger::log("option",json_encode($options));
+
         //判断验证模式
         if (IS_GET) {
-            //CommonLoger::log('5555');
             self::$_wx->valid();
         } else {
-            //CommonLoger::log('666');
             if (!self::$_wx->valid(true)) {
                 die('no access!!!');
             }
@@ -102,10 +96,8 @@ class WxController extends Controller
 
     public function index()
     {
-
         $this->go();
-
-    } //index类结束
+    }
 
     /*微信访问判断主路由控制器by App
     return
@@ -416,7 +408,7 @@ class WxController extends Controller
 
                     $tourl = self::$_url . '/App/Shop/index/ppid/' . $isold['id'] . '/';
                     $str = "<a href='" . $tourl . "'>" . htmlspecialchars_decode(self::$_set['wxsummary']) . "</a>";
-                    // self::$_wx->text($str)->reply();
+                    self::$_wx->text($str)->reply();
                 } else {
                     $pid = 0;
                     $old = array();
