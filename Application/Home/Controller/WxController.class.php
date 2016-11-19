@@ -80,9 +80,7 @@ class WxController extends Controller
                 $str = $str . $k . "=>" . $v . '  ';
             }
             file_put_contents('./Data/app_rev.txt', '收到请求:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:' . $str . PHP_EOL . PHP_EOL . PHP_EOL, FILE_APPEND);
-
         }
-
     }
 
     //返回VIP配置

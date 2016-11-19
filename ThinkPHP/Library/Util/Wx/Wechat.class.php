@@ -254,6 +254,7 @@ class Wechat
         sort($tmpArr, SORT_STRING);
         $tmpStr = implode($tmpArr);
         $tmpStr = sha1($tmpStr);
+        dump($str);
         //dump($tmpStr);
 
         //TODO 展示先不验证
