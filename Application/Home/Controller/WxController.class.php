@@ -37,6 +37,7 @@ class WxController extends Controller
 
     public function __construct($options)
     {
+        CommonLoger::log('1111');
         // 读取商城全局配置
         self::$_shop = M('Shop_set')->find();
         //读取用户配置存全局
@@ -63,7 +64,7 @@ class WxController extends Controller
 
         self::$WAP['vipset'] = $this->checkVipSet();
 
-        CommonLoger::log("option",json_encode($options));
+        //CommonLoger::log("option",json_encode($options));
         //判断验证模式
         if (IS_GET) {
             self::$_wx->valid();
