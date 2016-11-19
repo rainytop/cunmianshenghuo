@@ -51,10 +51,12 @@ class WxController extends Controller
         if ($tk != self::$_token) {
             die('token error');
         }
+        CommonLoger::log('2111');
         //缓存微信API模型类
         $options['token'] = self::$_token;
         $options['appid'] = self::$_set['wxappid'];
         $options['appsecret'] = self::$_set['wxappsecret'];
+        CommonLoger::log('21222');
         self::$_wx = new \Util\Wx\Wechat($options);
         CommonLoger::log('333');
         //缓存通行证数据模型
