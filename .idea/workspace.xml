@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eafe96d6-3fe8-4b6a-bea8-8dddedb70c6b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tpl/Admin/Index_index.html" afterPath="$PROJECT_DIR$/Tpl/Admin/Index_index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tpl/Admin/Shop_set.html" afterPath="$PROJECT_DIR$/Tpl/Admin/Shop_set.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tpl/App/Shop_footer.html" afterPath="$PROJECT_DIR$/Tpl/App/Shop_footer.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tpl/App/Vip_about.html" afterPath="$PROJECT_DIR$/Tpl/App/Vip_about.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tpl/Home/Index_about.html" afterPath="$PROJECT_DIR$/Tpl/Home/Index_about.html" />
     </list>
@@ -67,21 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Vip_about.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Vip_about.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tpl/App/Vip_about.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edfa35e3053db16b24335984ed17aef4.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Runtime/Cache/Admin/edfa35e3053db16b24335984ed17aef4.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="762" column="51" selection-start-line="762" selection-start-column="51" selection-end-line="762" selection-end-column="51" />
+            <state relative-caret-position="117">
+              <caret line="87" column="17" selection-start-line="87" selection-start-column="17" selection-end-line="87" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -120,68 +107,18 @@
       <file leaf-file-name="Vip_addressSet.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tpl/App/Vip_addressSet.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1881">
+            <state relative-caret-position="-1867">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexController.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/IndexController.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Index_index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tpl/Admin/Index_index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="802" column="51" selection-start-line="802" selection-start-column="51" selection-end-line="802" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Index_about.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Index_about.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tpl/Home/Index_about.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="177">
-              <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Shop_set.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tpl/Admin/Shop_set.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-169">
-              <caret line="182" column="60" selection-start-line="182" selection-start-column="51" selection-end-line="182" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ThinkPHP.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ThinkPHP/ThinkPHP.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="24" column="11" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Home/Conf/config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="90" column="21" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -251,11 +188,11 @@
         <option value="$PROJECT_DIR$/Tpl/App/Shop_index.html" />
         <option value="$PROJECT_DIR$/Tpl/App/Shop_goods.html" />
         <option value="$PROJECT_DIR$/Tpl/App/Shop_sharegoods.html" />
-        <option value="$PROJECT_DIR$/Tpl/App/Vip_about.html" />
         <option value="$PROJECT_DIR$/Tpl/Admin/Shop_set.html" />
         <option value="$PROJECT_DIR$/Tpl/App/Shop_footer.html" />
         <option value="$PROJECT_DIR$/Tpl/Admin/Index_index.html" />
         <option value="$PROJECT_DIR$/Tpl/Home/Index_about.html" />
+        <option value="$PROJECT_DIR$/Tpl/App/Vip_about.html" />
       </list>
     </option>
   </component>
@@ -545,12 +482,12 @@
       <workItem from="1478315287247" duration="651000" />
       <workItem from="1479286863724" duration="3082000" />
       <workItem from="1479514678587" duration="9689000" />
-      <workItem from="1479607592157" duration="8589000" />
+      <workItem from="1479607592157" duration="9382000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26512000" />
+    <option name="totallyTimeSpent" value="27305000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -560,7 +497,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40936556" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31268883" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25381097" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -698,14 +635,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ThinkPHP/ThinkPHP.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="24" column="11" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Conf/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -782,14 +711,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="16" column="86" selection-start-line="16" selection-start-column="86" selection-end-line="16" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tpl/App/Vip_addressSet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1881">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -890,14 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/IndexController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tpl/App/Fx_about.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -934,14 +847,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="3" column="53" selection-start-line="3" selection-start-column="53" selection-end-line="3" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tpl/Admin/Shop_set.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-169">
-          <caret line="182" column="60" selection-start-line="182" selection-start-column="51" selection-end-line="182" selection-end-column="60" />
           <folding />
         </state>
       </provider>
@@ -994,10 +899,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tpl/App/Vip_about.html">
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/IndexController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tpl/App/Vip_addressSet.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1867">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/ThinkPHP.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="24" column="11" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tpl/Admin/Shop_set.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-169">
+          <caret line="182" column="60" selection-start-line="182" selection-start-column="51" selection-end-line="182" selection-end-column="60" />
           <folding />
         </state>
       </provider>
@@ -1005,7 +934,15 @@
     <entry file="file://$PROJECT_DIR$/Tpl/Home/Index_about.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
-          <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
+          <caret line="90" column="21" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tpl/App/Vip_about.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="87" column="17" selection-start-line="87" selection-start-column="17" selection-end-line="87" selection-end-column="17" />
           <folding />
         </state>
       </provider>
