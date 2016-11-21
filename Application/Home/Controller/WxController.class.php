@@ -872,6 +872,7 @@ class WxController extends Controller
     public function getQRCode($id, $openid)
     {
         $ticket = self::$_wx->getQRCode($id, 1);
+        CommonLoger::log("ticket",$ticket);
 
         self::$_ppvip->where(array("id" => $id))->save(array("ticket" => $ticket["ticket"]));
         $qrUrl = self::$_wx->getQRUrl($ticket["ticket"]);
