@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="eafe96d6-3fe8-4b6a-bea8-8dddedb70c6b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/App/Controller/FxController.class.php" afterPath="$PROJECT_DIR$/Application/App/Controller/FxController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tpl/App/Fx_myqrcode.html" afterPath="$PROJECT_DIR$/Tpl/App/Fx_myqrcode.html" />
     </list>
     <ignored path="wfx.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -108,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/Application/App/Controller/FxController.class.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
-              <caret line="179" column="57" selection-start-line="179" selection-start-column="57" selection-end-line="179" selection-end-column="57" />
+              <caret line="179" column="56" selection-start-line="179" selection-start-column="56" selection-end-line="179" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -504,12 +503,12 @@
       <workItem from="1478315287247" duration="651000" />
       <workItem from="1479286863724" duration="3082000" />
       <workItem from="1479514678587" duration="9689000" />
-      <workItem from="1479607592157" duration="11526000" />
+      <workItem from="1479607592157" duration="11776000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29449000" />
+    <option name="totallyTimeSpent" value="29699000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -965,7 +964,7 @@
     <entry file="file://$PROJECT_DIR$/Application/App/Controller/FxController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
-          <caret line="179" column="57" selection-start-line="179" selection-start-column="57" selection-end-line="179" selection-end-column="57" />
+          <caret line="179" column="56" selection-start-line="179" selection-start-column="56" selection-end-line="179" selection-end-column="56" />
           <folding />
         </state>
       </provider>
