@@ -177,7 +177,7 @@ class FxController extends BaseController
         $this->assign('jsapi', $jsapi);
 
         $vip = self::$WAP['vip'];
-        $img = __ROOT__."/QRcode/promotion/" . "employee" . $vip['openid'] . '.jpg';
+        $img = __ROOT__."/QRcode/promotion/" . "employee/" . $vip['openid'] . '.jpg';
 
         $this->assign('img', $img);
         $this->assign('vip', $vip);
