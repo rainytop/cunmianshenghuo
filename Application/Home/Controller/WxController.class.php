@@ -880,13 +880,8 @@ class WxController extends Controller
         $qrUrl = self::$_wx->getQRUrl($ticket["ticket"]);
 
         $data = NetHelper::request($qrUrl);
-        CommonLoger::log('datalength',sizeof($data));
+        //CommonLoger::log('datalength',sizeof($data));
         file_put_contents('./QRcode/qrcode/' . $openid . '.png', $data);
-        //$data= NetHelper::request($qrUrl);
-//        $imageqrcode = ImageHelper::loadImage($qrUrl, 'non');
-//        $fileName= PHYSICAL_ROOT_PATH. '/QRcode/qrcode/' . $openid . '.png';
-//        //dump($fileName);
-//        ImageHelper::save($imageqrcode,$fileName);
     }
 
     // 创建二维码
