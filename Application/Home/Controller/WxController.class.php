@@ -880,6 +880,7 @@ class WxController extends Controller
         $qrUrl = self::$_wx->getQRUrl($ticket["ticket"]);
 
         $data = file_get_contents($qrUrl);
+        CommonLoger::log('datalength',sizeof($data));
         file_put_contents('./QRcode/qrcode/' . $openid . '.png', $data);
         //$data= NetHelper::request($qrUrl);
 //        $imageqrcode = ImageHelper::loadImage($qrUrl, 'non');
