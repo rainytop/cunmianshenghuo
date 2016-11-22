@@ -879,13 +879,13 @@ class WxController extends Controller
         self::$_ppvip->where(array("id" => $id))->save(array("ticket" => $ticket["ticket"]));
         $qrUrl = self::$_wx->getQRUrl($ticket["ticket"]);
 
-//        $data = file_get_contents($qrUrl);
-//        file_put_contents('./QRcode/qrcode/' . $openid . '.png', $data);
+        $data = file_get_contents($qrUrl);
+        file_put_contents('./QRcode/qrcode/' . $openid . '.png', $data);
         //$data= NetHelper::request($qrUrl);
-        $imageqrcode = ImageHelper::loadImage($qrUrl, 'non');
-        $fileName= PHYSICAL_ROOT_PATH. '/QRcode/qrcode/' . $openid . '.png';
-        dump($fileName);
-        ImageHelper::save($imageqrcode,$fileName);
+//        $imageqrcode = ImageHelper::loadImage($qrUrl, 'non');
+//        $fileName= PHYSICAL_ROOT_PATH. '/QRcode/qrcode/' . $openid . '.png';
+//        //dump($fileName);
+//        ImageHelper::save($imageqrcode,$fileName);
     }
 
     // 创建二维码
