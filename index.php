@@ -40,6 +40,24 @@ define('CONFIG_PATH', ROOT_PATH . 'Public/Config/');
 define('ADDON_PATH','Addons');//严格要求
 define('DATA_PATH', './Data/');
 
+//--[HILAND添加]--------------------------------------------------------------------------------
+/**
+ * 系统的物理根目录
+ */
+define('PHYSICAL_ROOT_PATH', dirname(__FILE__));
+
+define('HILAND_COMPANY_NAME', '青岛紫光海澜网络技术有限公司');
+define('HILAND_COMPANY_ADDRESS', '青岛市市南区鹊山路海信清泉墅');
+define('HILAND_COMPANY_URL', 'www.hilandsoft.com');
+define('HILAND_COMPANY_MAIL', 'develope@foxmail.com');
+define('HILAND_COMPANY_QQ', '9727005');
+
+define('HILAND_CMS_NAME', 'HilandCMS');
+define('HILAND_CMS_NAME_CN', '海澜内容管理系统');
+define('HILAND_CMS_NAME_DISPLAY', '海澜内容管理系统(HilandCMS)');
+define('HILAND_CMS_VERSION', '6.0124');
+//--[HILAND添加]--------------------------------------------------------------------------------
+
 // 引入ThinkPHP入口文件
 require './ThinkPHP/ThinkPHP.php';
 

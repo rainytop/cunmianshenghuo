@@ -7,6 +7,8 @@ namespace Home\Controller;
 use App\QRcode;
 use Think\Controller;
 use Vendor\Hiland\Biz\Loger\CommonLoger;
+use Vendor\Hiland\Utils\IO\ImageHelper;
+use Vendor\Hiland\Utils\Web\NetHelper;
 
 class WxController extends Controller
 {
@@ -53,7 +55,7 @@ class WxController extends Controller
         $options['token'] = self::$_token;
         $options['appid'] = self::$_set['wxappid'];
         $options['appsecret'] = self::$_set['wxappsecret'];
-        //CommonLoger::log('21222');
+
         self::$_wx = new \Util\Wx\Wechat($options);
 
         //缓存通行证数据模型
@@ -872,13 +874,17 @@ class WxController extends Controller
     public function getQRCode($id, $openid)
     {
         $ticket = self::$_wx->getQRCode($id, 1);
-        CommonLoger::log("ticket",json_encode($ticket));
+        //CommonLoger::log("ticket",json_encode($ticket));
 
         self::$_ppvip->where(array("id" => $id))->save(array("ticket" => $ticket["ticket"]));
         $qrUrl = self::$_wx->getQRUrl($ticket["ticket"]);
 
-        $data = file_get_contents($qrUrl);
-        file_put_contents('./QRcode/qrcode/' . $openid . '.png', $data);
+//        $data = file_get_contents($qrUrl);
+//        file_put_contents('./QRcode/qrcode/' . $openid . '.png', $data);
+        //$data= NetHelper::request($qrUrl);
+        $imageqrcode = ImageHelper::loadImage($qrUrl, 'non');
+        $fileName= PHYSICAL_ROOT_PATH. '/QRcode/qrcode/' . $openid . '.png';
+        ImageHelper::save($imageqrcode,$fileName);
     }
 
     // 创建二维码
