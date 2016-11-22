@@ -36,8 +36,8 @@
       <file leaf-file-name="WxController.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="882" column="53" selection-start-line="882" selection-start-column="53" selection-end-line="882" selection-end-column="53" />
+            <state relative-caret-position="157">
+              <caret line="881" column="43" selection-start-line="881" selection-start-column="43" selection-end-line="881" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -349,12 +349,12 @@
       <workItem from="1478315287247" duration="651000" />
       <workItem from="1479286863724" duration="3082000" />
       <workItem from="1479514678587" duration="9689000" />
-      <workItem from="1479607592157" duration="21485000" />
+      <workItem from="1479607592157" duration="21693000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39408000" />
+    <option name="totallyTimeSpent" value="39616000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -400,14 +400,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Tpl/App/App_share.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1980">
-          <caret line="99" column="7" selection-start-line="99" selection-start-column="7" selection-end-line="99" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Conf/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -802,10 +794,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_5.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="1092" column="9" selection-start-line="1092" selection-start-column="9" selection-end-line="1092" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="882" column="53" selection-start-line="882" selection-start-column="53" selection-end-line="882" selection-end-column="53" />
+        <state relative-caret-position="157">
+          <caret line="881" column="43" selection-start-line="881" selection-start-column="43" selection-end-line="881" selection-end-column="43" />
           <folding />
         </state>
       </provider>
