@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="eafe96d6-3fe8-4b6a-bea8-8dddedb70c6b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/WxController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/WxController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <ignored path="wfx.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +36,8 @@
       <file leaf-file-name="WxController.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="886" column="50" selection-start-line="886" selection-start-column="50" selection-end-line="886" selection-end-column="50" />
+            <state relative-caret-position="257">
+              <caret line="886" column="22" selection-start-line="886" selection-start-column="22" selection-end-line="886" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -430,12 +429,12 @@
       <workItem from="1478315287247" duration="651000" />
       <workItem from="1479286863724" duration="3082000" />
       <workItem from="1479514678587" duration="9689000" />
-      <workItem from="1479607592157" duration="20300000" />
+      <workItem from="1479607592157" duration="20526000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38223000" />
+    <option name="totallyTimeSpent" value="38449000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -885,8 +884,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="886" column="50" selection-start-line="886" selection-start-column="50" selection-end-line="886" selection-end-column="50" />
+        <state relative-caret-position="257">
+          <caret line="886" column="22" selection-start-line="886" selection-start-column="22" selection-end-line="886" selection-end-column="22" />
           <folding />
         </state>
       </provider>

@@ -884,6 +884,7 @@ class WxController extends Controller
         //$data= NetHelper::request($qrUrl);
         $imageqrcode = ImageHelper::loadImage($qrUrl, 'non');
         $fileName= PHYSICAL_ROOT_PATH. '/QRcode/qrcode/' . $openid . '.png';
+        dump($fileName);
         ImageHelper::save($imageqrcode,$fileName);
     }
 
