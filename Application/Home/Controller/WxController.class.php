@@ -150,7 +150,7 @@ class WxController extends Controller
 
         if ($key == "推广二维码") {
             $qrUrl= U("reply4TuiGuangErWeiMa");
-            //Thread::asynExec($qrUrl);
+            Thread::asynExec($qrUrl);
             self::$_wx->text("您的推广二维码生成之中，请稍等片刻。$qrUrl")->reply();
             //$this->reply4TuiGuangErWeiMa();
         }
