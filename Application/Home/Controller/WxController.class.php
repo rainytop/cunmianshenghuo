@@ -222,7 +222,7 @@ class WxController extends Controller
     /**
      * 对关键词“员工二维码”进行响应
      */
-    private function reply4YuanGongErWeiMa()
+    public function reply4YuanGongErWeiMa()
     {
 
         // 获取用户信息
@@ -387,7 +387,7 @@ class WxController extends Controller
     $imglist=true/false 是否以多条返回/最多10条
      */
 
-    private function reply4TuiGuangErWeiMa()
+    public function reply4TuiGuangErWeiMa()
     {
         // 获取用户信息
         $map['openid'] = self::$_revdata['FromUserName'];
