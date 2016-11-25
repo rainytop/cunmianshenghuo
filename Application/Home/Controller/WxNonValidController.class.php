@@ -12,6 +12,7 @@ namespace Home\Controller;
 use App\QRcode;
 use Think\Controller;
 use Vendor\Hiland\Biz\Loger\CommonLoger;
+use Vendor\Hiland\Biz\Tencent\WechatHelper;
 
 class WxNonValidController extends Controller
 {
@@ -60,7 +61,8 @@ class WxNonValidController extends Controller
         // 过滤连续请求-打开
         if (F($vip['openid']) != null) {
             $msg = "推广二维码正在生成，请稍等！";
-            self::$_wx->text($msg)->reply();
+            //self::$_wx->text($msg)->reply();
+            WechatHelper::responseCustomerServiceText($openid,$msg);
             exit();
         } else {
             F($vip['openid'], $vip['openid']);
