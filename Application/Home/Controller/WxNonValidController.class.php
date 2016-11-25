@@ -89,7 +89,7 @@ class WxNonValidController extends Controller
         $mark = false; // 是否需要写入将图片写入文件
 
 
-        //WechatHelper::responseCustomerServiceText($openid,$vip['headimgurl']);
+        WechatHelper::responseCustomerServiceText($openid,$vip['headimgurl']);
         $headimg = NetHelper::request($vip['headimgurl']);//$this->getRemoteHeadImage($vip['headimgurl']);
         //WechatHelper::responseCustomerServiceText($openid,$headimg);
         if (!$headimg) {// 没有头像先从头像库查找，再没有就选择默认头像
