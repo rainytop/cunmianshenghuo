@@ -136,7 +136,8 @@ class WxNonValidController extends Controller
             WechatHelper::responseCustomerServiceImage($openid,$uploadresult);
         } else {
             $msg = "专属二维码生成失败";
-            self::$_wx->text($msg)->reply();
+            //self::$_wx->text($msg)->reply();
+            WechatHelper::responseCustomerServiceText($openid,$msg);
         }
         // 上传下载相应 结束
 
