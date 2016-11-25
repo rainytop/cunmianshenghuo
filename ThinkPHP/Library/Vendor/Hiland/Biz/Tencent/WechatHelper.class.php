@@ -159,6 +159,7 @@ class WechatHelper
      *
      * @param string $accessToken
      * @param string $mediaFileName
+     * @return bool|int
      */
     public static function uploadMedia($mediaFileName, $accessToken = '')
     {
@@ -172,8 +173,14 @@ class WechatHelper
         );
 
         $result = NetHelper::request($url, $mediajson);
+
         $row = json_decode($result);
-        return $row->media_id;
+        $mediaId= $row->media_id;
+        if($mediaId){
+            return $mediaId;
+        }else{
+            return false;
+        }
     }
 
     /**

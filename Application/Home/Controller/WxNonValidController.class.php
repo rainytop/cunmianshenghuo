@@ -89,7 +89,7 @@ class WxNonValidController extends Controller
         $mark = false; // 是否需要写入将图片写入文件
 
 
-        WechatHelper::responseCustomerServiceText($openid,$vip['headimgurl']);
+        //WechatHelper::responseCustomerServiceText($openid,$vip['headimgurl']);
         $headimg = NetHelper::request($vip['headimgurl']);//$this->getRemoteHeadImage($vip['headimgurl']);
         //WechatHelper::responseCustomerServiceText($openid,$headimg);
         if (!$headimg) {// 没有头像先从头像库查找，再没有就选择默认头像
@@ -128,7 +128,7 @@ class WxNonValidController extends Controller
         CommonLoger::log("aaa", "77");
         // 生成二维码推广图片 结束==================
 
-        WechatHelper::responseCustomerServiceText($openid,'dddddddddddddddd');
+        //WechatHelper::responseCustomerServiceText($openid,'dddddddddddddddd');
         // 上传下载相应
         if (file_exists(getcwd() . "/QRcode/promotion/" . $vip['openid'] . '.jpg')) {
             $file= getcwd() . "/QRcode/promotion/" . $vip['openid'] . '.jpg';

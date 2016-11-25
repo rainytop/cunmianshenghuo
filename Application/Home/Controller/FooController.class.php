@@ -11,6 +11,7 @@ namespace Home\Controller;
 
 use Home\Model\WxBiz;
 use Think\Controller;
+use Vendor\Hiland\Biz\Tencent\WechatHelper;
 use Vendor\Hiland\Utils\Web\NetHelper;
 
 class FooController extends Controller
@@ -38,5 +39,18 @@ class FooController extends Controller
         $headimg = curl_exec($ch);
         curl_close($ch);
         dump($headimg);
+    }
+
+    public function uploadimg(){
+        $wechat= WxBiz::getWechat();
+
+        $file= PHYSICAL_ROOT_PATH . "\\QRcode\\promotion\\oinMwxGi-Ok20PEf5lUn6TtPaQXg.jpg";
+        dump($file);
+        $data = array('media' => '@' . $file);
+        $result= $wechat->uploadMedia($data,'image');
+        dump($result);
+
+        $rt= WechatHelper::uploadMedia($file);
+        dump($rt);
     }
 }

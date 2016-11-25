@@ -1255,9 +1255,9 @@ class Wechat
 //        }
 
         //为了统一缓存AccessToken，均使用WechatHelper中的方法
-        $accessToken = WechatHelper::getAccessToken($appid, $appsecret,false);
+        $accessToken = WechatHelper::getAccessToken($appid, $appsecret, false);
         if ($accessToken) {
-            $this->access_token= $accessToken;
+            $this->access_token = $accessToken;
             return $this->access_token;
         } else {
             return false;
@@ -1462,6 +1462,11 @@ class Wechat
             }
             $strPOST = join("&", $aPOST);
         }
+
+        //因为php版本的原因，上传素材一直保错。php的curl的curl_setopt 函数存在版本差异
+        //PHP5.5已经把通过@加文件路径上传文件的方式给放入到Deprecated中了。php5.6默认是不支持这种方式了
+        curl_setopt($oCurl, CURLOPT_SAFE_UPLOAD, false);
+
         curl_setopt($oCurl, CURLOPT_URL, $url);
         curl_setopt($oCurl, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($oCurl, CURLOPT_POST, true);
