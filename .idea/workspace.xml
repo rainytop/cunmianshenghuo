@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eafe96d6-3fe8-4b6a-bea8-8dddedb70c6b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/WxNonValidController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/WxNonValidController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/Web/NetHelper.class.php" afterPath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/Web/NetHelper.class.php" />
     </list>
     <ignored path="wfx.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WxNonValidController.class.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WxNonValidController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxNonValidController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="91" column="8" selection-start-line="91" selection-start-column="8" selection-end-line="91" selection-end-column="8" />
+            <state relative-caret-position="160">
+              <caret line="92" column="35" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
               <folding>
                 <element signature="e#120#135#0#PHP" expanded="true" />
               </folding>
@@ -64,6 +64,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="277">
               <caret line="174" column="34" selection-start-line="174" selection-start-column="34" selection-end-line="174" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NetHelper.class.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/Web/NetHelper.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="85" column="10" selection-start-line="85" selection-start-column="10" selection-end-line="85" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -149,9 +159,9 @@
         <option value="$PROJECT_DIR$/Application/Home/Model/WxBiz.class.php" />
         <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Tencent/WechatHelper.class.php" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/FooController.class.php" />
-        <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/Web/NetHelper.class.php" />
         <option value="$PROJECT_DIR$/ThinkPHP/Library/Util/Wx/Wechat.class.php" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/WxNonValidController.class.php" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/Web/NetHelper.class.php" />
       </list>
     </option>
   </component>
@@ -416,12 +426,12 @@
       <workItem from="1479607592157" duration="23209000" />
       <workItem from="1479801009386" duration="529000" />
       <workItem from="1479886660275" duration="8382000" />
-      <workItem from="1479972343747" duration="30313000" />
+      <workItem from="1479972343747" duration="30464000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80356000" />
+    <option name="totallyTimeSpent" value="80507000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -808,14 +818,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/Web/NetHelper.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="85" column="57" selection-start-line="83" selection-start-column="8" selection-end-line="85" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Tencent/WechatHelper.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
@@ -846,11 +848,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxNonValidController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="91" column="8" selection-start-line="91" selection-start-column="8" selection-end-line="91" selection-end-column="8" />
+        <state relative-caret-position="160">
+          <caret line="92" column="35" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
           <folding>
             <element signature="e#120#135#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/Web/NetHelper.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="85" column="10" selection-start-line="85" selection-start-column="10" selection-end-line="85" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>

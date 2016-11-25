@@ -83,7 +83,7 @@ class NetHelper
 
         //因为php版本的原因，上传素材一直保错。php的curl的curl_setopt 函数存在版本差异
         //PHP5.5已经把通过@加文件路径上传文件的方式给放入到Deprecated中了。php5.6默认是不支持这种方式了
-        curl_setopt ( $curl, CURLOPT_SAFE_UPLOAD, false);
+        //curl_setopt ( $curl, CURLOPT_SAFE_UPLOAD, false);
         curl_setopt($curl, CURLOPT_URL, $url);
 
         if (!empty($data)) {
