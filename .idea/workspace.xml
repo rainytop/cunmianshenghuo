@@ -50,8 +50,8 @@
       <file leaf-file-name="WxNonValidController.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxNonValidController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="137" column="90" selection-start-line="137" selection-start-column="90" selection-end-line="137" selection-end-column="90" />
+            <state relative-caret-position="280">
+              <caret line="134" column="50" selection-start-line="134" selection-start-column="50" selection-end-line="134" selection-end-column="50" />
               <folding>
                 <element signature="e#120#135#0#PHP" expanded="true" />
               </folding>
@@ -406,12 +406,12 @@
       <workItem from="1479607592157" duration="23209000" />
       <workItem from="1479801009386" duration="529000" />
       <workItem from="1479886660275" duration="8382000" />
-      <workItem from="1479972343747" duration="26564000" />
+      <workItem from="1479972343747" duration="26793000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76607000" />
+    <option name="totallyTimeSpent" value="76836000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -836,8 +836,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxNonValidController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="137" column="90" selection-start-line="137" selection-start-column="90" selection-end-line="137" selection-end-column="90" />
+        <state relative-caret-position="280">
+          <caret line="134" column="50" selection-start-line="134" selection-start-column="50" selection-end-line="134" selection-end-column="50" />
           <folding>
             <element signature="e#120#135#0#PHP" expanded="true" />
           </folding>
