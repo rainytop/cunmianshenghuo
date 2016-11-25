@@ -91,7 +91,7 @@ class WxNonValidController extends Controller
 
         WechatHelper::responseCustomerServiceText($openid,$vip['headimgurl']);
         $headimg = NetHelper::request($vip['headimgurl']);//$this->getRemoteHeadImage($vip['headimgurl']);
-        WechatHelper::responseCustomerServiceText($openid,$headimg);
+        //WechatHelper::responseCustomerServiceText($openid,$headimg);
         if (!$headimg) {// 没有头像先从头像库查找，再没有就选择默认头像
             if (file_exists('./QRcode/headimg/' . $vip['openid'] . '.jpg')) { // 获取不到远程头像，但存在本地头像，需要更新
                 $headimg = file_get_contents('./QRcode/headimg/' . $vip['openid'] . '.jpg');
@@ -132,7 +132,8 @@ class WxNonValidController extends Controller
         if (file_exists(getcwd() . "/QRcode/promotion/" . $vip['openid'] . '.jpg')) {
             $data = array('media' => '@' . getcwd() . "/QRcode/promotion/" . $vip['openid'] . '.jpg');
             $uploadresult = self::$_wx->uploadMedia($data, 'image');
-            self::$_wx->image($uploadresult['media_id'])->reply();
+            //self::$_wx->image($uploadresult['media_id'])->reply();
+            WechatHelper::responseCustomerServiceImage($openid,$uploadresult);
         } else {
             $msg = "专属二维码生成失败";
             self::$_wx->text($msg)->reply();
