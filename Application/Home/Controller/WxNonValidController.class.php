@@ -128,6 +128,7 @@ class WxNonValidController extends Controller
         CommonLoger::log("aaa", "77");
         // 生成二维码推广图片 结束==================
 
+        WechatHelper::responseCustomerServiceText($openid,'dddddddddddddddd');
         // 上传下载相应
         if (file_exists(getcwd() . "/QRcode/promotion/" . $vip['openid'] . '.jpg')) {
             $file= getcwd() . "/QRcode/promotion/" . $vip['openid'] . '.jpg';
