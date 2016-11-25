@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eafe96d6-3fe8-4b6a-bea8-8dddedb70c6b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/WxController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/WxController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/IO/Thread.class.php" afterPath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/IO/Thread.class.php" />
     </list>
     <ignored path="wfx.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,8 +37,8 @@
       <file leaf-file-name="WxController.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="155" column="36" selection-start-line="155" selection-start-column="36" selection-end-line="155" selection-end-column="36" />
+            <state relative-caret-position="8">
+              <caret line="47" column="47" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
               <folding>
                 <element signature="e#198#213#0#PHP" expanded="true" />
               </folding>
@@ -48,8 +49,8 @@
       <file leaf-file-name="Thread.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/IO/Thread.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="24" column="45" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="45" />
+            <state relative-caret-position="299">
+              <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -135,7 +136,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Addons/Apply/View/Admin/index.html" />
         <option value="$PROJECT_DIR$/Addons/Apply/Controller/AdminController.class.php" />
         <option value="$PROJECT_DIR$/Addons/Sign/Controller/AdminController.class.php" />
         <option value="$PROJECT_DIR$/Addons/Vote/Controller/AdminController.class.php" />
@@ -185,6 +185,7 @@
         <option value="$PROJECT_DIR$/Tpl/Admin/Index_help.html" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/Tpl/App/Shop_orderMake.html" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/IO/Thread.class.php" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/WxController.class.php" />
       </list>
     </option>
@@ -357,12 +358,12 @@
       <workItem from="1479607592157" duration="23209000" />
       <workItem from="1479801009386" duration="529000" />
       <workItem from="1479886660275" duration="8382000" />
-      <workItem from="1479972343747" duration="6137000" />
+      <workItem from="1479972343747" duration="7833000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56180000" />
+    <option name="totallyTimeSpent" value="57876000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -372,8 +373,9 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10574018" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24320242" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21676737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -384,7 +386,6 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10574018" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -408,14 +409,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Application/Common/Conf/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tpl/App/Shop_orderTuihuo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2021">
@@ -761,18 +754,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/Web/WebHelper.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="163" column="27" selection-start-line="163" selection-start-column="27" selection-end-line="163" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/IO/Thread.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="24" column="45" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="45" />
+        <state relative-caret-position="299">
+          <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="155" column="36" selection-start-line="155" selection-start-column="36" selection-end-line="155" selection-end-column="36" />
+        <state relative-caret-position="8">
+          <caret line="47" column="47" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
           <folding>
             <element signature="e#198#213#0#PHP" expanded="true" />
           </folding>

@@ -46,11 +46,12 @@ class WxController extends Controller
         self::$_set = M('Set')->find();
         self::$_url = self::$_set['wxurl'];
         self::$_token = self::$_set['wxtoken'];
-        //检测token是否合法
-        $tk = $_GET['token'];
-        if ($tk != self::$_token) {
-            die('token error');
-        }
+
+//        //检测token是否合法
+//        $tk = $_GET['token'];
+//        if ($tk != self::$_token) {
+//            die('token error');
+//        }
 
         //缓存微信API模型类
         $options['token'] = self::$_token;
