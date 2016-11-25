@@ -1,6 +1,7 @@
 <?php
 
 namespace Home\Model;
+use Vendor\Hiland\Biz\Loger\CommonLoger;
 use Vendor\Hiland\Biz\Tencent\WechatHelper;
 use Vendor\Hiland\Utils\Web\NetHelper;
 
@@ -54,7 +55,7 @@ class WxBiz
             // \Util\QRcode::png($url, './QRcode/qrcode/' . $openid . '.png', 'L', 6, 2);
 
             //二维码进入公众号
-            WechatHelper::responseCustomerServiceText($openid,"sssssssssss");
+            //WechatHelper::responseCustomerServiceText($openid,"sssssssssss");
             self::getQRCode($id, $openid);
         }
         $qrcode = imagecreatefromstring(file_get_contents('./QRcode/qrcode/' . $openid . '.png'));
@@ -65,13 +66,13 @@ class WxBiz
     {
         $wechat= self::getWechat();
         $ticket = $wechat->getQRCode($id, 1);
-        //CommonLoger::log("ticket",json_encode($ticket));
+        CommonLoger::log("ticket",json_encode($ticket));
 
         $vipModel= M('Vip');
         $vipModel->where(array("id" => $id))->save(array("ticket" => $ticket["ticket"]));
         $qrUrl = $wechat->getQRUrl($ticket["ticket"]);
 
-        $data = NetHelper::request($qrUrl);
+        $data = NetHelper::request($qrUrl);//NetHelper::Get($qrUrl); //
         //CommonLoger::log('datalength',sizeof($data));
         file_put_contents('./QRcode/qrcode/' . $openid . '.png', $data);
     }
