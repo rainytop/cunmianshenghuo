@@ -22,7 +22,8 @@ class WxBiz
         $options['appid'] = $appId;
         $options['appsecret'] = $appSecret;
 
-        self::$_wx = new \Util\Wx\Wechat($options);
+        $wechat = new \Util\Wx\Wechat($options);
+        return $wechat;
     }
 
     /**
