@@ -43,6 +43,8 @@
  */
 namespace Util\Wx;
 
+use Vendor\Hiland\Biz\Tencent\WechatHelper;
+
 class Wechat
 {
     const MSGTYPE_TEXT = 'text';
@@ -163,7 +165,7 @@ class Wechat
     const CARD_LUCKYMONEY_UPDATE = '/card/luckymoney/updateuserbalance?';     //更新红包金额
     const SEMANTIC_API_URL = '/semantic/semproxy/search?'; //语义理解
     ///数据分析接口
-const SHAKEAROUND_DEVICE_APPLYID = '/shakearound/device/applyid?';
+    const SHAKEAROUND_DEVICE_APPLYID = '/shakearound/device/applyid?';
     ///微信摇一摇周边
     const SHAKEAROUND_DEVICE_UPDATE = '/shakearound/device/update?';//申请设备ID
     const SHAKEAROUND_DEVICE_SEARCH = '/shakearound/device/search?';//编辑设备信息
@@ -177,7 +179,7 @@ const SHAKEAROUND_DEVICE_APPLYID = '/shakearound/device/applyid?';
     const SHAKEAROUND_USER_GETSHAKEINFO = '/shakearound/user/getshakeinfo?';//删除页面
     const SHAKEAROUND_STATISTICS_DEVICE = '/shakearound/statistics/device?';//获取摇周边的设备及用户信息
     const SHAKEAROUND_STATISTICS_PAGE = '/shakearound/statistics/page?';//以设备为维度的数据统计接口
-        static $DATACUBE_URL_ARR = array(        //用户分析
+    static $DATACUBE_URL_ARR = array(        //用户分析
         'user' => array(
             'summary' => '/datacube/getusersummary?',        //获取用户增减数据（getusersummary）
             'cumulate' => '/datacube/getusercumulate?',        //获取累计用户数据（getusercumulate）
@@ -323,10 +325,7 @@ const SHAKEAROUND_DEVICE_APPLYID = '/shakearound/device/applyid?';
         sort($tmpArr, SORT_STRING);
         $tmpStr = implode($tmpArr);
         $tmpStr = sha1($tmpStr);
-        //dump($str);
-        //dump($tmpStr);
 
-        //TODO 暂时先不验证
         //return true;
         if ($tmpStr == $signature) {
             return true;
@@ -1240,20 +1239,27 @@ const SHAKEAROUND_DEVICE_APPLYID = '/shakearound/device/applyid?';
             return $rs;
         }
 
-        $result = $this->http_get(self::API_URL_PREFIX . self::AUTH_URL . 'appid=' . $appid . '&secret=' . $appsecret);
-        if ($result) {
-            $json = json_decode($result, true);
-            if (!$json || isset($json['errcode'])) {
-                $this->errCode = $json['errcode'];
-                $this->errMsg = $json['errmsg'];
-                return false;
-            }
-            $this->access_token = $json['access_token'];
-            $expire = $json['expires_in'] ? intval($json['expires_in']) - 100 : 3600;
-            $this->setCache($authname, $this->access_token, $expire);
-            return $this->access_token;
+//        $result = $this->http_get(self::API_URL_PREFIX . self::AUTH_URL . 'appid=' . $appid . '&secret=' . $appsecret);
+//        if ($result) {
+//            $json = json_decode($result, true);
+//            if (!$json || isset($json['errcode'])) {
+//                $this->errCode = $json['errcode'];
+//                $this->errMsg = $json['errmsg'];
+//                return false;
+//            }
+//            $this->access_token = $json['access_token'];
+//            $expire = $json['expires_in'] ? intval($json['expires_in']) - 100 : 3600;
+//            $this->setCache($authname, $this->access_token, $expire);
+//            return $this->access_token;
+//        }
+
+        //为了统一缓存AccessToken，均使用WechatHelper中的方法
+        $accessToken = WechatHelper::getAccessToken($appid, $appsecret);
+        if ($accessToken) {
+            return $accessToken;
+        } else {
+            return false;
         }
-        return false;
     }
 
     /**

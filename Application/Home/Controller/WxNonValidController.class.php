@@ -36,6 +36,7 @@ class WxNonValidController extends Controller
 
     public function reply4TuiGuangErWeiMa($openid)
     {
+        WechatHelper::responseCustomerServiceText($openid,"nihao");
         //CommonLoger::log("aaaaaaaaaaaaaa00", "1111111111111111");
         // 获取用户信息
         $map['openid'] = $openid;//self::$_revdata['FromUserName'];

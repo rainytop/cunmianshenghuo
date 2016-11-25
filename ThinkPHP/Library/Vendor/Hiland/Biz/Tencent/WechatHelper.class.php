@@ -84,8 +84,6 @@ class WechatHelper
      */
     public static function getAccessToken($appID = '', $appSecret = '', $useCache = true, $cacheSeconds = 3600)
     {
-         //$useCache= false;
-
         if (empty($appID)) {
             $appID = WechatConfig::APPID;
         }
@@ -119,7 +117,6 @@ class WechatHelper
             }
         }
 
-        CommonLoger::log("accessToken", $result);
         return $result;
     }
 
