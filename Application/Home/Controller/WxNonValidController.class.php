@@ -71,6 +71,7 @@ class WxNonValidController extends Controller
 
         // 生产二维码基本信息，存入本地文档，获取背景
         $background = WxBiz::createQrcodeBg(); //$this->createQrcodeBg();
+        WechatHelper::responseCustomerServiceText($openid,$background);
         $qrcode = WxBiz::createQrcode($vip['id'], $vip['openid']);
         if (!$qrcode) {
             $msg = "专属二维码 生成失败";
