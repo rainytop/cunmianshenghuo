@@ -60,11 +60,14 @@ class WxNonValidController extends Controller
 
         // 过滤连续请求-打开
         if (F($vip['openid']) != null) {
+            CommonLoger::log("aaa", "331");
             $msg = "推广二维码正在生成，请稍等！";
             //self::$_wx->text($msg)->reply();
             WechatHelper::responseCustomerServiceText($openid,$msg);
+            CommonLoger::log("aaa", "332");
             exit();
         } else {
+            CommonLoger::log("aaa", "333");
             F($vip['openid'], $vip['openid']);
         }
 
