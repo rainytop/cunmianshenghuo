@@ -35,7 +35,7 @@ class WxNonValidController extends Controller
 
     public function reply4TuiGuangErWeiMa($openid)
     {
-        CommonLoger::log("aaaaaaaaaaaaaa00", "1111111111111111");
+        //CommonLoger::log("aaaaaaaaaaaaaa00", "1111111111111111");
         // 获取用户信息
         $map['openid'] = $openid;//self::$_revdata['FromUserName'];
 
@@ -43,6 +43,7 @@ class WxNonValidController extends Controller
         $vipModel= M('Vip');
         $vip = $vipModel ->where($map)->find();
 
+        CommonLoger::log("aaa", "22");
         // 用户校正
         if (!$vip) {
             $msg = "用户信息缺失，请重新关注公众号";
@@ -54,6 +55,8 @@ class WxNonValidController extends Controller
             exit();
         }
 
+        CommonLoger::log("aaa", "33");
+
         // 过滤连续请求-打开
         if (F($vip['openid']) != null) {
             $msg = "推广二维码正在生成，请稍等！";
@@ -62,6 +65,8 @@ class WxNonValidController extends Controller
         } else {
             F($vip['openid'], $vip['openid']);
         }
+
+        CommonLoger::log("aaa", "44");
 
         // 生产二维码基本信息，存入本地文档，获取背景
         $background = $this->createQrcodeBg();
@@ -72,6 +77,8 @@ class WxNonValidController extends Controller
             F($vip['openid'], null);
             exit();
         }
+
+        CommonLoger::log("aaa", "55");
         // 生产二维码基本信息，存入本地文档，获取背景 结束
 
         // 获取头像信息
@@ -85,6 +92,8 @@ class WxNonValidController extends Controller
             }
             $mark = true;
         }
+
+        CommonLoger::log("aaa", "66");
         $headimg = imagecreatefromstring($headimg);
         // 获取头像信息 结束
 
@@ -108,6 +117,7 @@ class WxNonValidController extends Controller
         imagettftext($background, 18, 0, 280, 100, $fontcolor, $fonttype, $vip['nickname']);
         imagejpeg($background, './QRcode/promotion/' . $vip['openid'] . '.jpg');
 
+        CommonLoger::log("aaa", "77");
         // 生成二维码推广图片 结束==================
 
         // 上传下载相应
@@ -121,6 +131,7 @@ class WxNonValidController extends Controller
         }
         // 上传下载相应 结束
 
+        CommonLoger::log("aaa", "88");
         // 过滤连续请求-关闭
         F($vip['openid'], null);
 
