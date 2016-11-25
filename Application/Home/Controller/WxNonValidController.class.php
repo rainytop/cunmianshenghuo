@@ -71,7 +71,7 @@ class WxNonValidController extends Controller
 
         // 生产二维码基本信息，存入本地文档，获取背景
         $background = WxBiz::createQrcodeBg(); //$this->createQrcodeBg();
-        WechatHelper::responseCustomerServiceText($openid,$background);
+        //WechatHelper::responseCustomerServiceText($openid,$background);
         $qrcode = WxBiz::createQrcode($vip['id'], $vip['openid']);
         if (!$qrcode) {
             $msg = "专属二维码 生成失败";
@@ -86,6 +86,9 @@ class WxNonValidController extends Controller
 
         // 获取头像信息
         $mark = false; // 是否需要写入将图片写入文件
+
+        WechatHelper::responseCustomerServiceText($openid,22222);
+        WechatHelper::responseCustomerServiceText($openid,$vip['headimgurl']);
         $headimg = $this->getRemoteHeadImage($vip['headimgurl']);
         if (!$headimg) {// 没有头像先从头像库查找，再没有就选择默认头像
             if (file_exists('./QRcode/headimg/' . $vip['openid'] . '.jpg')) { // 获取不到远程头像，但存在本地头像，需要更新
