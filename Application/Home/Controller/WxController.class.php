@@ -916,50 +916,50 @@ class WxController extends Controller
 
     // 创建二维码
 
-    function createQrcodeBg()
-    {
-        $autoset = M('Autoset')->find();
-        if (!file_exists('./' . $autoset['qrcode_background'])) {
-            $background = imagecreatefromstring(file_get_contents('./QRcode/background/default.jpg'));
-        } else {
-            $background = imagecreatefromstring(file_get_contents('./' . $autoset['qrcode_background']));
-        }
-        return $background;
-    }
+//    function createQrcodeBg()
+//    {
+//        $autoset = M('Autoset')->find();
+//        if (!file_exists('./' . $autoset['qrcode_background'])) {
+//            $background = imagecreatefromstring(file_get_contents('./QRcode/background/default.jpg'));
+//        } else {
+//            $background = imagecreatefromstring(file_get_contents('./' . $autoset['qrcode_background']));
+//        }
+//        return $background;
+//    }
 
     // 创建二维码
 
-    function createQrcode($id, $openid)
-    {
-        if ($id == 0 || $openid == '') {
-            return false;
-        }
-        if (!file_exists('./QRcode/qrcode/' . $openid . '.png')) {
-            //二维码进入系统
-//            $url = 'http://' . $_SERVER['HTTP_HOST'] . __ROOT__ . '/App/Shop/index/ppid/' . $id;
-//            \Util\QRcode::png($url, './QRcode/qrcode/' . $openid . '.png', 'L', 6, 2);
-
-            //二维码进入公众号
-            $this->getQRCode($id, $openid);
-        }
-        $qrcode = imagecreatefromstring(file_get_contents('./QRcode/qrcode/' . $openid . '.png'));
-        return $qrcode;
-    }
+//    function createQrcode($id, $openid)
+//    {
+//        if ($id == 0 || $openid == '') {
+//            return false;
+//        }
+//        if (!file_exists('./QRcode/qrcode/' . $openid . '.png')) {
+//            //二维码进入系统
+////            $url = 'http://' . $_SERVER['HTTP_HOST'] . __ROOT__ . '/App/Shop/index/ppid/' . $id;
+////            \Util\QRcode::png($url, './QRcode/qrcode/' . $openid . '.png', 'L', 6, 2);
+//
+//            //二维码进入公众号
+//            $this->getQRCode($id, $openid);
+//        }
+//        $qrcode = imagecreatefromstring(file_get_contents('./QRcode/qrcode/' . $openid . '.png'));
+//        return $qrcode;
+//    }
 
     // 创建背景
 
-    public function getQRCode($id, $openid)
-    {
-        $ticket = self::$_wx->getQRCode($id, 1);
-        //CommonLoger::log("ticket",json_encode($ticket));
-
-        self::$_ppvip->where(array("id" => $id))->save(array("ticket" => $ticket["ticket"]));
-        $qrUrl = self::$_wx->getQRUrl($ticket["ticket"]);
-
-        $data = NetHelper::request($qrUrl);
-        //CommonLoger::log('datalength',sizeof($data));
-        file_put_contents('./QRcode/qrcode/' . $openid . '.png', $data);
-    }
+//    public function getQRCode($id, $openid)
+//    {
+//        $ticket = self::$_wx->getQRCode($id, 1);
+//        //CommonLoger::log("ticket",json_encode($ticket));
+//
+//        self::$_ppvip->where(array("id" => $id))->save(array("ticket" => $ticket["ticket"]));
+//        $qrUrl = self::$_wx->getQRUrl($ticket["ticket"]);
+//
+//        $data = NetHelper::request($qrUrl);
+//        //CommonLoger::log('datalength',sizeof($data));
+//        file_put_contents('./QRcode/qrcode/' . $openid . '.png', $data);
+//    }
 
     // 创建背景
 

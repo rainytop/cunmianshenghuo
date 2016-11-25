@@ -10,6 +10,7 @@ namespace Home\Controller;
 
 
 use App\QRcode;
+use Home\Model\WxBiz;
 use Think\Controller;
 use Vendor\Hiland\Biz\Loger\CommonLoger;
 use Vendor\Hiland\Biz\Tencent\WechatHelper;
@@ -20,21 +21,21 @@ class WxNonValidController extends Controller
 
     public function __construct($options)
     {
-        $set = M('Set')->find();
-
-        $token = $set['wxtoken'];
-        $appId = $set['wxappid'];
-        $appSecret = $set['wxappsecret'];
-
-        $options['token'] = $token;
-        $options['appid'] = $appId;
-        $options['appsecret'] = $appSecret;
-
-        self::$_wx = new \Util\Wx\Wechat($options);
+//        $set = M('Set')->find();
+//
+//        $token = $set['wxtoken'];
+//        $appId = $set['wxappid'];
+//        $appSecret = $set['wxappsecret'];
+//
+//        $options['token'] = $token;
+//        $options['appid'] = $appId;
+//        $options['appsecret'] = $appSecret;
+//
+//        self::$_wx = new \Util\Wx\Wechat($options);
+        self::$_wx = WxBiz::getWechat();
     }
 
     public function reply4Test($openid){
-
         $accessToken= WechatHelper::getAccessToken();
         CommonLoger::log($openid,$accessToken);
         WechatHelper::responseCustomerServiceText($openid,"nihao");
@@ -43,12 +44,11 @@ class WxNonValidController extends Controller
 
     public function reply4TuiGuangErWeiMa($openid)
     {
-        WechatHelper::responseCustomerServiceText($openid,"nihao");
-        //CommonLoger::log("aaaaaaaaaaaaaa00", "1111111111111111");
-        // 获取用户信息
-        $map['openid'] = $openid;//self::$_revdata['FromUserName'];
+        //WechatHelper::responseCustomerServiceText($openid,"nihao");
 
-        //CommonLoger::log("erweima-openid", $map['openid']);
+        // 获取用户信息
+        $map['openid'] = $openid;
+
         $vipModel= M('Vip');
         $vip = $vipModel ->where($map)->find();
 
@@ -82,7 +82,7 @@ class WxNonValidController extends Controller
         CommonLoger::log("aaa", "44");
 
         // 生产二维码基本信息，存入本地文档，获取背景
-        $background = $this->createQrcodeBg();
+        $background = WxBiz::createQrcodeBg(); //$this->createQrcodeBg();
         $qrcode = $this->createQrcode($vip['id'], $vip['openid']);
         if (!$qrcode) {
             $msg = "专属二维码 生成失败";
