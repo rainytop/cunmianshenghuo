@@ -88,7 +88,6 @@ class WxNonValidController extends Controller
         // 获取头像信息
         $mark = false; // 是否需要写入将图片写入文件
 
-
         WechatHelper::responseCustomerServiceText($openid,$vip['headimgurl']);
         $headimg = NetHelper::request($vip['headimgurl']);//$this->getRemoteHeadImage($vip['headimgurl']);
         //WechatHelper::responseCustomerServiceText($openid,$headimg);
@@ -133,12 +132,15 @@ class WxNonValidController extends Controller
         if (file_exists(getcwd() . "/QRcode/promotion/" . $vip['openid'] . '.jpg')) {
             $file= getcwd() . "/QRcode/promotion/" . $vip['openid'] . '.jpg';
             CommonLoger::log('file',$file);
-            $data = array('media' => '@' . $file);
-            WechatHelper::responseCustomerServiceText($openid,$file);
-            $uploadresult = self::$_wx->uploadMedia($data, 'image');
-            //self::$_wx->image($uploadresult['media_id'])->reply();
-            WechatHelper::responseCustomerServiceText($openid,json_encode($uploadresult));
-            WechatHelper::responseCustomerServiceImage($openid,$uploadresult['media_id']);
+
+//            $data = array('media' => '@' . $file);
+//            WechatHelper::responseCustomerServiceText($openid,$file);
+//            $uploadresult = self::$_wx->uploadMedia($data, 'image');
+//            //self::$_wx->image($uploadresult['media_id'])->reply();
+//            WechatHelper::responseCustomerServiceText($openid,json_encode($uploadresult));
+//            WechatHelper::responseCustomerServiceImage($openid,$uploadresult['media_id']);
+            $mediaId= WechatHelper::uploadMedia($file);
+            WechatHelper::responseCustomerServiceImage($openid,$mediaId);
         } else {
             $msg = "专属二维码生成失败";
             //self::$_wx->text($msg)->reply();

@@ -1445,7 +1445,7 @@ class Wechat
      * @param boolean $post_file 是否文件上传
      * @return string content
      */
-    private function http_post($url, $param, $post_file = false)
+    private function http_post($url, $param, $post_file = false,$isForceUnSafe = false)
     {
         $oCurl = curl_init();
         if (stripos($url, "https://") !== FALSE) {
@@ -1465,7 +1465,9 @@ class Wechat
 
         //因为php版本的原因，上传素材一直保错。php的curl的curl_setopt 函数存在版本差异
         //PHP5.5已经把通过@加文件路径上传文件的方式给放入到Deprecated中了。php5.6默认是不支持这种方式了
-        //curl_setopt($oCurl, CURLOPT_SAFE_UPLOAD, false);
+        if ($isForceUnSafe == true) {
+            curl_setopt($oCurl, CURLOPT_SAFE_UPLOAD, false);
+        }
 
         curl_setopt($oCurl, CURLOPT_URL, $url);
         curl_setopt($oCurl, CURLOPT_RETURNTRANSFER, 1);
@@ -1583,7 +1585,12 @@ class Wechat
     {
         if (!$this->access_token && !$this->checkAuth()) return false;
         //原先的上传多媒体文件接口使用 self::UPLOAD_MEDIA_URL 前缀
-        $result = $this->http_post(self::API_URL_PREFIX . self::MEDIA_UPLOAD_URL . 'access_token=' . $this->access_token . '&type=' . $type, $data, true);
+
+        $isForceUnSafe= false;
+        if (version_compare(PHP_VERSION, '5.6.0', '>') && version_compare(PHP_VERSION, '7.0.0', '<')){
+            $isForceUnSafe= true;
+        }
+        $result = $this->http_post(self::API_URL_PREFIX . self::MEDIA_UPLOAD_URL . 'access_token=' . $this->access_token . '&type=' . $type, $data, true,$isForceUnSafe);
         if ($result) {
             $json = json_decode($result, true);
             if (!$json || !empty($json['errcode'])) {

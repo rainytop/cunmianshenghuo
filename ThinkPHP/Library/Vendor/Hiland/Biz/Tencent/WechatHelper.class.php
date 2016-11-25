@@ -172,7 +172,11 @@ class WechatHelper
             "media" => "@" . $mediaFileName
         );
 
-        $result = NetHelper::request($url, $mediajson);
+        $isForceUnSafe= false;
+        if (version_compare(PHP_VERSION, '5.6.0', '>') && version_compare(PHP_VERSION, '7.0.0', '<')){
+            $isForceUnSafe= true;
+        }
+        $result = NetHelper::request($url, $mediajson,0,false,null,null,$isForceUnSafe);
 
         $row = json_decode($result);
         $mediaId= $row->media_id;
