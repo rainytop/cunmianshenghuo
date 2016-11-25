@@ -1,6 +1,7 @@
 <?php
 namespace Vendor\Hiland\Biz\Loger;
 
+use Vendor\Hiland\Biz\Loger\DBLoger\Loger;
 use Vendor\Hiland\Utils\Data\ReflectionHelper;
 
 /**
@@ -72,11 +73,13 @@ class CommonLoger
         } else {
             $providerName = C("LogProviderName");
             if (empty($providerName)) {
-                $providerName = "DBLoger";
+                //$providerName = "DBLoger";
+                //默认的loger为DBLoger直接使用new机制，不使用反射机制生成，提高性能
+                $loger= new Loger();
+            }else{
+                $className = "Vendor\\Hiland\\Biz\\Loger\\$providerName\\Loger";
+                $loger = ReflectionHelper::createInstance($className);
             }
-
-            $className = "Vendor\\Hiland\\Biz\\Loger\\$providerName\\Loger";
-            $loger = ReflectionHelper::createInstance($className);
 
             S($cacheKey, $loger);
             return $loger;

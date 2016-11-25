@@ -8,7 +8,6 @@ use App\QRcode;
 use Home\Model\WxBiz;
 use Think\Controller;
 use Vendor\Hiland\Utils\IO\Thread;
-use Vendor\Hiland\Utils\Web\NetHelper;
 
 class WxController extends Controller
 {
@@ -143,8 +142,7 @@ class WxController extends Controller
         //强制关键词匹配
         //*********************************************************************
         switch ($key) {
-            case 'test':
-            {
+            case 'test': {
                 $qrUrl = U("WxNonValid/reply4Test", array("openid" => self::$_revdata['FromUserName']));
                 Thread::asynExec($qrUrl);
                 self::$_wx->text("测试信息生成中。$qrUrl")->reply();
@@ -162,8 +160,7 @@ class WxController extends Controller
             case '推广二维码': {
                 $qrUrl = U("WxNonValid/reply4TuiGuangErWeiMa", array("openid" => self::$_revdata['FromUserName']));
                 Thread::asynExec($qrUrl);
-                self::$_wx->text("您的推广二维码生成之中，请稍等片刻。$qrUrl")->reply();
-                //$this->reply4TuiGuangErWeiMa();
+                self::$_wx->text("您的推广二维码生成之中，请稍等片刻。")->reply();
                 break;
             }
             default: {
@@ -376,17 +373,17 @@ class WxController extends Controller
     $ruser=关键词记录
      */
 
-    function getRemoteHeadImage($headimgurl)
-    {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_POST, 0);
-        curl_setopt($ch, CURLOPT_URL, $headimgurl);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 2);
-        $headimg = curl_exec($ch);
-        curl_close($ch);
-        return $headimg;
-    }
+//    function getRemoteHeadImage($headimgurl)
+//    {
+//        $ch = curl_init();
+//        curl_setopt($ch, CURLOPT_POST, 0);
+//        curl_setopt($ch, CURLOPT_URL, $headimgurl);
+//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+//        curl_setopt($ch, CURLOPT_TIMEOUT, 2);
+//        $headimg = curl_exec($ch);
+//        curl_close($ch);
+//        return $headimg;
+//    }
 
     /*未知关键词匹配 by App
      */

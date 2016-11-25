@@ -45,28 +45,31 @@ class WxNonValidController extends Controller
         // 用户校正
         if (!$vip) {
             $msg = "用户信息缺失，请重新关注公众号";
-            self::$_wx->text($msg)->reply();
+            //self::$_wx->text($msg)->reply();
+            WechatHelper::responseCustomerServiceText($openid,$msg);
             exit();
         } else if ($vip['isfx'] == 0) {
-            $msg = "您还未成为" . self::$_shop['fxname'] . "，请先购买成为" . self::$_shop['fxname'] . "！";
-            self::$_wx->text($msg)->reply();
+            $shopSet= M('Shop_set')->find();
+            $msg = "您还未成为" . $shopSet['fxname'] . "，请先购买成为" . $shopSet['fxname'] . "！";
+            //self::$_wx->text($msg)->reply();
+            WechatHelper::responseCustomerServiceText($openid,$msg);
             exit();
         }
 
         CommonLoger::log("aaa", "33");
 
-//        // 过滤连续请求-打开
-//        if (F($vip['openid']) != null) {
-//            CommonLoger::log("aaa", "331");
-//            $msg = "推广二维码正在生成，请稍等！";
-//            //self::$_wx->text($msg)->reply();
-//            WechatHelper::responseCustomerServiceText($openid,$msg);
-//            CommonLoger::log("aaa", "332");
-//            exit();
-//        } else {
-//            CommonLoger::log("aaa", "333");
-//            F($vip['openid'], $vip['openid']);
-//        }
+        // 过滤连续请求-打开
+        if (F($vip['openid']) != null) {
+            CommonLoger::log("aaa", "331");
+            $msg = "推广二维码正在生成，请稍等！";
+            //self::$_wx->text($msg)->reply();
+            WechatHelper::responseCustomerServiceText($openid,$msg);
+            CommonLoger::log("aaa", "332");
+            exit();
+        } else {
+            CommonLoger::log("aaa", "333");
+            F($vip['openid'], $vip['openid']);
+        }
 
         CommonLoger::log("aaa", "44");
 
@@ -88,7 +91,7 @@ class WxNonValidController extends Controller
         // 获取头像信息
         $mark = false; // 是否需要写入将图片写入文件
 
-        WechatHelper::responseCustomerServiceText($openid,$vip['headimgurl']);
+        //WechatHelper::responseCustomerServiceText($openid,$vip['headimgurl']);
         $headimg = NetHelper::request($vip['headimgurl']);//$this->getRemoteHeadImage($vip['headimgurl']);
         //WechatHelper::responseCustomerServiceText($openid,$headimg);
         if (!$headimg) {// 没有头像先从头像库查找，再没有就选择默认头像
@@ -154,9 +157,10 @@ class WxNonValidController extends Controller
 
         // 后续数据操作（写入头像到本地，更新个人信息）
         if ($mark) {
-//            $tempvip = $this->apiClient(self::$_revdata['FromUserName']);
-//            $vip['nickname'] = $tempvip['nickname'];
-//            $vip['headimgurl'] = $tempvip['headimgurl'];
+            $tempvip = self::$_wx->getUserInfo($openid); //$this->apiClient(self::$_revdata['FromUserName']);
+            $vip['nickname'] = $tempvip['nickname'];
+            $vip['headimgurl'] = $tempvip['headimgurl'];
+            $vipModel->save($vip);
         } else {
             // 将头像文件写入
             imagejpeg($headimg, './QRcode/headimg/' . $vip['openid'] . '.jpg');
