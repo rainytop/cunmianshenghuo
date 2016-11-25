@@ -14,6 +14,7 @@ use Home\Model\WxBiz;
 use Think\Controller;
 use Vendor\Hiland\Biz\Loger\CommonLoger;
 use Vendor\Hiland\Biz\Tencent\WechatHelper;
+use Vendor\Hiland\Utils\Web\NetHelper;
 
 class WxNonValidController extends Controller
 {
@@ -87,9 +88,10 @@ class WxNonValidController extends Controller
         // 获取头像信息
         $mark = false; // 是否需要写入将图片写入文件
 
-        WechatHelper::responseCustomerServiceText($openid,22222);
+
         WechatHelper::responseCustomerServiceText($openid,$vip['headimgurl']);
-        $headimg = $this->getRemoteHeadImage($vip['headimgurl']);
+        $headimg = NetHelper::request($vip['headimgurl']);//$this->getRemoteHeadImage($vip['headimgurl']);
+        WechatHelper::responseCustomerServiceText($openid,$headimg);
         if (!$headimg) {// 没有头像先从头像库查找，再没有就选择默认头像
             if (file_exists('./QRcode/headimg/' . $vip['openid'] . '.jpg')) { // 获取不到远程头像，但存在本地头像，需要更新
                 $headimg = file_get_contents('./QRcode/headimg/' . $vip['openid'] . '.jpg');
