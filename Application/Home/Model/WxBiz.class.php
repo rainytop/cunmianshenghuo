@@ -66,12 +66,13 @@ class WxBiz
     {
         $wechat= self::getWechat();
         $ticket = $wechat->getQRCode($id, 1);
-        CommonLoger::log("ticket",json_encode($ticket));
+        //CommonLoger::log("ticket",json_encode($ticket));
 
         $vipModel= M('Vip');
         $vipModel->where(array("id" => $id))->save(array("ticket" => $ticket["ticket"]));
         $qrUrl = $wechat->getQRUrl($ticket["ticket"]);
 
+        //dump($qrUrl);
         $data = NetHelper::request($qrUrl);//NetHelper::Get($qrUrl); //
         //CommonLoger::log('datalength',sizeof($data));
         file_put_contents('./QRcode/qrcode/' . $openid . '.png', $data);

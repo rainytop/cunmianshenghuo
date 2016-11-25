@@ -1255,9 +1255,10 @@ class Wechat
 //        }
 
         //为了统一缓存AccessToken，均使用WechatHelper中的方法
-        $accessToken = WechatHelper::getAccessToken($appid, $appsecret);
+        $accessToken = WechatHelper::getAccessToken($appid, $appsecret,false);
         if ($accessToken) {
-            return $accessToken;
+            $this->access_token= $accessToken;
+            return $this->access_token;
         } else {
             return false;
         }
@@ -2015,6 +2016,7 @@ class Wechat
     public function getQRCode($scene_id, $type = 0, $expire = 1800)
     {
         if (!$this->access_token && !$this->checkAuth()) return false;
+        //dump($this->access_token);
         $type = ($type && is_string($scene_id)) ? 2 : $type;
         $data = array(
             'action_name' => $type ? ($type == 2 ? "QR_LIMIT_STR_SCENE" : "QR_LIMIT_SCENE") : "QR_SCENE",
