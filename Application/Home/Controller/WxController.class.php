@@ -6,10 +6,8 @@ namespace Home\Controller;
 
 use App\QRcode;
 use Think\Controller;
-use Vendor\Hiland\Biz\Loger\CommonLoger;
 use Vendor\Hiland\Utils\IO\Thread;
 use Vendor\Hiland\Utils\Web\NetHelper;
-use Vendor\Hiland\Utils\Web\WebHelper;
 
 class WxController extends Controller
 {
@@ -142,41 +140,53 @@ class WxController extends Controller
 
         //强制关键词匹配
         //*********************************************************************
-        if ($key == '操作指导') {
-            $msg = '未配置';
-            self::$_wx->text($msg)->reply();
+        switch ($key) {
+            case 'test':
+            {
+                $qrUrl = U("WxNonValid/reply4Test", array("openid" => self::$_revdata['FromUserName']));
+                Thread::asynExec($qrUrl);
+                self::$_wx->text("测试信息生成中。$qrUrl")->reply();
+                break;
+            }
+            case '操作指导': {
+                $msg = '未配置';
+                self::$_wx->text($msg)->reply();
+                break;
+            }
+            case '员工二维码': {
+                $this->reply4YuanGongErWeiMa();
+                break;
+            }
+            case '推广二维码': {
+                $qrUrl = U("WxNonValid/reply4TuiGuangErWeiMa", array("openid" => self::$_revdata['FromUserName']));
+                Thread::asynExec($qrUrl);
+                self::$_wx->text("您的推广二维码生成之中，请稍等片刻。$qrUrl")->reply();
+                //$this->reply4TuiGuangErWeiMa();
+                break;
+            }
+            default: {
+                //用户自定义关键词匹配
+                //*********************************************************************
+                $mapkey['keyword'] = $key;
+                //用户自定义关键词
+                $keyword = M('Wx_keyword');
+                $ruser = $keyword->where($mapkey)->find();
+                if ($ruser) {
+                    //进入用户自定义关键词回复
+                    $this->toKeyUser($ruser);
+                }
+                //*********************************************************************
+
+                //系统自定义关键词数组
+                //$osWgw=array('官网','首页','微官网','Home','home','Index','index');
+                //if(in_array($key,$osWgw)){$this->toWgw('index',false);}
+
+                //未知关键词匹配
+                //*********************************************************************
+                $this->toKeyUnknow();
+                break;
+            }
         }
-
-        if ($key == "员工二维码") {
-            $this->reply4YuanGongErWeiMa();
-        }
-
-        if ($key == "推广二维码") {
-            $qrUrl= U("WxNonValid/reply4TuiGuangErWeiMa",array("openid"=>self::$_revdata['FromUserName']));
-            Thread::asynExec($qrUrl);
-            self::$_wx->text("您的推广二维码生成之中，请稍等片刻。$qrUrl")->reply();
-            //$this->reply4TuiGuangErWeiMa();
-        }
-
-        //用户自定义关键词匹配
-        //*********************************************************************
-        $mapkey['keyword'] = $key;
-        //用户自定义关键词
-        $keyword = M('Wx_keyword');
-        $ruser = $keyword->where($mapkey)->find();
-        if ($ruser) {
-            //进入用户自定义关键词回复
-            $this->toKeyUser($ruser);
-        }
-        //*********************************************************************
-
-        //系统自定义关键词数组
-        //$osWgw=array('官网','首页','微官网','Home','home','Index','index');
-        //if(in_array($key,$osWgw)){$this->toWgw('index',false);}
-
-        //未知关键词匹配
-        //*********************************************************************
-        $this->toKeyUnknow();
     }
 
     public function updateUser($openid)
@@ -496,57 +506,6 @@ class WxController extends Controller
     Return:新闻数组/或直接推送
      */
 
-    function createQrcodeBg()
-    {
-        $autoset = M('Autoset')->find();
-        if (!file_exists('./' . $autoset['qrcode_background'])) {
-            $background = imagecreatefromstring(file_get_contents('./QRcode/background/default.jpg'));
-        } else {
-            $background = imagecreatefromstring(file_get_contents('./' . $autoset['qrcode_background']));
-        }
-        return $background;
-    }
-
-    /*获取单张图片 by App
-    return
-     */
-
-    function createQrcode($id, $openid)
-    {
-        if ($id == 0 || $openid == '') {
-            return false;
-        }
-        if (!file_exists('./QRcode/qrcode/' . $openid . '.png')) {
-            //二维码进入系统
-//            $url = 'http://' . $_SERVER['HTTP_HOST'] . __ROOT__ . '/App/Shop/index/ppid/' . $id;
-//            \Util\QRcode::png($url, './QRcode/qrcode/' . $openid . '.png', 'L', 6, 2);
-
-            //二维码进入公众号
-            $this->getQRCode($id, $openid);
-        }
-        $qrcode = imagecreatefromstring(file_get_contents('./QRcode/qrcode/' . $openid . '.png'));
-        return $qrcode;
-    }
-    //根据微信接口获取用户信息
-    //return array/false 用户信息/未获取。
-
-    public function getQRCode($id, $openid)
-    {
-        $ticket = self::$_wx->getQRCode($id, 1);
-        //CommonLoger::log("ticket",json_encode($ticket));
-
-        self::$_ppvip->where(array("id" => $id))->save(array("ticket" => $ticket["ticket"]));
-        $qrUrl = self::$_wx->getQRUrl($ticket["ticket"]);
-
-        $data = NetHelper::request($qrUrl);
-        //CommonLoger::log('datalength',sizeof($data));
-        file_put_contents('./QRcode/qrcode/' . $openid . '.png', $data);
-    }
-
-    /*认证服务号微信用户资料更新 by App
-    return
-     */
-
     public function toKeyUser($ruser)
     {
         $type = $ruser['type'];
@@ -583,7 +542,9 @@ class WxController extends Controller
         }
     }
 
-    ///////////////////增值方法//////////////////////////
+    /*获取单张图片 by App
+    return
+     */
 
     /**
      * 获取头像函数
@@ -598,12 +559,17 @@ class WxController extends Controller
         $list['imgurl'] = self::$_url . "/Upload/" . $list['savepath'] . $list['savename'];
         return $list ? $list : false;
     }
+    //根据微信接口获取用户信息
+    //return array/false 用户信息/未获取。
 
     public function toKeyUnknow()
     {
         self::$_wx->text("未找到此关键词匹配！")->reply();
     }
 
+    /*认证服务号微信用户资料更新 by App
+    return
+     */
 
     public function checkEvent($event)
     {
@@ -630,6 +596,8 @@ class WxController extends Controller
             }
         }
     }
+
+    ///////////////////增值方法//////////////////////////
 
     private function subscribe()
     {
@@ -880,8 +848,6 @@ class WxController extends Controller
         return $card;
     }
 
-    // 创建二维码
-
     function subscribeReturn($msg)
     {
         $temp = getcwd() . $this->getSubscribePic(self::$_set['wxpicture']);
@@ -894,8 +860,6 @@ class WxController extends Controller
             self::$_wx->image($uploadresult['media_id'])->reply();
         }
     }
-
-    // 创建二维码
 
     function getSubscribePic($id)
     {
@@ -916,8 +880,6 @@ class WxController extends Controller
         }
         return $temp ? $temp : '';
     }
-
-    // 创建背景
 
     private function unSubscribe()
     {
@@ -950,6 +912,53 @@ class WxController extends Controller
                 $rdlog = self::$_fxlog->add($dlog);
             }
         }
+    }
+
+    // 创建二维码
+
+    function createQrcodeBg()
+    {
+        $autoset = M('Autoset')->find();
+        if (!file_exists('./' . $autoset['qrcode_background'])) {
+            $background = imagecreatefromstring(file_get_contents('./QRcode/background/default.jpg'));
+        } else {
+            $background = imagecreatefromstring(file_get_contents('./' . $autoset['qrcode_background']));
+        }
+        return $background;
+    }
+
+    // 创建二维码
+
+    function createQrcode($id, $openid)
+    {
+        if ($id == 0 || $openid == '') {
+            return false;
+        }
+        if (!file_exists('./QRcode/qrcode/' . $openid . '.png')) {
+            //二维码进入系统
+//            $url = 'http://' . $_SERVER['HTTP_HOST'] . __ROOT__ . '/App/Shop/index/ppid/' . $id;
+//            \Util\QRcode::png($url, './QRcode/qrcode/' . $openid . '.png', 'L', 6, 2);
+
+            //二维码进入公众号
+            $this->getQRCode($id, $openid);
+        }
+        $qrcode = imagecreatefromstring(file_get_contents('./QRcode/qrcode/' . $openid . '.png'));
+        return $qrcode;
+    }
+
+    // 创建背景
+
+    public function getQRCode($id, $openid)
+    {
+        $ticket = self::$_wx->getQRCode($id, 1);
+        //CommonLoger::log("ticket",json_encode($ticket));
+
+        self::$_ppvip->where(array("id" => $id))->save(array("ticket" => $ticket["ticket"]));
+        $qrUrl = self::$_wx->getQRUrl($ticket["ticket"]);
+
+        $data = NetHelper::request($qrUrl);
+        //CommonLoger::log('datalength',sizeof($data));
+        file_put_contents('./QRcode/qrcode/' . $openid . '.png', $data);
     }
 
     // 创建背景

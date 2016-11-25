@@ -33,6 +33,13 @@ class WxNonValidController extends Controller
         self::$_wx = new \Util\Wx\Wechat($options);
     }
 
+    public function reply4Test($openid){
+
+        $accessToken= WechatHelper::getAccessToken();
+        CommonLoger::log($openid,$accessToken);
+        WechatHelper::responseCustomerServiceText($openid,"nihao");
+    }
+
 
     public function reply4TuiGuangErWeiMa($openid)
     {
