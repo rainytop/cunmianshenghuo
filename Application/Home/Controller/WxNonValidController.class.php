@@ -133,7 +133,7 @@ class WxNonValidController extends Controller
             $data = array('media' => '@' . getcwd() . "/QRcode/promotion/" . $vip['openid'] . '.jpg');
             $uploadresult = self::$_wx->uploadMedia($data, 'image');
             //self::$_wx->image($uploadresult['media_id'])->reply();
-            WechatHelper::responseCustomerServiceImage($openid,$uploadresult);
+            WechatHelper::responseCustomerServiceImage($openid,$uploadresult['media_id']);
         } else {
             $msg = "专属二维码生成失败";
             //self::$_wx->text($msg)->reply();
