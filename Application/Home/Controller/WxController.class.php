@@ -390,6 +390,7 @@ class WxController extends Controller
 
     public function reply4TuiGuangErWeiMa()
     {
+        CommonLoger::log("aaaaaaaaaaaaaa00","1111111111111111");
         // 获取用户信息
         $map['openid'] = self::$_revdata['FromUserName'];
 
