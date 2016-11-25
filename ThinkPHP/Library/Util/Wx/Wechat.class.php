@@ -1228,6 +1228,7 @@ class Wechat
             $appid = $this->appid;
             $appsecret = $this->appsecret;
         }
+        
         if ($token) { //手动指定token，优先使用
             $this->access_token = $token;
             return $this->access_token;
