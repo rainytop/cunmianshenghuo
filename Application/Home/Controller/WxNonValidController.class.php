@@ -14,6 +14,7 @@ use Home\Model\WxBiz;
 use Think\Controller;
 use Vendor\Hiland\Biz\Loger\CommonLoger;
 use Vendor\Hiland\Biz\Tencent\WechatHelper;
+use Vendor\Hiland\Utils\IO\ImageHelper;
 use Vendor\Hiland\Utils\Web\NetHelper;
 
 class WxNonValidController extends Controller
@@ -91,20 +92,35 @@ class WxNonValidController extends Controller
         // 获取头像信息
         $mark = false; // 是否需要写入将图片写入文件
 
-        //WechatHelper::responseCustomerServiceText($openid,$vip['headimgurl']);
-        $headimg = NetHelper::get($vip['headimgurl']);//$this->getRemoteHeadImage($vip['headimgurl']);
-        //WechatHelper::responseCustomerServiceText($openid,$headimg);
-        if (!$headimg) {// 没有头像先从头像库查找，再没有就选择默认头像
+//        //WechatHelper::responseCustomerServiceText($openid,$vip['headimgurl']);
+//        $headimg = NetHelper::get($vip['headimgurl']);//$this->getRemoteHeadImage($vip['headimgurl']);
+//        //WechatHelper::responseCustomerServiceText($openid,$headimg);
+//        if (!$headimg) {// 没有头像先从头像库查找，再没有就选择默认头像
+//            if (file_exists('./QRcode/headimg/' . $vip['openid'] . '.jpg')) { // 获取不到远程头像，但存在本地头像，需要更新
+//                $headimg = file_get_contents('./QRcode/headimg/' . $vip['openid'] . '.jpg');
+//            } else {
+//                $headimg = file_get_contents('./QRcode/headimg/' . 'default' . '.jpg');
+//            }
+//            $mark = true;
+//        }
+
+        $recommenduseravatar = $vip['headimgurl'];
+        if (empty($recommenduseravatar)) {
             if (file_exists('./QRcode/headimg/' . $vip['openid'] . '.jpg')) { // 获取不到远程头像，但存在本地头像，需要更新
-                $headimg = file_get_contents('./QRcode/headimg/' . $vip['openid'] . '.jpg');
+                $recommenduseravatar = PHYSICAL_ROOT_PATH.'/QRcode/headimg/' . $vip['openid'] . '.jpg';
             } else {
-                $headimg = file_get_contents('./QRcode/headimg/' . 'default' . '.jpg');
+                $recommenduseravatar = PHYSICAL_ROOT_PATH.'/QRcode/headimg/' . 'default' . '.jpg';
             }
+
+            $recommenduseravatar = str_replace('/', '\\', $recommenduseravatar);
             $mark = true;
         }
 
-        CommonLoger::log("aaa", "66");
-        $headimg = imagecreatefromstring($headimg);
+        CommonLoger::log("aaa", "661");
+        $headimg = ImageHelper::loadImage($recommenduseravatar, 'non');
+
+        CommonLoger::log("aaa", "662");
+        //$headimg = imagecreatefromstring($headimg);
         // 获取头像信息 结束
 
         // 生成二维码推广图片=======================
