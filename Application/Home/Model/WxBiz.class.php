@@ -1,6 +1,7 @@
 <?php
 
 namespace Home\Model;
+use Vendor\Hiland\Utils\Web\NetHelper;
 
 /**
  * Created by PhpStorm.
@@ -60,11 +61,13 @@ class WxBiz
 
     public static function getQRCode($id, $openid)
     {
-        $ticket = self::$_wx->getQRCode($id, 1);
+        $wechat= self::getWechat();
+        $ticket = $wechat->getQRCode($id, 1);
         //CommonLoger::log("ticket",json_encode($ticket));
 
-        self::$_ppvip->where(array("id" => $id))->save(array("ticket" => $ticket["ticket"]));
-        $qrUrl = self::$_wx->getQRUrl($ticket["ticket"]);
+        $vipModel= M('Vip');
+        $vipModel->where(array("id" => $id))->save(array("ticket" => $ticket["ticket"]));
+        $qrUrl = $wechat->getQRUrl($ticket["ticket"]);
 
         $data = NetHelper::request($qrUrl);
         //CommonLoger::log('datalength',sizeof($data));

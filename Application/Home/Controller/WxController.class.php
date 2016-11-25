@@ -5,6 +5,7 @@
 namespace Home\Controller;
 
 use App\QRcode;
+use Home\Model\WxBiz;
 use Think\Controller;
 use Vendor\Hiland\Utils\IO\Thread;
 use Vendor\Hiland\Utils\Web\NetHelper;
@@ -51,12 +52,13 @@ class WxController extends Controller
             die('token error');
         }
 
-        //缓存微信API模型类
-        $options['token'] = self::$_token;
-        $options['appid'] = self::$_set['wxappid'];
-        $options['appsecret'] = self::$_set['wxappsecret'];
-
-        self::$_wx = new \Util\Wx\Wechat($options);
+//        //缓存微信API模型类
+//        $options['token'] = self::$_token;
+//        $options['appid'] = self::$_set['wxappid'];
+//        $options['appsecret'] = self::$_set['wxappsecret'];
+//
+//        self::$_wx = new \Util\Wx\Wechat($options);
+        self::$_wx = WxBiz::getWechat();
 
         //缓存通行证数据模型
         self::$_ppvip = M('Vip');
