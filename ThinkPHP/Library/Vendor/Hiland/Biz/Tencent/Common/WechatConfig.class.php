@@ -22,22 +22,18 @@ class WechatConfig
      *
      * @var string
      */
-    const APPID = 'wxd1ffeeb54f02ba24';
-
-    const MCHID = '1310236601';
-
-    const MCHKEY = 'mLqPaqRwf7DqyJfhAhElq8FORPoYahPz';
-
-    const APPSECRET = '28f79589da83856fbb6ccca55aaba39e';
+    const APPID = 'wx544d11908ff9a2e9';
+    const APPSECRET = '6b9d6ef0360ef830895ebcc5a51b8428';
 
     // 微信二次开发入口token
     const GATETOKEN = 'bigseaguall20160608';
+    const AESKEY= 'lDkTUnWJzRU10X7Z0O42hnittxnojoJcH2YjkLJ5Eqj';
 
-    const AESKEY= 'pvSkWJ92m5XK4EbatX61xCJYuxgx5y4fxYLDIIPRhwg';
+    const MCHID = '1310236601';
+    const MCHKEY = 'mLqPaqRwf7DqyJfhAhElq8FORPoYahPz';
 
     // 微信公众平台商户的名称
-    const MCHNAME = '福轮网络';
-
+    const MCHNAME = '老青岛';
     const NOTIFYURL = 'http://app.rainytop.com/mm/index.php/tencent/pay/notify';
 
     // =======【证书路径设置】=====================================
