@@ -9,6 +9,7 @@ use Think\Controller;
 use Vendor\Hiland\Biz\Loger\CommonLoger;
 use Vendor\Hiland\Utils\IO\Thread;
 use Vendor\Hiland\Utils\Web\NetHelper;
+use Vendor\Hiland\Utils\Web\WebHelper;
 
 class WxController extends Controller
 {
@@ -151,6 +152,8 @@ class WxController extends Controller
 
         if ($key == "推广二维码") {
             $qrUrl= U("reply4TuiGuangErWeiMa");
+            $host =  WebHelper::getHostName();//WebHelper::getHostName();
+            CommonLoger::log($host);
             Thread::asynExec($qrUrl);
             self::$_wx->text("您的推广二维码生成之中，请稍等片刻。$qrUrl")->reply();
             //$this->reply4TuiGuangErWeiMa();
