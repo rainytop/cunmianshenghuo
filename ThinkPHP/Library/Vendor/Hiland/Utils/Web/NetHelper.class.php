@@ -44,11 +44,18 @@ class NetHelper
      * 模拟网络Get请求
      *
      * @param string $url
+     * @param bool $isCloseAtOnce 是否立即关闭连接
      * @return string
      */
-    public static function Get($url)
+    public static function Get($url, $isCloseAtOnce = false)
     {
-        $result = file_get_contents($url);
+        if ($isCloseAtOnce) {
+            $context = stream_context_create(array('http' => array('header' => 'Connection: close\r\n')));
+            $result = file_get_contents($url, false, $context);
+        } else {
+            $result = file_get_contents($url);
+        }
+
         return $result;
     }
 
@@ -79,8 +86,8 @@ class NetHelper
                                    $headerarray = array(), $cretfilearray = array(),
                                    $isForceUnSafe = false)
     {
-        if($timeoutsecond=0){
-            $timeoutsecond=30;
+        if ($timeoutsecond = 0) {
+            $timeoutsecond = 30;
         }
         $curl = curl_init();
 

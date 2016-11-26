@@ -57,14 +57,15 @@ class FooController extends Controller
 
     public function wxav(){
         $hostName= "http://wx.qlogo.cn";
-        //$hostName= "http://182.254.18.178";
+        $hostName= "http://182.254.18.178";
         $recommenduseravatar= "$hostName/mmopen/Ib5852jAybibhPd6DV1FzXCgLicqMreYh8LTWtFje4ePscFDPl8KMc2jAo65z5IjNluaQBBwkIVS2oxX67eqFBaoRnjoesVAWL/0";
 
         //$headimg = ImageHelper::loadImage($recommenduseravatar, 'non');
 
-        //$headimg= NetHelper::request($recommenduseravatar,null,30);
+        $headimg= NetHelper::request($recommenduseravatar,null,30);
+        //$headimg= NetHelper::get($recommenduseravatar,true);
+        //$headimg= $this-> ss($recommenduseravatar);
 
-        $headimg= $this-> ss($recommenduseravatar);
         $headimg= imagecreatefromstring($headimg);
         ImageHelper::display($headimg);
         //dump($headimg);
