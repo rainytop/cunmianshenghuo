@@ -51,12 +51,6 @@ class WxController extends Controller
             die('token error');
         }
 
-//        //缓存微信API模型类
-//        $options['token'] = self::$_token;
-//        $options['appid'] = self::$_set['wxappid'];
-//        $options['appsecret'] = self::$_set['wxappsecret'];
-//
-//        self::$_wx = new \Util\Wx\Wechat($options);
         self::$_wx = WxBiz::getWechat();
 
         //缓存通行证数据模型
@@ -122,7 +116,6 @@ class WxController extends Controller
             default:
                 self::$_wx->text("本系统暂时无法识别您的指令！")->reply();
         }
-
     } //end go
 
     /**
@@ -154,7 +147,10 @@ class WxController extends Controller
                 break;
             }
             case '员工二维码': {
-                $this->reply4YuanGongErWeiMa();
+                //$this->reply4YuanGongErWeiMa();
+                $qrUrl = U("WxNonValid/reply4YuanGongErWeiMa", array("openid" => self::$_revdata['FromUserName']));
+                Thread::asynExec($qrUrl);
+                self::$_wx->text("您的推广二维码生成之中，请稍等片刻。")->reply();
                 break;
             }
             case '推广二维码': {
@@ -231,143 +227,143 @@ class WxController extends Controller
 
     }
 
-    /**
-     * 对关键词“员工二维码”进行响应
-     */
-    public function reply4YuanGongErWeiMa()
-    {
+//    /**
+//     * 对关键词“员工二维码”进行响应
+//     */
+//    public function reply4YuanGongErWeiMa()
+//    {
+//
+//        // 获取用户信息
+//        $map['openid'] = self::$_revdata['FromUserName'];
+//        $vip = self::$_ppvip->where($map)->find();
+//
+//        // 用户校正
+//        if (!$vip) {
+//            $msg = "用户信息缺失，请重新关注公众号";
+//            self::$_wx->text($msg)->reply();
+//            exit();
+//        }
+//
+//        // 获取员工信息
+//        $employee = M('Employee')->where(array('vipid' => $vip['id']))->find();
+//
+//        // 员工校正
+//        if (!$employee) {
+//            $msg = "抱歉，您不是员工，请先联系系统管理员！";
+//            self::$_wx->text($msg)->reply();
+//            exit();
+//        }
+//
+//        // 过滤连续请求-打开
+//        if (F("employee" . $vip['openid']) != null) {
+//            $msg = "员工二维码正在生成，请稍等！";
+//            self::$_wx->text($msg)->reply();
+//            exit();
+//        } else {
+//            F("employee" . $vip['openid'], $vip['openid']);
+//        }
+//
+//        // 生产二维码基本信息，存入本地文档，获取背景
+//        $background = $this->createQrcodeBgEmp();
+//        //$qrcode = $this->createQrcode($vip['id'],$vip['openid']);
+//        $qrcode = $this->createEmployeeQrcode($employee['id'], $vip['openid']);
+//        if (!$qrcode) {
+//            $msg = "员工二维码 生成失败";
+//            self::$_wx->text($msg)->reply();
+//            F("employee" . $vip['openid'], null);
+//            exit();
+//        }
+//        // 生产二维码基本信息，存入本地文档，获取背景 结束
+//
+//        // 获取头像信息
+//        $mark = false; // 是否需要写入将图片写入文件
+//        $headimg = $this->getRemoteHeadImage($vip['headimgurl']);
+//        if (!$headimg) {// 没有头像先从头像库查找，再没有就选择默认头像
+//            if (file_exists('./QRcode/headimg/' . $vip['openid'] . '.jpg')) { // 获取不到远程头像，但存在本地头像，需要更新
+//                $headimg = file_get_contents('./QRcode/headimg/' . $vip['openid'] . '.jpg');
+//            } else {
+//                $headimg = file_get_contents('./QRcode/headimg/' . 'default' . '.jpg');
+//            }
+//            $mark = true;
+//        }
+//        $headimg = imagecreatefromstring($headimg);
+//        // 获取头像信息 结束
+//
+//        // 生成二维码推广图片=======================
+//
+//        // Combine QRcode and background and HeadImg
+//        $b_width = imagesx($background);
+//        $b_height = imagesy($background);
+//        $q_width = imagesx($qrcode);
+//        $q_height = imagesy($qrcode);
+//        $h_width = imagesx($headimg);
+//        $h_height = imagesy($headimg);
+//        imagecopyresampled($background, $qrcode, $b_width * 0.24, $b_height * 0.5, 0, 0, $q_width * 1.5, $q_height * 1.5, $q_width, $q_height);
+//        imagecopyresampled($background, $headimg, $b_width * 0.10, 12, 0, 0, 120, 120, $h_width, $h_height);
+//
+//        // Set Font Type And Color
+//        $fonttype = './Public/Common/fonts/wqy-microhei.ttc';
+//        $fontcolor = imagecolorallocate($background, 0x00, 0x00, 0x00);
+//
+//        // Combine All And Text, Then store in local
+//        imagettftext($background, 18, 0, 280, 100, $fontcolor, $fonttype, $vip['nickname']);
+//        imagejpeg($background, './QRcode/promotion/' . "employee" . $vip['openid'] . '.jpg');
+//
+//        // 生成二维码推广图片 结束==================
+//
+//        // 上传下载相应
+//        if (file_exists(getcwd() . "/QRcode/promotion/" . "employee" . $vip['openid'] . '.jpg')) {
+//            $data = array('media' => '@' . getcwd() . "/QRcode/promotion/" . "employee" . $vip['openid'] . '.jpg');
+//            $uploadresult = self::$_wx->uploadMedia($data, 'image');
+//            self::$_wx->image($uploadresult['media_id'])->reply();
+//        } else {
+//            $msg = "员工二维码生成失败";
+//            self::$_wx->text($msg)->reply();
+//        }
+//        // 上传下载相应 结束
+//
+//        // 过滤连续请求-关闭
+//        F("employee" . $vip['openid'], null);
+//
+//        // 后续数据操作（写入头像到本地，更新个人信息）
+//        if ($mark) {
+//            $tempvip = $this->apiClient(self::$_revdata['FromUserName']);
+//            $vip['nickname'] = $tempvip['nickname'];
+//            $vip['headimgurl'] = $tempvip['headimgurl'];
+//        } else {
+//            // 将头像文件写入
+//            imagejpeg($headimg, './QRcode/headimg/' . $vip['openid'] . '.jpg');
+//        }
+//    }
 
-        // 获取用户信息
-        $map['openid'] = self::$_revdata['FromUserName'];
-        $vip = self::$_ppvip->where($map)->find();
-
-        // 用户校正
-        if (!$vip) {
-            $msg = "用户信息缺失，请重新关注公众号";
-            self::$_wx->text($msg)->reply();
-            exit();
-        }
-
-        // 获取员工信息
-        $employee = M('Employee')->where(array('vipid' => $vip['id']))->find();
-
-        // 员工校正
-        if (!$employee) {
-            $msg = "抱歉，您不是员工，请先联系系统管理员！";
-            self::$_wx->text($msg)->reply();
-            exit();
-        }
-
-        // 过滤连续请求-打开
-        if (F("employee" . $vip['openid']) != null) {
-            $msg = "员工二维码正在生成，请稍等！";
-            self::$_wx->text($msg)->reply();
-            exit();
-        } else {
-            F("employee" . $vip['openid'], $vip['openid']);
-        }
-
-        // 生产二维码基本信息，存入本地文档，获取背景
-        $background = $this->createQrcodeBgEmp();
-        //$qrcode = $this->createQrcode($vip['id'],$vip['openid']);
-        $qrcode = $this->createEmployeeQrcode($employee['id'], $vip['openid']);
-        if (!$qrcode) {
-            $msg = "员工二维码 生成失败";
-            self::$_wx->text($msg)->reply();
-            F("employee" . $vip['openid'], null);
-            exit();
-        }
-        // 生产二维码基本信息，存入本地文档，获取背景 结束
-
-        // 获取头像信息
-        $mark = false; // 是否需要写入将图片写入文件
-        $headimg = $this->getRemoteHeadImage($vip['headimgurl']);
-        if (!$headimg) {// 没有头像先从头像库查找，再没有就选择默认头像
-            if (file_exists('./QRcode/headimg/' . $vip['openid'] . '.jpg')) { // 获取不到远程头像，但存在本地头像，需要更新
-                $headimg = file_get_contents('./QRcode/headimg/' . $vip['openid'] . '.jpg');
-            } else {
-                $headimg = file_get_contents('./QRcode/headimg/' . 'default' . '.jpg');
-            }
-            $mark = true;
-        }
-        $headimg = imagecreatefromstring($headimg);
-        // 获取头像信息 结束
-
-        // 生成二维码推广图片=======================
-
-        // Combine QRcode and background and HeadImg
-        $b_width = imagesx($background);
-        $b_height = imagesy($background);
-        $q_width = imagesx($qrcode);
-        $q_height = imagesy($qrcode);
-        $h_width = imagesx($headimg);
-        $h_height = imagesy($headimg);
-        imagecopyresampled($background, $qrcode, $b_width * 0.24, $b_height * 0.5, 0, 0, $q_width * 1.5, $q_height * 1.5, $q_width, $q_height);
-        imagecopyresampled($background, $headimg, $b_width * 0.10, 12, 0, 0, 120, 120, $h_width, $h_height);
-
-        // Set Font Type And Color
-        $fonttype = './Public/Common/fonts/wqy-microhei.ttc';
-        $fontcolor = imagecolorallocate($background, 0x00, 0x00, 0x00);
-
-        // Combine All And Text, Then store in local
-        imagettftext($background, 18, 0, 280, 100, $fontcolor, $fonttype, $vip['nickname']);
-        imagejpeg($background, './QRcode/promotion/' . "employee" . $vip['openid'] . '.jpg');
-
-        // 生成二维码推广图片 结束==================
-
-        // 上传下载相应
-        if (file_exists(getcwd() . "/QRcode/promotion/" . "employee" . $vip['openid'] . '.jpg')) {
-            $data = array('media' => '@' . getcwd() . "/QRcode/promotion/" . "employee" . $vip['openid'] . '.jpg');
-            $uploadresult = self::$_wx->uploadMedia($data, 'image');
-            self::$_wx->image($uploadresult['media_id'])->reply();
-        } else {
-            $msg = "员工二维码生成失败";
-            self::$_wx->text($msg)->reply();
-        }
-        // 上传下载相应 结束
-
-        // 过滤连续请求-关闭
-        F("employee" . $vip['openid'], null);
-
-        // 后续数据操作（写入头像到本地，更新个人信息）
-        if ($mark) {
-            $tempvip = $this->apiClient(self::$_revdata['FromUserName']);
-            $vip['nickname'] = $tempvip['nickname'];
-            $vip['headimgurl'] = $tempvip['headimgurl'];
-        } else {
-            // 将头像文件写入
-            imagejpeg($headimg, './QRcode/headimg/' . $vip['openid'] . '.jpg');
-        }
-    }
-
-    function createQrcodeBgEmp()
-    {
-        $autoset = M('Autoset')->find();
-        if (!file_exists('./' . $autoset['qrcode_emp_background'])) {
-            $background = imagecreatefromstring(file_get_contents('./QRcode/background/default.jpg'));
-        } else {
-            $background = imagecreatefromstring(file_get_contents('./' . $autoset['qrcode_emp_background']));
-        }
-        return $background;
-    }
+//    function createQrcodeBgEmp()
+//    {
+//        $autoset = M('Autoset')->find();
+//        if (!file_exists('./' . $autoset['qrcode_emp_background'])) {
+//            $background = imagecreatefromstring(file_get_contents('./QRcode/background/default.jpg'));
+//        } else {
+//            $background = imagecreatefromstring(file_get_contents('./' . $autoset['qrcode_emp_background']));
+//        }
+//        return $background;
+//    }
 
     /*高级调试模式 by App
     $type=调试命令
     $App-openid:获取用户openid
      */
 
-    function createEmployeeQrcode($id, $openid)
-    {
-        if ($id == 0 || $openid == '') {
-            return false;
-        }
-        if (!file_exists('./QRcode/qrcode/' . $id . "employee" . $openid . '.png')) {
-            $url = 'http://' . $_SERVER['HTTP_HOST'] . __ROOT__ . '/App/Shop/index/employee/' . $id;
-            \Util\QRcode::png($url, './QRcode/qrcode/' . $id . "employee" . $openid . '.png', 'L', 6, 2);
-        }
-        $qrcode = imagecreatefromstring(file_get_contents('./QRcode/qrcode/' . $id . "employee" . $openid . '.png'));
-        return $qrcode;
-    }
+//    function createEmployeeQrcode($id, $openid)
+//    {
+//        if ($id == 0 || $openid == '') {
+//            return false;
+//        }
+//        if (!file_exists('./QRcode/qrcode/' . $id . "employee" . $openid . '.png')) {
+//            $url = 'http://' . $_SERVER['HTTP_HOST'] . __ROOT__ . '/App/Shop/index/employee/' . $id;
+//            \Util\QRcode::png($url, './QRcode/qrcode/' . $id . "employee" . $openid . '.png', 'L', 6, 2);
+//        }
+//        $qrcode = imagecreatefromstring(file_get_contents('./QRcode/qrcode/' . $id . "employee" . $openid . '.png'));
+//        return $qrcode;
+//    }
 
     /*自定义关键词模式 by App
     $ruser=关键词记录

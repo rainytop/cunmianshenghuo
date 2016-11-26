@@ -29,31 +29,57 @@ class WxBiz
         return $wechat;
     }
 
+    public static function createQrcodeBg4Employee()
+    {
+        $background= self::createQrcodeBg('qrcode_emp_background');
+        return $background;
+    }
+
     /**
      * 获取二维码的背景图片资源
      * @return resource
      */
-    public static function createQrcodeBg()
+    public static function createQrcodeBg4Common()
+    {
+        $background= self::createQrcodeBg('qrcode_background');
+        return $background;
+    }
+
+    /**
+     * 获取二维码的背景图片资源
+     * @param string $bgKeyWord
+     * @return resource
+     */
+    private static function createQrcodeBg($bgKeyWord='qrcode_background' )
     {
         $autoset = M('Autoset')->find();
-        if (!file_exists('./' . $autoset['qrcode_background'])) {
+        if (!file_exists('./' . $autoset[$bgKeyWord])) {
             $background = imagecreatefromstring(file_get_contents('./QRcode/background/default.jpg'));
         } else {
-            $background = imagecreatefromstring(file_get_contents('./' . $autoset['qrcode_background']));
+            $background = imagecreatefromstring(file_get_contents('./' . $autoset[$bgKeyWord]));
         }
         return $background;
     }
 
-    public static function createQrcode($id, $openid)
+    public static function createQrcode4Employee($id, $openid)
+    {
+        if ($id == 0 || $openid == '') {
+            return false;
+        }
+        if (!file_exists('./QRcode/qrcode/' . $id . "employee" . $openid . '.png')) {
+            $url = 'http://' . $_SERVER['HTTP_HOST'] . __ROOT__ . '/App/Shop/index/employee/' . $id;
+            \Util\QRcode::png($url, './QRcode/qrcode/' . $id . "employee" . $openid . '.png', 'L', 6, 2);
+        }
+        $qrcode = imagecreatefromstring(file_get_contents('./QRcode/qrcode/' . $id . "employee" . $openid . '.png'));
+        return $qrcode;
+    }
+
+    public static function createQrcode4Common($id, $openid)
     {
         if ($id == 0 || $openid == '') {
             return false;
         }
         if (!file_exists('./QRcode/qrcode/' . $openid . '.png')) {
-            //二维码进入系统
-            // $url = 'http://' . $_SERVER['HTTP_HOST'] . __ROOT__ . '/App/Shop/index/ppid/' . $id;
-            // \Util\QRcode::png($url, './QRcode/qrcode/' . $openid . '.png', 'L', 6, 2);
-
             //二维码进入公众号
             //WechatHelper::responseCustomerServiceText($openid,"sssssssssss");
             self::getQRCode($id, $openid);
