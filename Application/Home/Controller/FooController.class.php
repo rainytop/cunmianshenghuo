@@ -62,9 +62,22 @@ class FooController extends Controller
 
         //$headimg = ImageHelper::loadImage($recommenduseravatar, 'non');
 
-        $headimg= NetHelper::request($recommenduseravatar,null,30);
+        //$headimg= NetHelper::request($recommenduseravatar,null,30);
+
+        $headimg= $this-> ss($recommenduseravatar);
         $headimg= imagecreatefromstring($headimg);
         ImageHelper::display($headimg);
         //dump($headimg);
+    }
+
+    private function ss($url){
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        $output = curl_exec($ch);
+        curl_close($ch);
+
+        return $output;
     }
 }
