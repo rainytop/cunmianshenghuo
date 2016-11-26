@@ -92,32 +92,34 @@ class WxNonValidController extends Controller
         // 获取头像信息
         $mark = false; // 是否需要写入将图片写入文件
 
-//        //WechatHelper::responseCustomerServiceText($openid,$vip['headimgurl']);
-//        $headimg = NetHelper::get($vip['headimgurl']);//$this->getRemoteHeadImage($vip['headimgurl']);
-//        //WechatHelper::responseCustomerServiceText($openid,$headimg);
-//        if (!$headimg) {// 没有头像先从头像库查找，再没有就选择默认头像
-//            if (file_exists('./QRcode/headimg/' . $vip['openid'] . '.jpg')) { // 获取不到远程头像，但存在本地头像，需要更新
-//                $headimg = file_get_contents('./QRcode/headimg/' . $vip['openid'] . '.jpg');
-//            } else {
-//                $headimg = file_get_contents('./QRcode/headimg/' . 'default' . '.jpg');
-//            }
-//            $mark = true;
-//        }
-
-        $recommenduseravatar = $vip['headimgurl'];
-        if (empty($recommenduseravatar)) {
+        //WechatHelper::responseCustomerServiceText($openid,$vip['headimgurl']);
+        $headimg = NetHelper::get($vip['headimgurl']);//$this->getRemoteHeadImage($vip['headimgurl']);
+        //WechatHelper::responseCustomerServiceText($openid,$headimg);
+        if (!$headimg) {// 没有头像先从头像库查找，再没有就选择默认头像
             if (file_exists('./QRcode/headimg/' . $vip['openid'] . '.jpg')) { // 获取不到远程头像，但存在本地头像，需要更新
-                $recommenduseravatar = PHYSICAL_ROOT_PATH.'/QRcode/headimg/' . $vip['openid'] . '.jpg';
+                $headimg = file_get_contents('./QRcode/headimg/' . $vip['openid'] . '.jpg');
             } else {
-                $recommenduseravatar = PHYSICAL_ROOT_PATH.'/QRcode/headimg/' . 'default' . '.jpg';
+                $headimg = file_get_contents('./QRcode/headimg/' . 'default' . '.jpg');
             }
-
-            $recommenduseravatar = str_replace('/', '\\', $recommenduseravatar);
             $mark = true;
         }
 
-        CommonLoger::log("aaa", "661");
-        $headimg = ImageHelper::loadImage($recommenduseravatar, 'non');
+        $headimg = imagecreatefromstring($headimg);
+
+//        $recommenduseravatar = $vip['headimgurl'];
+//        if (empty($recommenduseravatar)) {
+//            if (file_exists('./QRcode/headimg/' . $vip['openid'] . '.jpg')) { // 获取不到远程头像，但存在本地头像，需要更新
+//                $recommenduseravatar = PHYSICAL_ROOT_PATH.'/QRcode/headimg/' . $vip['openid'] . '.jpg';
+//            } else {
+//                $recommenduseravatar = PHYSICAL_ROOT_PATH.'/QRcode/headimg/' . 'default' . '.jpg';
+//            }
+//
+//            $recommenduseravatar = str_replace('/', '\\', $recommenduseravatar);
+//            $mark = true;
+//        }
+//
+//        CommonLoger::log("aaa", "661");
+//        $headimg = ImageHelper::loadImage($recommenduseravatar, 'non');
 
         CommonLoger::log("aaa", "662");
         //$headimg = imagecreatefromstring($headimg);

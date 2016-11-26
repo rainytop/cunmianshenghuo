@@ -12,6 +12,7 @@ namespace Home\Controller;
 use Home\Model\WxBiz;
 use Think\Controller;
 use Vendor\Hiland\Biz\Tencent\WechatHelper;
+use Vendor\Hiland\Utils\IO\ImageHelper;
 use Vendor\Hiland\Utils\Web\NetHelper;
 
 class FooController extends Controller
@@ -52,5 +53,18 @@ class FooController extends Controller
 
         $rt= WechatHelper::uploadMedia($file);
         dump($rt);
+    }
+
+    public function wxav(){
+        $hostName= "http://wx.qlogo.cn";
+        //$hostName= "http://182.254.18.178";
+        $recommenduseravatar= "$hostName/mmopen/Ib5852jAybibhPd6DV1FzXCgLicqMreYh8LTWtFje4ePscFDPl8KMc2jAo65z5IjNluaQBBwkIVS2oxX67eqFBaoRnjoesVAWL/0";
+
+        //$headimg = ImageHelper::loadImage($recommenduseravatar, 'non');
+
+        $headimg= NetHelper::request($recommenduseravatar,null,30);
+        $headimg= imagecreatefromstring($headimg);
+        ImageHelper::display($headimg);
+        //dump($headimg);
     }
 }

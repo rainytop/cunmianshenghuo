@@ -73,7 +73,9 @@ class ImageHelper
                 // file_get_contents函数要求php版本>4.3.0
                 $srcData = '';
                 if (function_exists("file_get_contents")) {
-                    $srcData = file_get_contents($imageFileName);
+                    $context = stream_context_create(array('http' => array('header'=>'Connection: close\r\n')));
+
+                    $srcData = file_get_contents($imageFileName,false,$context);
                 } else {
                     $handle = fopen($imageFileName, "r");
                     while (!feof($handle)) {
