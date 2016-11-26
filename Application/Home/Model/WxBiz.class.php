@@ -67,7 +67,7 @@ class WxBiz
             return false;
         }
         if (!file_exists('./QRcode/qrcode/' . $id . "employee" . $openid . '.png')) {
-            $url = 'http://' . $_SERVER['HTTP_HOST'] . __ROOT__ . '/App/Shop/index/employee/' . $id;
+            $url = 'http://' . $_SERVER['HTTP_HOST'] . __ROOT__ . '/index.php?s=/App/Shop/index/employee/' . $id;
             \Util\QRcode::png($url, './QRcode/qrcode/' . $id . "employee" . $openid . '.png', 'L', 6, 2);
         }
         $qrcode = imagecreatefromstring(file_get_contents('./QRcode/qrcode/' . $id . "employee" . $openid . '.png'));
