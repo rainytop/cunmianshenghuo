@@ -57,7 +57,9 @@ class FooController extends Controller
 
     public function wxav(){
         $hostName= "http://wx.qlogo.cn";
-        $hostName= "http://182.254.18.178";
+
+        $ip= C('WX_AVATARSERVER_IP');
+        $hostName= "http://$ip";
         $recommenduseravatar= "$hostName/mmopen/Ib5852jAybibhPd6DV1FzXCgLicqMreYh8LTWtFje4ePscFDPl8KMc2jAo65z5IjNluaQBBwkIVS2oxX67eqFBaoRnjoesVAWL/0";
 
         //$headimg = ImageHelper::loadImage($recommenduseravatar, 'non');

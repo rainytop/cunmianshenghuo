@@ -93,7 +93,12 @@ class WxNonValidController extends Controller
         $mark = false; // 是否需要写入将图片写入文件
 
         //WechatHelper::responseCustomerServiceText($openid,$vip['headimgurl']);
-        $headimg = NetHelper::request($vip['headimgurl']);//$this->getRemoteHeadImage($vip['headimgurl']);
+        $imageUrl= $vip['headimgurl'];
+        $wxAvatarIp= C('WX_AVATARSERVER_IP');
+        if($wxAvatarIp){
+            $imageUrl= str_replace('wx.qlogo.cn',$wxAvatarIp,$imageUrl);
+        }
+        $headimg = NetHelper::request($imageUrl);
         //WechatHelper::responseCustomerServiceText($openid,$headimg);
         if (!$headimg) {// 没有头像先从头像库查找，再没有就选择默认头像
             if (file_exists('./QRcode/headimg/' . $vip['openid'] . '.jpg')) { // 获取不到远程头像，但存在本地头像，需要更新
