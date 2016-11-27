@@ -74,7 +74,7 @@
 			<p class="border-b1 ads_ortt3 fonts18 color3">&nbsp;使用代金卷<span class="fr"><select name="djqid" id="djqid" class="ads-sel"><option value="0" data-money="0">请选择有效代金卷</option><foreach name="djq" item="vo"><option value="{$vo.id}" data-money="{$vo.money}">{$vo.money}元代金卷</option></foreach></select></span></p>
 			<p class="border-b1 ads_ortt3 fonts85">&nbsp;邮费政策：<eq name="isyf" value="1">全场定邮{$yf}元，订单满{$yftop}元包邮。<else/>全场包邮</eq></p>
 			<p class="border-b1 ads_ortt3 fonts85 ads"><input type="text" name="msg" class="ads_orinput" placeholder="给卖家留言"/></p>
-			<p class=" ads_ortt3 fonts85 ovflw"><span class="fr ">共{$totalnum}件商品&nbsp;&nbsp;&nbsp;&nbsp;商品：<em class="fonts18 color3">￥<b class="totalprice">{$totalprice}</b></em>&nbsp;&nbsp;&nbsp;&nbsp;邮费：<em class="fonts18 color3">￥<b>{$yf}</b></em></span></p>
+			<p class=" ads_ortt3 fonts85 ovflw"><span class="fr ">共{$totalnum}件商品&nbsp;&nbsp;&nbsp;&nbsp;商品合计：<em class="fonts18 color3">￥<b class="totalprice">{$totalprice}</b></em>&nbsp;&nbsp;&nbsp;&nbsp;邮费：<em class="fonts18 color3">￥<b>{$yf}</b></em></span></p>
 		</div>
 		</form>
 		<!-- 支付方式 -->

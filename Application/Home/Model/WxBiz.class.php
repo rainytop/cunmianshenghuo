@@ -1,8 +1,7 @@
 <?php
 
 namespace Home\Model;
-use Vendor\Hiland\Biz\Loger\CommonLoger;
-use Vendor\Hiland\Biz\Tencent\WechatHelper;
+
 use Vendor\Hiland\Utils\Web\NetHelper;
 
 /**
@@ -13,25 +12,25 @@ use Vendor\Hiland\Utils\Web\NetHelper;
  */
 class WxBiz
 {
-    public static function getWechat()
-    {
-        $set = M('Set')->find();
-
-        $token = $set['wxtoken'];
-        $appId = $set['wxappid'];
-        $appSecret = $set['wxappsecret'];
-
-        $options['token'] = $token;
-        $options['appid'] = $appId;
-        $options['appsecret'] = $appSecret;
-
-        $wechat = new \Util\Wx\Wechat($options);
-        return $wechat;
-    }
-
     public static function createQrcodeBg4Employee()
     {
-        $background= self::createQrcodeBg('qrcode_emp_background');
+        $background = self::createQrcodeBg('qrcode_emp_background');
+        return $background;
+    }
+
+    /**
+     * 获取二维码的背景图片资源
+     * @param string $bgKeyWord
+     * @return resource
+     */
+    private static function createQrcodeBg($bgKeyWord = 'qrcode_background')
+    {
+        $autoset = M('Autoset')->find();
+        if (!file_exists('./' . $autoset[$bgKeyWord])) {
+            $background = imagecreatefromstring(file_get_contents('./QRcode/background/default.jpg'));
+        } else {
+            $background = imagecreatefromstring(file_get_contents('./' . $autoset[$bgKeyWord]));
+        }
         return $background;
     }
 
@@ -41,23 +40,7 @@ class WxBiz
      */
     public static function createQrcodeBg4Common()
     {
-        $background= self::createQrcodeBg('qrcode_background');
-        return $background;
-    }
-
-    /**
-     * 获取二维码的背景图片资源
-     * @param string $bgKeyWord
-     * @return resource
-     */
-    private static function createQrcodeBg($bgKeyWord='qrcode_background' )
-    {
-        $autoset = M('Autoset')->find();
-        if (!file_exists('./' . $autoset[$bgKeyWord])) {
-            $background = imagecreatefromstring(file_get_contents('./QRcode/background/default.jpg'));
-        } else {
-            $background = imagecreatefromstring(file_get_contents('./' . $autoset[$bgKeyWord]));
-        }
+        $background = self::createQrcodeBg('qrcode_background');
         return $background;
     }
 
@@ -90,11 +73,11 @@ class WxBiz
 
     public static function getQRCode($id, $openid)
     {
-        $wechat= self::getWechat();
+        $wechat = self::getWechat();
         $ticket = $wechat->getQRCode($id, 1);
         //CommonLoger::log("ticket",json_encode($ticket));
 
-        $vipModel= M('Vip');
+        $vipModel = M('Vip');
         $vipModel->where(array("id" => $id))->save(array("ticket" => $ticket["ticket"]));
         $qrUrl = $wechat->getQRUrl($ticket["ticket"]);
 
@@ -102,5 +85,40 @@ class WxBiz
         $data = NetHelper::request($qrUrl);//NetHelper::Get($qrUrl); //
         //CommonLoger::log('datalength',sizeof($data));
         file_put_contents('./QRcode/qrcode/' . $openid . '.png', $data);
+    }
+
+    /**
+     * 获取wechat核心对象
+     * @param bool $useCache
+     * @return \Util\Wx\Wechat
+     */
+    public static function getWechat($useCache = true)
+    {
+        $cachekey = "getWechat-20161127";
+        if ($useCache == true) {
+            $result = S($cachekey);
+            if ($result) {
+                return $result;
+            }
+        }
+
+        $set = M('Set')->find();
+
+        $token = $set['wxtoken'];
+        $appId = $set['wxappid'];
+        $appSecret = $set['wxappsecret'];
+
+        $options['token'] = $token;
+        $options['appid'] = $appId;
+        $options['appsecret'] = $appSecret;
+
+        $wechat = new \Util\Wx\Wechat($options);
+
+        $cacheSeconds = 3600;
+        if ($useCache == true) {
+            S($cachekey, $wechat, $cacheSeconds);
+        }
+
+        return $wechat;
     }
 }

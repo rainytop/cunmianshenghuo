@@ -782,6 +782,9 @@ class ShopController extends BaseController
                     }
                 }
             }
+
+            $totalprice= round($totalprice,2);
+
             if ($todelids) {
                 $rdel = $m->delete($todelids);
                 if (!$rdel) {
