@@ -166,6 +166,7 @@
 			var djqops=document.getElementById("djqid");
 			djqops.addEventListener('change',function(){
 				var newmoney=Number(nowtotal)-Number(djqops.options[djqops.selectedIndex].getAttribute('data-money'));
+				newmoney= newmoney.toFixed(2);
 				// 初始支付限制
 				$('.ads_pay').data('disable',0);
 				$('.ads_pay span').css('color',' #cfcfcf');
