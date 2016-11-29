@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eafe96d6-3fe8-4b6a-bea8-8dddedb70c6b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Javascript/floatObject.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tpl/Home/Foo_jsop.html" />
+    <list default="true" id="eafe96d6-3fe8-4b6a-bea8-8dddedb70c6b" name="Default" comment="tijiao">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/FooController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/FooController.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/WxController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/WxController.class.php" />
     </list>
     <ignored path="wfx.iws" />
@@ -27,24 +24,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WxController.class.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WxController.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="590" column="13" selection-start-line="590" selection-start-column="13" selection-end-line="590" selection-end-column="13" />
+            <state relative-caret-position="174">
+              <caret line="124" column="38" selection-start-line="124" selection-start-column="38" selection-end-line="124" selection-end-column="38" />
               <folding>
                 <element signature="e#198#213#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="smarty_cacheresource_keyvaluestore.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Smarty/sysplugins/smarty_cacheresource_keyvaluestore.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="346" column="23" selection-start-line="346" selection-start-column="23" selection-end-line="346" selection-end-column="23" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -646,12 +633,20 @@
       <workItem from="1479886660275" duration="8382000" />
       <workItem from="1479972343747" duration="51169000" />
       <workItem from="1480216235381" duration="13009000" />
-      <workItem from="1480463362975" duration="451000" />
+      <workItem from="1480463362975" duration="614000" />
     </task>
+    <task id="LOCAL-00001" summary="tijiao">
+      <created>1480463884771</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1480463884771</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114672000" />
+    <option name="totallyTimeSpent" value="114835000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
@@ -689,6 +684,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="tijiao" />
+    <option name="LAST_COMMIT_MESSAGE" value="tijiao" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -899,6 +898,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="248" column="9" selection-start-line="248" selection-start-column="9" selection-end-line="248" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -942,6 +942,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
           <caret line="75" column="63" selection-start-line="75" selection-start-column="63" selection-end-line="75" selection-end-column="63" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -956,6 +957,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="84" column="27" selection-start-line="84" selection-start-column="27" selection-end-line="84" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1068,21 +1070,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxController.class.php">
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Smarty/sysplugins/smarty_cacheresource_keyvaluestore.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="590" column="13" selection-start-line="590" selection-start-column="13" selection-end-line="590" selection-end-column="13" />
-          <folding>
-            <element signature="e#198#213#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="223">
+          <caret line="348" column="30" selection-start-line="348" selection-start-column="30" selection-end-line="348" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Smarty/sysplugins/smarty_cacheresource_keyvaluestore.php">
+    <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="346" column="23" selection-start-line="346" selection-start-column="23" selection-end-line="346" selection-end-column="23" />
-          <folding />
+        <state relative-caret-position="174">
+          <caret line="124" column="38" selection-start-line="124" selection-start-column="38" selection-end-line="124" selection-end-column="38" />
+          <folding>
+            <element signature="e#198#213#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

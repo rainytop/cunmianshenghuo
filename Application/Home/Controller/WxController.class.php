@@ -103,7 +103,7 @@ class WxController extends Controller
     {
         switch (self::$_revtype) {
             case \Util\Wx\Wechat::MSGTYPE_TEXT:
-                $this->checkKeyword(self::$_revdata['Content']);
+                $this->checkKeyWord(self::$_revdata['Content']);
                 //self::$_wx->text(self::$_revdata['Content'])->reply();
                 break;
             case \Util\Wx\Wechat::MSGTYPE_EVENT:
@@ -122,7 +122,7 @@ class WxController extends Controller
      * 关键词指引
      * @param $key
      */
-    public function checkKeyword($key)
+    public function checkKeyWord($key)
     {
         //更新认证服务号的微信用户表信息（24小时内）
         $reUP = $this->updateUser(self::$_openid);
@@ -327,7 +327,7 @@ class WxController extends Controller
                 }
 
                 //不存在拦截命令,走关键词流程
-                $this->checkKeyword($key);
+                $this->checkKeyWord($key);
                 break;
             }
         }
