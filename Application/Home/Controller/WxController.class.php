@@ -168,7 +168,7 @@ class WxController extends Controller
                 $ruser = $keyword->where($mapkey)->find();
                 if ($ruser) {
                     //进入用户自定义关键词回复
-                    $this->toKeyUser($ruser);
+                    $this->toUsersKeyWord($ruser);
                 }
                 //*********************************************************************
 
@@ -206,7 +206,6 @@ class WxController extends Controller
             }
         }
         return ture;
-
     }
 
     public function toAppDebug($type)
@@ -224,12 +223,7 @@ class WxController extends Controller
             default:
                 self::$_wx->text("App:未知命令")->reply();
         }
-
     }
-
-
-    /*未知关键词匹配 by App
-     */
 
     /** 根据微信接口获取用户信息
      * @param $openid
@@ -249,7 +243,7 @@ class WxController extends Controller
 
 
 
-    public function toKeyUser($ruser)
+    public function toUsersKeyWord($ruser)
     {
         $type = $ruser['type'];
         switch ($type) {
@@ -517,7 +511,8 @@ class WxController extends Controller
                     $msg = array();
                     $msg['touser'] = $old['openid'];
                     $msg['msgtype'] = 'text';
-                    $str = "[" . $user['nickname'] . "]通过您的推广，成为了您的[" . $shopset['fx1name'] . "]，" . $customerup['value'];
+                    $newUserName= $user['nickname'];
+                    $str = "通过您的推广，用户[$newUserName]成为了您的[" . $shopset['fx1name'] . "]，" . $customerup['value'];
                     $msg['text'] = array('content' => $str);
                     $ree = self::$_wx->sendCustomMessage($msg);
                     // 发送消息完成============
@@ -529,7 +524,7 @@ class WxController extends Controller
                         $msg = array();
                         $msg['touser'] = $oldold['openid'];
                         $msg['msgtype'] = 'text';
-                        $str = "[" . $user['nickname'] . "]通过您的推广，成为了您的[" . $shopset['fx2name'] . "]，" . $customerup['value'];
+                        $str = "通过您的推广，用户[$newUserName]成为了您的[" . $shopset['fx2name'] . "]，" . $customerup['value'];
                         $msg['text'] = array('content' => $str);
                         $ree = self::$_wx->sendCustomMessage($msg);
                         // 发送消息完成============
@@ -541,7 +536,7 @@ class WxController extends Controller
                             $msg = array();
                             $msg['touser'] = $oldoldold['openid'];
                             $msg['msgtype'] = 'text';
-                            $str = "[" . $user['nickname'] . "]通过您的推广，成为了您的[" . $shopset['fx3name'] . "]，" . $customerup['value'];
+                            $str = "通过您的推广，用户[$newUserName]成为了您的[" . $shopset['fx3name'] . "]，" . $customerup['value'];
                             $msg['text'] = array('content' => $str);
                             $ree = self::$_wx->sendCustomMessage($msg);
                             // 发送消息完成============
@@ -556,17 +551,17 @@ class WxController extends Controller
                             $msg = array();
                             $msg['touser'] = $empvip['openid'];
                             $msg['msgtype'] = 'text';
-                            $str = "[" . $user['nickname'] . "]通过您的推广，成为了您的[" . $shopset['fxname'] . "]，" . $customeremp['value'];
+                            $str = "通过您的推广，用户[$newUserName]成为了您的[" . $shopset['fxname'] . "]，" . $customeremp['value'];
                             $msg['text'] = array('content' => $str);
                             $ree = self::$_wx->sendCustomMessage($msg);
                         }
                     }
                 }
 
-                $tourl = self::$_url . '/App/Shop/index/ppid/' . $revip . '/';
+                $tourl = self::$_url . '/index.php/App/Shop/index/ppid/' . $revip . '/';
                 $str = "<a href='" . $tourl . "'>" . htmlspecialchars_decode(self::$_set['wxsummary']) . "</a>";
             } else {
-                $tourl = self::$_url . '/App/Shop/index/';
+                $tourl = self::$_url . '/index.php/App/Shop/index/';
                 $str = "<a href='" . $tourl . "'>" . htmlspecialchars_decode(self::$_set['wxsummary']) . "</a>";
             }
         }

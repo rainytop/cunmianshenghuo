@@ -83,4 +83,8 @@ class FooController extends Controller
 
         return $output;
     }
+
+    public function jsop(){
+        $this->display();
+    }
 }
