@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eafe96d6-3fe8-4b6a-bea8-8dddedb70c6b" name="Default" comment="tijiao">
+    <list default="true" id="eafe96d6-3fe8-4b6a-bea8-8dddedb70c6b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/WxController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/WxController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tpl/Home/Foo_jsop.html" afterPath="$PROJECT_DIR$/Tpl/Home/Foo_jsop.html" />
     </list>
     <ignored path="wfx.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,10 +24,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WxController.class.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WxController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
+            <state relative-caret-position="2480">
               <caret line="124" column="38" selection-start-line="124" selection-start-column="38" selection-end-line="124" selection-end-column="38" />
               <folding>
                 <element signature="e#198#213#0#PHP" expanded="true" />
@@ -49,18 +49,18 @@
       <file leaf-file-name="floatObject.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Javascript/floatObject.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2600">
+            <state relative-caret-position="2277">
               <caret line="132" column="37" selection-start-line="132" selection-start-column="37" selection-end-line="132" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Foo_jsop.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Foo_jsop.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tpl/Home/Foo_jsop.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
+            <state relative-caret-position="280">
+              <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -203,9 +203,9 @@
         <option value="$PROJECT_DIR$/Tpl/App/Shop_orderMake.html" />
         <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Javascript/floatFixed.js" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/FooController.class.php" />
-        <option value="$PROJECT_DIR$/Tpl/Home/Foo_jsop.html" />
         <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Javascript/floatObject.js" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/WxController.class.php" />
+        <option value="$PROJECT_DIR$/Tpl/Home/Foo_jsop.html" />
       </list>
     </option>
   </component>
@@ -633,7 +633,7 @@
       <workItem from="1479886660275" duration="8382000" />
       <workItem from="1479972343747" duration="51169000" />
       <workItem from="1480216235381" duration="13009000" />
-      <workItem from="1480463362975" duration="614000" />
+      <workItem from="1480463362975" duration="866000" />
     </task>
     <task id="LOCAL-00001" summary="tijiao">
       <created>1480463884771</created>
@@ -642,11 +642,18 @@
       <option name="project" value="LOCAL" />
       <updated>1480463884771</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="tijiao">
+      <created>1480463994129</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1480463994129</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114835000" />
+    <option name="totallyTimeSpent" value="115087000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
@@ -1047,22 +1054,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tpl/Home/Foo_jsop.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Javascript/floatObject.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2600">
-          <caret line="132" column="37" selection-start-line="132" selection-start-column="37" selection-end-line="132" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxpayController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-14370">
@@ -1080,11 +1071,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
+        <state relative-caret-position="2480">
           <caret line="124" column="38" selection-start-line="124" selection-start-column="38" selection-end-line="124" selection-end-column="38" />
           <folding>
             <element signature="e#198#213#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Javascript/floatObject.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2277">
+          <caret line="132" column="37" selection-start-line="132" selection-start-column="37" selection-end-line="132" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tpl/Home/Foo_jsop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
