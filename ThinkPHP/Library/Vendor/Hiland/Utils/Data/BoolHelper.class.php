@@ -38,4 +38,17 @@ class BoolHelper
             return false;
         }
     }
+
+    /**
+     * 获取布尔值的文本显示
+     * @param $value
+     * @return string
+     */
+    public static function getText($value){
+        if($value){
+            return "true";
+        }else{
+            return "false";
+        }
+    }
 }

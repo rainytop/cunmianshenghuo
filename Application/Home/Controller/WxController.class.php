@@ -7,6 +7,8 @@ namespace Home\Controller;
 use App\QRcode;
 use Home\Model\WxBiz;
 use Think\Controller;
+use Vendor\Hiland\Biz\Loger\CommonLoger;
+use Vendor\Hiland\Utils\Data\BoolHelper;
 use Vendor\Hiland\Utils\IO\Thread;
 
 class WxController extends Controller
@@ -340,7 +342,10 @@ class WxController extends Controller
         //用户关注：判断是否已存在
         //检查用户是否已存在
         $old['openid'] = self::$_revdata['FromUserName'];
+        CommonLoger::log("subscribe",$old['openid']);
         $isold = self::$_ppvip->where($old)->find();
+        CommonLoger::log("isold-text",BoolHelper::getText($isold));
+        CommonLoger::log("isold",$isold);
         if ($isold) {
             $data['subscribe'] = 1;
             $re = self::$_ppvip->where($old)->setField('subscribe', 1);
