@@ -22,15 +22,15 @@ class WechatConfig
      *
      * @var string
      */
-    const APPID = 'wx544d11908ff9a2e9';
-    const APPSECRET = '6b9d6ef0360ef830895ebcc5a51b8428';
+    const APPID = 'wxb56d491f1c701ce8';
+    const APPSECRET = '4c38121045c8d07b7aa040b98d4ae8d2';
 
     // 微信二次开发入口token
     const GATETOKEN = 'bigseaguall20160608';
-    const AESKEY= 'lDkTUnWJzRU10X7Z0O42hnittxnojoJcH2YjkLJ5Eqj';
+    const AESKEY= 'eP2HiesIDhtHEW8fW2K9SfoSJ5M8aDsxPlPtO9aKg1T';
 
     const MCHID = '1310236601';
-    const MCHKEY = 'mLqPaqRwf7DqyJfhAhElq8FORPoYahPz';
+    const MCHKEY = 'eP2HiesIDhtHEW8fW2K9SfoSJ5M8aDsxPlPtO9aKg1T';
 
     // 微信公众平台商户的名称
     const MCHNAME = '老青岛';
