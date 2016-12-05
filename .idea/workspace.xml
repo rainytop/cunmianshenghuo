@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eafe96d6-3fe8-4b6a-bea8-8dddedb70c6b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MP_verify_joZCH9I3Qvhepamw.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Common/Conf/hiland_config.php" afterPath="$PROJECT_DIR$/Application/Common/Conf/hiland_config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tpl/Admin/Index_index.html" afterPath="$PROJECT_DIR$/Tpl/Admin/Index_index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tpl/Admin/Public_login.html" afterPath="$PROJECT_DIR$/Tpl/Admin/Public_login.html" />
     </list>
     <ignored path="wfx.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,11 +38,81 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MP_verify_joZCH9I3Qvhepamw.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/MP_verify_joZCH9I3Qvhepamw.txt">
+      <file leaf-file-name="install.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Addons/Apply/Data/install.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="80">
+              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="e0946a444c566a97c4cc045003ed6ac2.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Runtime/Cache/Admin/e0946a444c566a97c4cc045003ed6ac2.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Public_login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tpl/Admin/Public_login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="66" column="72" selection-start-line="66" selection-start-column="72" selection-end-line="66" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wfx.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wfx.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="3880" column="56" selection-start-line="3880" selection-start-column="56" selection-end-line="3880" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edfa35e3053db16b24335984ed17aef4.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Runtime/Cache/Admin/edfa35e3053db16b24335984ed17aef4.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Index_index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tpl/Admin/Index_index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="58" column="63" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hiland_config.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Common/Conf/hiland_config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WechatConfig.class.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Tencent/Common/WechatConfig.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="35" column="24" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -84,7 +156,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Tpl/App/Shop_orderDetail.html" />
         <option value="$PROJECT_DIR$/Application/App/Controller/VipController.class.php" />
         <option value="$PROJECT_DIR$/Application/App/Controller/BaseController.class.php" />
         <option value="$PROJECT_DIR$/Application/App/Controller/AlipayController.class.php" />
@@ -105,7 +176,6 @@
         <option value="$PROJECT_DIR$/Tpl/App/Shop_sharegoods.html" />
         <option value="$PROJECT_DIR$/Tpl/Admin/Shop_set.html" />
         <option value="$PROJECT_DIR$/Tpl/App/Shop_footer.html" />
-        <option value="$PROJECT_DIR$/Tpl/Admin/Index_index.html" />
         <option value="$PROJECT_DIR$/Tpl/Home/Index_about.html" />
         <option value="$PROJECT_DIR$/Tpl/App/Vip_about.html" />
         <option value="$PROJECT_DIR$/Tpl/App/Vip_index.html" />
@@ -120,7 +190,6 @@
         <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Loger/CommonLoger.class.php" />
         <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/Web/NetHelper.class.php" />
         <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/IO/ImageHelper.class.php" />
-        <option value="$PROJECT_DIR$/Application/Common/Conf/hiland_config.php" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/WxNonValidController.class.php" />
         <option value="$PROJECT_DIR$/Application/Home/Model/WxBiz.class.php" />
         <option value="$PROJECT_DIR$/Application/App/Controller/ShopController.class.php" />
@@ -135,6 +204,9 @@
         <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Tencent/Common/WechatConfig.class.php" />
         <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/Data/BoolHelper.class.php" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/WxController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Conf/hiland_config.php" />
+        <option value="$PROJECT_DIR$/Tpl/Admin/Public_login.html" />
+        <option value="$PROJECT_DIR$/Tpl/Admin/Index_index.html" />
       </list>
     </option>
   </component>
@@ -222,6 +294,60 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wfx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wfx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Common" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wfx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Common" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Conf" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -232,10 +358,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="two.files.diff.last.used.file" value="$USER_HOME$/Desktop/WxController.class.php" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Confirmation" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SearchEverywhereHistoryKey" value="like&#9;null&#9;null" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -305,7 +432,7 @@
     <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
   </component>
   <component name="SvnConfiguration">
-    <configuration>$USER_HOME$/.subversion</configuration>
+    <configuration>C:\Users\xiedalie\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -327,7 +454,7 @@
       <workItem from="1479972343747" duration="51169000" />
       <workItem from="1480216235381" duration="13009000" />
       <workItem from="1480463362975" duration="1482000" />
-      <workItem from="1480731693957" duration="17470000" />
+      <workItem from="1480731693957" duration="19456000" />
     </task>
     <task id="LOCAL-00001" summary="tijiao">
       <created>1480463884771</created>
@@ -354,16 +481,17 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133173000" />
+    <option name="totallyTimeSpent" value="135159000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2507622" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16844513" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42911586" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879046" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22734138" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -376,7 +504,6 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2907855" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -404,48 +531,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Application/App/Controller/FxController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="179" column="56" selection-start-line="179" selection-start-column="56" selection-end-line="179" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/App/Controller/VipController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="375" column="20" selection-start-line="375" selection-start-column="20" selection-end-line="375" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tpl/Admin/Index_help.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="76" column="71" selection-start-line="76" selection-start-column="71" selection-end-line="76" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/App/Controller/IndexController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tpl/Home/Index_help.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4020">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Geo/GeoHelper.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="173" column="27" selection-start-line="173" selection-start-column="27" selection-end-line="173" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_5.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
@@ -533,13 +618,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Common/Conf/hiland_config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="13" column="23" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/Web/NetHelper.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
@@ -619,7 +697,7 @@
         <state relative-caret-position="1560">
           <caret line="87" column="25" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="25" />
           <folding>
-            <element signature="e#121#142#0#PHP" expanded="true" />
+            <element signature="e#121#142#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -731,20 +809,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Tencent/Common/WechatConfig.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-116">
-          <caret line="29" column="62" selection-start-line="29" selection-start-column="62" selection-end-line="29" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/ShenqiController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
           <caret line="110" column="44" selection-start-line="110" selection-start-column="44" selection-end-line="110" selection-end-column="44" />
           <folding>
-            <element signature="e#119#140#0#PHP" expanded="true" />
+            <element signature="e#119#140#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -791,6 +861,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MP_verify_joZCH9I3Qvhepamw.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
@@ -801,13 +879,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MP_verify_joZCH9I3Qvhepamw.txt">
+    <entry file="file://$PROJECT_DIR$/Addons/Apply/Data/install.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="80">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Runtime/Cache/Admin/e0946a444c566a97c4cc045003ed6ac2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tpl/Admin/Public_login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="66" column="72" selection-start-line="66" selection-start-column="72" selection-end-line="66" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wfx.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="3880" column="56" selection-start-line="3880" selection-start-column="56" selection-end-line="3880" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Runtime/Cache/Admin/edfa35e3053db16b24335984ed17aef4.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tpl/Admin/Index_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="58" column="63" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Conf/hiland_config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Tencent/Common/WechatConfig.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="35" column="24" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
