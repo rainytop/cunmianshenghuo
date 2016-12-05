@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$title}</title>
+</head>
+
+<form method="post" action="{:U('')}">
+    请输入你要整蛊的姓名
+    <input type="text" name="targetName"/>
+    <button type="submit">生成</button>
+</form>
+<?php
+        if($imgsrc){
+            echo "<img src='$imgsrc' />";
+}
+?>
+</body>
+</html>
