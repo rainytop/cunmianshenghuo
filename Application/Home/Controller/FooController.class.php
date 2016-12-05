@@ -12,6 +12,7 @@ namespace Home\Controller;
 use Home\Model\WxBiz;
 use Think\Controller;
 use Vendor\Hiland\Biz\Tencent\WechatHelper;
+use Vendor\Hiland\Utils\IO\DirHelper;
 use Vendor\Hiland\Utils\IO\ImageHelper;
 use Vendor\Hiland\Utils\Web\NetHelper;
 
@@ -86,5 +87,14 @@ class FooController extends Controller
 
     public function jsop(){
         $this->display();
+    }
+
+    public function dirop(){
+        $path= "E:\\aa\\bb\\cc\\dd";
+//        if(is_dir($path)==false){
+//            mkdir($path);
+//        }
+
+        DirHelper::surePathExist($path);
     }
 }

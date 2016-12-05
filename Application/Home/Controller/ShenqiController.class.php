@@ -16,6 +16,7 @@ class ShenqiController extends Controller
 {
     public function baoye()
     {
+        $this->assign("title", "美女包夜");
         $this->detail("baoye");
     }
 
@@ -39,16 +40,19 @@ class ShenqiController extends Controller
 
     public function neiku()
     {
+        $this->assign("title", "美女内裤");
         $this->detail("neiku");
     }
 
     public function chuanpiao()
     {
+        $this->assign("title", "法院传票");
         $this->detail("chuanpiao");
     }
 
     public function jiejiu()
     {
+        $this->assign("title", "戒酒宣言");
         $this->detail("jiejiu");
     }
 }
