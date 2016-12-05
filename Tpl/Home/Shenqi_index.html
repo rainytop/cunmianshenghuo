@@ -20,6 +20,13 @@
     <meta content="email=no" name="format-detection"/>
     <title>{$title}</title>
     <link rel="stylesheet" href="__PUBLIC__/Common/css/weui.min.css"/>
+    <style type="text/css">
+        .full {
+            width: 100%;
+            /*max-width: 500px;*/
+        }
+
+    </style>
 </head>
 
 <form method="post" action="{:U('')}">
@@ -29,7 +36,7 @@
 </form>
 <?php
         if($imgsrc){
-            echo "<img src='$imgsrc' />";
+            echo "<img class='full' src='$imgsrc' />";
 }
 ?>
 </body>

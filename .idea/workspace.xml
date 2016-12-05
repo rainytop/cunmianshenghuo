@@ -58,8 +58,8 @@
       <file leaf-file-name="Shenqi_index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+            <state relative-caret-position="140">
+              <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -456,7 +456,7 @@
       <workItem from="1480463362975" duration="1482000" />
       <workItem from="1480731693957" duration="20054000" />
       <workItem from="1480920487183" duration="8917000" />
-      <workItem from="1480943050443" duration="3308000" />
+      <workItem from="1480943050443" duration="4119000" />
     </task>
     <task id="LOCAL-00001" summary="tijiao">
       <created>1480463884771</created>
@@ -483,7 +483,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147982000" />
+    <option name="totallyTimeSpent" value="148793000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -885,8 +885,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+        <state relative-caret-position="140">
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
           <folding />
         </state>
       </provider>
