@@ -14,6 +14,10 @@ use Vendor\Hiland\Utils\Data\ReflectionHelper;
 
 class ShenqiController extends Controller
 {
+    public function more(){
+        $this->display("more");
+    }
+
     public function baoye()
     {
         $this->assign("title", "美女包夜");
@@ -54,5 +58,10 @@ class ShenqiController extends Controller
     {
         $this->assign("title", "戒酒宣言");
         $this->detail("jiejiu");
+    }
+
+    public function wurenji(){
+        $this->assign("title", "无人机驾驶证");
+        $this->detail("wurenji");
     }
 }

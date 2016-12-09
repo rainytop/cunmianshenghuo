@@ -10,6 +10,7 @@ namespace Home\Model;
 
 use Vendor\Hiland\Utils\Data\DateHelper;
 use Vendor\Hiland\Utils\Data\GuidHelper;
+use Vendor\Hiland\Utils\IO\DirHelper;
 use Vendor\Hiland\Utils\IO\ImageHelper;
 
 class ShenqiBiz
@@ -41,9 +42,7 @@ class ShenqiBiz
     {
         $relativePath = "\\Upload\\shenqitupian\\" . DateHelper::format(null, 'Y-m-d') . "\\";
         $targetFilePath = PHYSICAL_ROOT_PATH . $relativePath;
-        if (is_dir($targetFilePath) == false) {
-            mkdir($targetFilePath);
-        }
+        DirHelper::surePathExist($targetFilePath);
 
         $fileShortName = GuidHelper::newGuid() . ".jpg";
         $relativeFile = $relativePath . $fileShortName;
@@ -111,4 +110,24 @@ class ShenqiBiz
         $relativeFile = self::saveImageAndGetRelativePath($imagemegered);
         return $relativeFile;
     }
+
+    public static function wurenji($name = "解然")
+    {
+        $bgFileName = PHYSICAL_ROOT_PATH . "\\Upload\\shenqi\\wurenji\\wurenji.jpg";
+        $fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\songti.TTF";
+        //$fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\jiangangshouxie.ttf";
+
+        $imagebg = ImageHelper::loadImage($bgFileName);;
+        $imagemegered = imagecreatetruecolor(imagesx($imagebg), imagesy($imagebg));
+        imagecopy($imagemegered, $imagebg, 0, 0, 0, 0, imagesx($imagebg), imagesy($imagebg));
+
+        $textcolor = imagecolorallocate($imagemegered, 85, 85, 85);
+        imagefttext($imagemegered, 15, -2, 175, 245, $textcolor, $fontFileName, $name);
+        $sinDate = DateHelper::format(null, "Y年m月d日");
+        imagefttext($imagemegered, 11, -2, 195, 365, $textcolor, $fontFileName, $sinDate);
+
+        $relativeFile = self::saveImageAndGetRelativePath($imagemegered);
+        return $relativeFile;
+    }
+
 }
