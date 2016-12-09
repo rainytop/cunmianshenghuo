@@ -112,19 +112,41 @@ class ShenqiBiz
     }
 
     public static function wurenji($name = "解然")
+{
+    $bgFileName = PHYSICAL_ROOT_PATH . "\\Upload\\shenqi\\wurenji\\wurenji.jpg";
+    $fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\songti.TTF";
+    //$fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\jiangangshouxie.ttf";
+
+    $imagebg = ImageHelper::loadImage($bgFileName);;
+    $imagemegered = imagecreatetruecolor(imagesx($imagebg), imagesy($imagebg));
+    imagecopy($imagemegered, $imagebg, 0, 0, 0, 0, imagesx($imagebg), imagesy($imagebg));
+
+    $textcolor = imagecolorallocate($imagemegered, 85, 85, 85);
+    imagefttext($imagemegered, 15, -2, 175, 245, $textcolor, $fontFileName, $name);
+    $sinDate = DateHelper::format(null, "Y年m月d日");
+    imagefttext($imagemegered, 11, -2, 195, 365, $textcolor, $fontFileName, $sinDate);
+
+    $relativeFile = self::saveImageAndGetRelativePath($imagemegered);
+    return $relativeFile;
+}
+
+    public static function maerdaifu($name = "解然")
     {
-        $bgFileName = PHYSICAL_ROOT_PATH . "\\Upload\\shenqi\\wurenji\\wurenji.jpg";
-        $fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\songti.TTF";
+        $bgFileName = PHYSICAL_ROOT_PATH . "\\Upload\\shenqi\\maerdaifu\\maerdaifu.jpg";
+        $fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\simhei.ttf";
         //$fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\jiangangshouxie.ttf";
 
         $imagebg = ImageHelper::loadImage($bgFileName);;
         $imagemegered = imagecreatetruecolor(imagesx($imagebg), imagesy($imagebg));
         imagecopy($imagemegered, $imagebg, 0, 0, 0, 0, imagesx($imagebg), imagesy($imagebg));
 
-        $textcolor = imagecolorallocate($imagemegered, 85, 85, 85);
-        imagefttext($imagemegered, 15, -2, 175, 245, $textcolor, $fontFileName, $name);
+        $textcolor = imagecolorallocate($imagemegered, 255, 255, 255);
+        imagefttext($imagemegered, 22, 0, 335, 457, $textcolor, $fontFileName, $name);
         $sinDate = DateHelper::format(null, "Y年m月d日");
-        imagefttext($imagemegered, 11, -2, 195, 365, $textcolor, $fontFileName, $sinDate);
+        imagefttext($imagemegered, 22, 0, 275, 325, $textcolor, $fontFileName, $sinDate);
+
+        $sinTime = DateHelper::format(null, "H:i");
+        imagefttext($imagemegered, 88, 0, 230, 275, $textcolor, $fontFileName, $sinTime);
 
         $relativeFile = self::saveImageAndGetRelativePath($imagemegered);
         return $relativeFile;

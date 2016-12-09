@@ -64,4 +64,9 @@ class ShenqiController extends Controller
         $this->assign("title", "无人机驾驶证");
         $this->detail("wurenji");
     }
+
+    public function maerdaifu(){
+        $this->assign("title", "马尔代夫旅游");
+        $this->detail("maerdaifu");
+    }
 }
