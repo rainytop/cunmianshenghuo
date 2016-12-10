@@ -69,4 +69,20 @@ class ShenqiController extends Controller
         $this->assign("title", "马尔代夫旅游");
         $this->detail("maerdaifu");
     }
+
+    public function nianzhongzongjie(){
+        $this->assign("title", "年终总结");
+        $this->detail("nianzhongzongjie");
+    }
+
+    public function xinlingjitang(){
+        $this->assign("title", "心灵鸡汤");
+        $this->detail("xinlingjitang");
+    }
+
+    public function hupandaxue(){
+        $this->assign("title", "湖畔大学");
+        $this->detail("hupandaxue");
+    }
+
 }

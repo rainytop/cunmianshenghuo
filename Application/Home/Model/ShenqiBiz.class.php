@@ -112,23 +112,23 @@ class ShenqiBiz
     }
 
     public static function wurenji($name = "解然")
-{
-    $bgFileName = PHYSICAL_ROOT_PATH . "\\Upload\\shenqi\\wurenji\\wurenji.jpg";
-    $fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\songti.TTF";
-    //$fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\jiangangshouxie.ttf";
+    {
+        $bgFileName = PHYSICAL_ROOT_PATH . "\\Upload\\shenqi\\wurenji\\wurenji.jpg";
+        $fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\songti.TTF";
+        //$fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\jiangangshouxie.ttf";
 
-    $imagebg = ImageHelper::loadImage($bgFileName);;
-    $imagemegered = imagecreatetruecolor(imagesx($imagebg), imagesy($imagebg));
-    imagecopy($imagemegered, $imagebg, 0, 0, 0, 0, imagesx($imagebg), imagesy($imagebg));
+        $imagebg = ImageHelper::loadImage($bgFileName);;
+        $imagemegered = imagecreatetruecolor(imagesx($imagebg), imagesy($imagebg));
+        imagecopy($imagemegered, $imagebg, 0, 0, 0, 0, imagesx($imagebg), imagesy($imagebg));
 
-    $textcolor = imagecolorallocate($imagemegered, 85, 85, 85);
-    imagefttext($imagemegered, 15, -2, 175, 245, $textcolor, $fontFileName, $name);
-    $sinDate = DateHelper::format(null, "Y年m月d日");
-    imagefttext($imagemegered, 11, -2, 195, 365, $textcolor, $fontFileName, $sinDate);
+        $textcolor = imagecolorallocate($imagemegered, 85, 85, 85);
+        imagefttext($imagemegered, 15, -2, 175, 245, $textcolor, $fontFileName, $name);
+        $sinDate = DateHelper::format(null, "Y年m月d日");
+        imagefttext($imagemegered, 11, -2, 195, 365, $textcolor, $fontFileName, $sinDate);
 
-    $relativeFile = self::saveImageAndGetRelativePath($imagemegered);
-    return $relativeFile;
-}
+        $relativeFile = self::saveImageAndGetRelativePath($imagemegered);
+        return $relativeFile;
+    }
 
     public static function maerdaifu($name = "解然")
     {
@@ -151,5 +151,72 @@ class ShenqiBiz
         $relativeFile = self::saveImageAndGetRelativePath($imagemegered);
         return $relativeFile;
     }
+
+    public static function nianzhongzongjie($name = "解然")
+    {
+        $bgFileName = PHYSICAL_ROOT_PATH . "\\Upload\\shenqi\\nianzhongzongjie\\nianzhongzongjie.jpg";
+        $fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\jiangangshouxie.ttf";
+
+        $imagebg = ImageHelper::loadImage($bgFileName);;
+        $imagemegered = imagecreatetruecolor(imagesx($imagebg), imagesy($imagebg));
+        imagecopy($imagemegered, $imagebg, 0, 0, 0, 0, imagesx($imagebg), imagesy($imagebg));
+
+        $textcolor = imagecolorallocate($imagemegered, 85, 85, 85);
+        imagefttext($imagemegered, 40, 0, 500, 855, $textcolor, $fontFileName, $name);
+        $sinDate = DateHelper::format(null, "Y年m月d日");
+        imagefttext($imagemegered, 20, 0, 450, 875, $textcolor, $fontFileName, $sinDate);
+
+        $relativeFile = self::saveImageAndGetRelativePath($imagemegered);
+        return $relativeFile;
+    }
+
+    public static function xinlingjitang($name = "解然")
+    {
+        $bgFileName = PHYSICAL_ROOT_PATH . "\\Upload\\shenqi\\xinlingjitang\\xinlingjitang.jpg";
+        $fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\jiangangshouxie.ttf";
+
+        $imagebg = ImageHelper::loadImage($bgFileName);;
+        $imagemegered = imagecreatetruecolor(imagesx($imagebg), imagesy($imagebg));
+        imagecopy($imagemegered, $imagebg, 0, 0, 0, 0, imagesx($imagebg), imagesy($imagebg));
+
+        $textcolor = imagecolorallocate($imagemegered, 85, 85, 85);
+        imagefttext($imagemegered, 40, 23, 460, 745, $textcolor, $fontFileName, "赠:" . $name);
+        $sinDate = DateHelper::format(null, "Y年m月d日");
+        imagefttext($imagemegered, 20, 23, 485, 840, $textcolor, $fontFileName, $sinDate);
+
+        $relativeFile = self::saveImageAndGetRelativePath($imagemegered);
+        return $relativeFile;
+    }
+
+
+    public static function hupandaxue($name = "解然")
+    {
+        $length = mb_strlen($name, 'utf8');
+        switch ($length) {
+            case 1:
+                $name = "  $name  ";
+                break;
+            case 2:
+                $name = mb_substr($name, 0, 1, 'utf8') . "  " . mb_substr($name, 1, 1, 'utf8');
+                break;
+            default:
+                $name = $name;
+                break;
+        }
+
+        $bgFileName = PHYSICAL_ROOT_PATH . "\\Upload\\shenqi\\hupandaxue\\hupandaxue.jpg";
+        $fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\simhei.ttf";
+
+        $imagebg = ImageHelper::loadImage($bgFileName);;
+        $imagemegered = imagecreatetruecolor(imagesx($imagebg), imagesy($imagebg));
+        imagecopy($imagemegered, $imagebg, 0, 0, 0, 0, imagesx($imagebg), imagesy($imagebg));
+
+        $textcolor = imagecolorallocate($imagemegered, 0, 0, 0);
+        imagefttext($imagemegered, 40, 0, 240, 805, $textcolor, $fontFileName, $name);
+
+        $relativeFile = self::saveImageAndGetRelativePath($imagemegered);
+        return $relativeFile;
+    }
+
 
 }
