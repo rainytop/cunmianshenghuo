@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eafe96d6-3fe8-4b6a-bea8-8dddedb70c6b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Upload/shenqi/gate/index.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Upload/shenqi/gate/jx.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Upload/shenqi/qiuhun/1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Upload/shenqi/qiuhun/2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Upload/shenqi/qiuhun/3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Upload/shenqi/qiuhun/4.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tpl/Home/Shenqi_gate.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tpl/Home/Shenqi_qiuhun.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Upload/shenqi/gate/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Upload/shenqi/qiuhun/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Upload/shenqi/qiuhun/news.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/ShenqiController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/ShenqiController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tpl/Home/Shenqi_more.html" afterPath="$PROJECT_DIR$/Tpl/Home/Shenqi_more.html" />
     </list>
     <ignored path="wfx.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,7 +23,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ShenqiController.class.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ShenqiController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Home/Controller/ShenqiController.class.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="477">
@@ -43,6 +31,16 @@
               <folding>
                 <element signature="e#119#140#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Shenqi_more.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_more.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="33" column="68" selection-start-line="33" selection-start-column="68" selection-end-line="33" selection-end-column="68" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -149,7 +147,6 @@
         <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/IO/DirHelper.class.php" />
         <option value="$PROJECT_DIR$/Tpl/Home/Shenqi_index.html" />
         <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Tencent/Common/cert/placeholder.txt" />
-        <option value="$PROJECT_DIR$/Tpl/Home/Shenqi_more.html" />
         <option value="$PROJECT_DIR$/Application/Home/Model/ShenqiBiz.class.php" />
         <option value="$PROJECT_DIR$/Upload/shenqi/qiuhun/news.css" />
         <option value="$PROJECT_DIR$/Upload/shenqi/gate/style.css" />
@@ -158,6 +155,7 @@
         <option value="$PROJECT_DIR$/Tpl/Home/Shenqi_gate.html" />
         <option value="$PROJECT_DIR$/Tpl/Home/Shenqi_qiuhun.html" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/ShenqiController.class.php" />
+        <option value="$PROJECT_DIR$/Tpl/Home/Shenqi_more.html" />
       </list>
     </option>
   </component>
@@ -463,7 +461,7 @@
       <workItem from="1480463362975" duration="1482000" />
       <workItem from="1480731693957" duration="20054000" />
       <workItem from="1480920487183" duration="8917000" />
-      <workItem from="1480943050443" duration="18960000" />
+      <workItem from="1480943050443" duration="19057000" />
     </task>
     <task id="LOCAL-00001" summary="tijiao">
       <created>1480463884771</created>
@@ -490,7 +488,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163634000" />
+    <option name="totallyTimeSpent" value="163731000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -843,14 +841,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_more.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="33" column="78" selection-start-line="33" selection-start-column="78" selection-end-line="33" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Upload/shenqi/qiuhun/news.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6108">
@@ -975,6 +965,14 @@
           <folding>
             <element signature="e#119#140#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_more.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="33" column="68" selection-start-line="33" selection-start-column="68" selection-end-line="33" selection-end-column="68" />
+          <folding />
         </state>
       </provider>
     </entry>
