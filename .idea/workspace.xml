@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eafe96d6-3fe8-4b6a-bea8-8dddedb70c6b" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Upload/shenqi/biaobai/1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Upload/shenqi/biaobai/2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Upload/shenqi/biaobai/3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Upload/shenqi/biaobai/4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Upload/shenqi/biaobai/5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tpl/Home/Shenqi_biaobai.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Upload/shenqi/biaobai/news.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Upload/shenqi/qiuhun/index.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/ShenqiController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/ShenqiController.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tpl/Home/Shenqi_more.html" afterPath="$PROJECT_DIR$/Tpl/Home/Shenqi_more.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tpl/Home/Shenqi_qiuhun.html" afterPath="$PROJECT_DIR$/Tpl/Home/Shenqi_qiuhun.html" />
     </list>
     <ignored path="wfx.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,8 +37,8 @@
       <file leaf-file-name="ShenqiController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Home/Controller/ShenqiController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state relative-caret-position="113">
+              <caret line="48" column="27" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="27" />
               <folding>
                 <element signature="e#119#140#0#PHP" expanded="true" />
               </folding>
@@ -35,12 +46,83 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Shenqi_more.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Shenqi_more.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_more.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="33" column="68" selection-start-line="33" selection-start-column="68" selection-end-line="33" selection-end-column="68" />
+            <state relative-caret-position="199">
+              <caret line="33" column="78" selection-start-line="33" selection-start-column="78" selection-end-line="33" selection-end-column="78" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="news.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Upload/shenqi/qiuhun/news.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1200">
+              <caret line="60" column="4" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="4" />
+              <folding>
+                <element signature="e#908#51655#2" expanded="true" />
+                <element signature="e#93014#100885#1" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Shenqi_biaobai.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_biaobai.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="17" column="63" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="63" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#844#850#0" expanded="true" />
+                <element signature="e#850#856#0" expanded="true" />
+                <element signature="e#856#862#0" expanded="true" />
+                <element signature="e#862#868#0" expanded="true" />
+                <element signature="e#868#874#0" expanded="true" />
+                <element signature="e#874#880#0" expanded="true" />
+                <element signature="e#880#886#0" expanded="true" />
+                <element signature="e#886#892#0" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#p#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#p#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#p#9;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#p#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#p#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Shenqi_qiuhun.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_qiuhun.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="18" column="63" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#p#3;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#1014#1020#0" expanded="true" />
+                <element signature="e#1020#1026#0" expanded="true" />
+                <element signature="e#1026#1032#0" expanded="true" />
+                <element signature="e#1032#1038#0" expanded="true" />
+                <element signature="e#1038#1044#0" expanded="true" />
+                <element signature="e#1044#1050#0" expanded="true" />
+                <element signature="e#1050#1056#0" expanded="true" />
+                <element signature="e#1056#1062#0" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#p#6;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#1353#1359#0" expanded="true" />
+                <element signature="e#1359#1365#0" expanded="true" />
+                <element signature="e#1365#1371#0" expanded="true" />
+                <element signature="e#1371#1377#0" expanded="true" />
+                <element signature="e#1377#1383#0" expanded="true" />
+                <element signature="e#1383#1389#0" expanded="true" />
+                <element signature="e#1389#1395#0" expanded="true" />
+                <element signature="e#1395#1401#0" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#p#9;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#p#11;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -51,39 +133,6 @@
             <state relative-caret-position="186">
               <caret line="244" column="23" selection-start-line="244" selection-start-column="23" selection-end-line="244" selection-end-column="23" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Shenqi_qiuhun.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_qiuhun.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#p#3;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#1010#1016#0" expanded="true" />
-                <element signature="e#1016#1022#0" expanded="true" />
-                <element signature="e#1022#1028#0" expanded="true" />
-                <element signature="e#1028#1034#0" expanded="true" />
-                <element signature="e#1034#1040#0" expanded="true" />
-                <element signature="e#1040#1046#0" expanded="true" />
-                <element signature="e#1046#1052#0" expanded="true" />
-                <element signature="e#1052#1058#0" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#p#6;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#1349#1355#0" expanded="true" />
-                <element signature="e#1355#1361#0" expanded="true" />
-                <element signature="e#1361#1367#0" expanded="true" />
-                <element signature="e#1367#1373#0" expanded="true" />
-                <element signature="e#1373#1379#0" expanded="true" />
-                <element signature="e#1379#1385#0" expanded="true" />
-                <element signature="e#1385#1391#0" expanded="true" />
-                <element signature="e#1391#1397#0" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#p#9;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#p#11;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -105,7 +154,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Application/Admin/Controller/UploadController.class.php" />
         <option value="$PROJECT_DIR$/Application/Common/Conf/db_local.php" />
         <option value="$PROJECT_DIR$/Application/Common/Conf/db_remote.php" />
         <option value="$PROJECT_DIR$/Application/Common/Conf/config.php" />
@@ -153,9 +201,10 @@
         <option value="$PROJECT_DIR$/Upload/shenqi/gate/index.html" />
         <option value="$PROJECT_DIR$/Upload/shenqi/qiuhun/index.html" />
         <option value="$PROJECT_DIR$/Tpl/Home/Shenqi_gate.html" />
-        <option value="$PROJECT_DIR$/Tpl/Home/Shenqi_qiuhun.html" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/ShenqiController.class.php" />
         <option value="$PROJECT_DIR$/Tpl/Home/Shenqi_more.html" />
+        <option value="$PROJECT_DIR$/Tpl/Home/Shenqi_biaobai.html" />
+        <option value="$PROJECT_DIR$/Tpl/Home/Shenqi_qiuhun.html" />
       </list>
     </option>
   </component>
@@ -330,6 +379,28 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Upload" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shenqi" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="biaobai" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wfx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Tpl" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -371,11 +442,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\myworkspace\project-php\LaoQingDao\src\Upload\shenqi\biaobai" />
       <recent name="E:\myworkspace\project-php\LaoQingDao\src\Upload\shenqi\gate" />
       <recent name="E:\myworkspace\project-php\LaoQingDao\src\Upload\shenqi\qiuhun" />
       <recent name="E:\myworkspace\project-php\LaoQingDao\src\Upload\shenqi\hupandaxue" />
       <recent name="E:\myworkspace\project-php\LaoQingDao\src\Upload\shenqi\xinlingjitang" />
-      <recent name="E:\myworkspace\project-php\LaoQingDao\src\Upload\shenqi\nianzhongzongjie" />
     </key>
   </component>
   <component name="RunManager">
@@ -461,7 +532,7 @@
       <workItem from="1480463362975" duration="1482000" />
       <workItem from="1480731693957" duration="20054000" />
       <workItem from="1480920487183" duration="8917000" />
-      <workItem from="1480943050443" duration="19057000" />
+      <workItem from="1480943050443" duration="20417000" />
     </task>
     <task id="LOCAL-00001" summary="tijiao">
       <created>1480463884771</created>
@@ -488,7 +559,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163731000" />
+    <option name="totallyTimeSpent" value="165091000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -538,22 +609,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/IO/ImageHelper.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-597">
-          <caret line="361" column="27" selection-start-line="361" selection-start-column="27" selection-end-line="361" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/gd.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="1883" column="66" selection-start-line="1883" selection-start-column="66" selection-end-line="1883" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Conf/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -629,6 +684,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -699,6 +755,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
           <caret line="346" column="36" selection-start-line="346" selection-start-column="36" selection-end-line="346" selection-end-column="36" />
+          <folding>
+            <element signature="e#198#213#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -713,6 +772,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -841,17 +901,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Upload/shenqi/qiuhun/news.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6108">
-          <caret line="800" column="0" selection-start-line="800" selection-start-column="0" selection-end-line="800" selection-end-column="0" />
-          <folding>
-            <element signature="e#908#51655#2" expanded="true" />
-            <element signature="e#93014#100885#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Upload/shenqi/gate/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
@@ -878,37 +927,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Upload/shenqi/qiuhun/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="27" column="51" selection-start-line="0" selection-start-column="0" selection-end-line="43" selection-end-column="7" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#p#3;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#979#985#0" expanded="true" />
-            <element signature="e#985#991#0" expanded="true" />
-            <element signature="e#991#997#0" expanded="true" />
-            <element signature="e#997#1003#0" expanded="true" />
-            <element signature="e#1003#1009#0" expanded="true" />
-            <element signature="e#1009#1015#0" expanded="true" />
-            <element signature="e#1015#1021#0" expanded="true" />
-            <element signature="e#1021#1027#0" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#p#6;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#1303#1309#0" expanded="true" />
-            <element signature="e#1309#1315#0" expanded="true" />
-            <element signature="e#1315#1321#0" expanded="true" />
-            <element signature="e#1321#1327#0" expanded="true" />
-            <element signature="e#1327#1333#0" expanded="true" />
-            <element signature="e#1333#1339#0" expanded="true" />
-            <element signature="e#1339#1345#0" expanded="true" />
-            <element signature="e#1345#1351#0" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#p#9;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#p#11;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_gate.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
@@ -927,41 +945,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_qiuhun.html">
+    <entry file="file://$PROJECT_DIR$/Upload/shenqi/qiuhun/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+        <state relative-caret-position="106">
+          <caret line="27" column="51" selection-start-line="0" selection-start-column="0" selection-end-line="43" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Upload/shenqi/qiuhun/news.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="60" column="4" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="4" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#p#3;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#1010#1016#0" expanded="true" />
-            <element signature="e#1016#1022#0" expanded="true" />
-            <element signature="e#1022#1028#0" expanded="true" />
-            <element signature="e#1028#1034#0" expanded="true" />
-            <element signature="e#1034#1040#0" expanded="true" />
-            <element signature="e#1040#1046#0" expanded="true" />
-            <element signature="e#1046#1052#0" expanded="true" />
-            <element signature="e#1052#1058#0" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#p#6;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#1349#1355#0" expanded="true" />
-            <element signature="e#1355#1361#0" expanded="true" />
-            <element signature="e#1361#1367#0" expanded="true" />
-            <element signature="e#1367#1373#0" expanded="true" />
-            <element signature="e#1373#1379#0" expanded="true" />
-            <element signature="e#1379#1385#0" expanded="true" />
-            <element signature="e#1385#1391#0" expanded="true" />
-            <element signature="e#1391#1397#0" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#p#9;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#p#11;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#908#51655#2" expanded="true" />
+            <element signature="e#93014#100885#1" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Upload/shenqi/biaobai/news.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/ShenqiController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        <state relative-caret-position="113">
+          <caret line="48" column="27" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="27" />
           <folding>
             <element signature="e#119#140#0#PHP" expanded="true" />
           </folding>
@@ -970,9 +984,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_more.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="33" column="68" selection-start-line="33" selection-start-column="68" selection-end-line="33" selection-end-column="68" />
+        <state relative-caret-position="199">
+          <caret line="33" column="78" selection-start-line="33" selection-start-column="78" selection-end-line="33" selection-end-column="78" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_biaobai.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="63" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="63" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#844#850#0" expanded="true" />
+            <element signature="e#850#856#0" expanded="true" />
+            <element signature="e#856#862#0" expanded="true" />
+            <element signature="e#862#868#0" expanded="true" />
+            <element signature="e#868#874#0" expanded="true" />
+            <element signature="e#874#880#0" expanded="true" />
+            <element signature="e#880#886#0" expanded="true" />
+            <element signature="e#886#892#0" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#p#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#p#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#p#9;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#p#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#p#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_qiuhun.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="18" column="63" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#p#3;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#1014#1020#0" expanded="true" />
+            <element signature="e#1020#1026#0" expanded="true" />
+            <element signature="e#1026#1032#0" expanded="true" />
+            <element signature="e#1032#1038#0" expanded="true" />
+            <element signature="e#1038#1044#0" expanded="true" />
+            <element signature="e#1044#1050#0" expanded="true" />
+            <element signature="e#1050#1056#0" expanded="true" />
+            <element signature="e#1056#1062#0" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#p#6;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#1353#1359#0" expanded="true" />
+            <element signature="e#1359#1365#0" expanded="true" />
+            <element signature="e#1365#1371#0" expanded="true" />
+            <element signature="e#1371#1377#0" expanded="true" />
+            <element signature="e#1377#1383#0" expanded="true" />
+            <element signature="e#1383#1389#0" expanded="true" />
+            <element signature="e#1389#1395#0" expanded="true" />
+            <element signature="e#1395#1401#0" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#p#9;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#p#11;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

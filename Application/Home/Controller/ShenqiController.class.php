@@ -46,6 +46,30 @@ class ShenqiController extends Controller
         }
     }
 
+    public function biaobai()
+    {
+        if (IS_POST) {
+            $name = I("targetName");
+            $this->redirect("biaobai", "name=$name");
+        } else {
+            $name = I("name");
+
+            if (empty($name)) {
+                $this->display("index");
+            } else {
+                $this->assign("name", $name);
+
+                $date = DateHelper::format(null, "Y-m-d");
+                $this->assign("date", $date);
+
+                $resourcePath = __ROOT__ . "/upload/shenqi/biaobai/";
+                $this->assign("resourcePath", $resourcePath);
+
+                $this->display();
+            }
+        }
+    }
+
     public function more()
     {
         $this->display("more");
