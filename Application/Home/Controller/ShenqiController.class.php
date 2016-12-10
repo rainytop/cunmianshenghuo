@@ -10,11 +10,44 @@ namespace Home\Controller;
 
 
 use Think\Controller;
+use Vendor\Hiland\Utils\Data\DateHelper;
 use Vendor\Hiland\Utils\Data\ReflectionHelper;
 
 class ShenqiController extends Controller
 {
-    public function more(){
+    public function gate()
+    {
+        $resourcePath = __ROOT__ . "/upload/shenqi/gate/";
+        $this->assign("resourcePath", $resourcePath);
+        $this->display();
+    }
+
+    public function qiuhun()
+    {
+        if (IS_POST) {
+            $name = I("targetName");
+            $this->redirect("qiuhun", "name=$name");
+        } else {
+            $name = I("name");
+
+            if (empty($name)) {
+                $this->display("index");
+            } else {
+                $this->assign("name", $name);
+
+                $date = DateHelper::format(null, "Y-m-d");
+                $this->assign("date", $date);
+
+                $resourcePath = __ROOT__ . "/upload/shenqi/qiuhun/";
+                $this->assign("resourcePath", $resourcePath);
+
+                $this->display();
+            }
+        }
+    }
+
+    public function more()
+    {
         $this->display("more");
     }
 
@@ -60,29 +93,35 @@ class ShenqiController extends Controller
         $this->detail("jiejiu");
     }
 
-    public function wurenji(){
+    public function wurenji()
+    {
         $this->assign("title", "无人机驾驶证");
         $this->detail("wurenji");
     }
 
-    public function maerdaifu(){
+    public function maerdaifu()
+    {
         $this->assign("title", "马尔代夫旅游");
         $this->detail("maerdaifu");
     }
 
-    public function nianzhongzongjie(){
+    public function nianzhongzongjie()
+    {
         $this->assign("title", "年终总结");
         $this->detail("nianzhongzongjie");
     }
 
-    public function xinlingjitang(){
+    public function xinlingjitang()
+    {
         $this->assign("title", "心灵鸡汤");
         $this->detail("xinlingjitang");
     }
 
-    public function hupandaxue(){
+    public function hupandaxue()
+    {
         $this->assign("title", "湖畔大学");
         $this->detail("hupandaxue");
     }
+
 
 }
