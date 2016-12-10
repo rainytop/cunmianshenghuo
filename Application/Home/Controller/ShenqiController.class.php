@@ -9,6 +9,7 @@
 namespace Home\Controller;
 
 
+use Org\Util\Date;
 use Think\Controller;
 use Vendor\Hiland\Utils\Data\DateHelper;
 use Vendor\Hiland\Utils\Data\ReflectionHelper;
@@ -61,6 +62,10 @@ class ShenqiController extends Controller
 
                 $date = DateHelper::format(null, "Y-m-d");
                 $this->assign("date", $date);
+
+                $lastDate= DateHelper::addInterval(null,"d",-1);
+                $lastDate= DateHelper::format($lastDate,"m月d日");
+                $this->assign("lastDate", $lastDate);
 
                 $resourcePath = __ROOT__ . "/upload/shenqi/biaobai/";
                 $this->assign("resourcePath", $resourcePath);

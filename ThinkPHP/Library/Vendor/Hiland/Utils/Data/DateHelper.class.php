@@ -29,7 +29,7 @@ class DateHelper
     /**
      * 对日期进行时间间隔处理
      *
-     * @param int $orignalDate
+     * @param int $originalTimestamp
      *            int类型的时间戳
      * @param string $intervalType
      *            时间间隔类型，具体如下：
@@ -48,9 +48,12 @@ class DateHelper
      *            时间间隔值
      * @return int int类型的时间戳
      */
-    public static function addInterval($orignalDate, $intervalType, $intervalValue)
+    public static function addInterval($originalTimestamp=null, $intervalType="d", $intervalValue=1)
     {
-        $datetimearray = getdate($orignalDate);
+        if(empty($originalTimestamp)){
+            $originalTimestamp= time();
+        }
+        $datetimearray = getdate($originalTimestamp);
         $hours = $datetimearray["hours"];
         $minutes = $datetimearray["minutes"];
         $seconds = $datetimearray["seconds"];
