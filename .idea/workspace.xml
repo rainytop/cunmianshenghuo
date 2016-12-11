@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eafe96d6-3fe8-4b6a-bea8-8dddedb70c6b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/AlipaywapController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/AlipaywapController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/WxpayController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/WxpayController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Tencent/Common/WechatConfig.class.php" afterPath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Tencent/Common/WechatConfig.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tpl/Home/Shenqi_biaobai.html" afterPath="$PROJECT_DIR$/Tpl/Home/Shenqi_biaobai.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxpay.php" afterPath="$PROJECT_DIR$/wxpay.php" />
     </list>
     <ignored path="wfx.iws" />
@@ -140,8 +137,8 @@
       <file leaf-file-name="wxpay.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wxpay.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="41" column="81" selection-start-line="41" selection-start-column="81" selection-end-line="41" selection-end-column="81" />
+            <state relative-caret-position="333">
+              <caret line="41" column="73" selection-start-line="41" selection-start-column="73" selection-end-line="41" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -274,10 +271,10 @@
         <option value="$PROJECT_DIR$/Application/Home/Controller/ShenqiController.class.php" />
         <option value="$PROJECT_DIR$/Tpl/Home/Shenqi_biaobai.html" />
         <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Tencent/Common/WechatConfig.class.php" />
-        <option value="$PROJECT_DIR$/wxpay.php" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/WxpayController.class.php" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/AlipaywapController.class.php" />
         <option value="$PROJECT_DIR$/Application/Runtime/Cache/Admin/9da42c0d5f078aaca1af52e2f1141644.php" />
+        <option value="$PROJECT_DIR$/wxpay.php" />
       </list>
     </option>
   </component>
@@ -605,7 +602,7 @@
       <workItem from="1480463362975" duration="1482000" />
       <workItem from="1480731693957" duration="20054000" />
       <workItem from="1480920487183" duration="8917000" />
-      <workItem from="1480943050443" duration="23125000" />
+      <workItem from="1480943050443" duration="23314000" />
     </task>
     <task id="LOCAL-00001" summary="tijiao">
       <created>1480463884771</created>
@@ -632,7 +629,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167799000" />
+    <option name="totallyTimeSpent" value="167988000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -642,7 +639,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33157098" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19410875" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879046" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22734138" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1084,14 +1081,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wxpay.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="41" column="81" selection-start-line="41" selection-start-column="81" selection-end-line="41" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxpayController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
@@ -1112,6 +1101,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
           <caret line="68" column="52" selection-start-line="68" selection-start-column="52" selection-end-line="68" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxpay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="41" column="73" selection-start-line="41" selection-start-column="73" selection-end-line="41" selection-end-column="73" />
           <folding />
         </state>
       </provider>
