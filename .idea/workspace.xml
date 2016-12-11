@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eafe96d6-3fe8-4b6a-bea8-8dddedb70c6b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/WxpayController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/WxpayController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Tencent/Pay/WxPayApi.class.php" afterPath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Tencent/Pay/WxPayApi.class.php" />
     </list>
     <ignored path="wfx.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -103,11 +104,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WxPayApi.class.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WxPayApi.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Tencent/Pay/WxPayApi.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="66" column="26" selection-start-line="66" selection-start-column="26" selection-end-line="66" selection-end-column="26" />
+            <state relative-caret-position="217">
+              <caret line="577" column="51" selection-start-line="577" selection-start-column="51" selection-end-line="577" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -183,13 +184,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WxpayController.class.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WxpayController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxpayController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="509" column="32" selection-start-line="509" selection-start-column="32" selection-end-line="509" selection-end-column="32" />
+            <state relative-caret-position="197">
+              <caret line="507" column="49" selection-start-line="507" selection-start-column="49" selection-end-line="507" selection-end-column="49" />
               <folding>
                 <element signature="e#80#101#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Wechat.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Util/Wx/Wechat.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
+              <caret line="247" column="55" selection-start-line="247" selection-start-column="23" selection-end-line="247" selection-end-column="55" />
+              <folding>
+                <marker date="1480074830947" expanded="true" signature="36579:36720" ph="..." />
               </folding>
             </state>
           </provider>
@@ -200,59 +213,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="186">
               <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FooController.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Home/Controller/FooController.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="101" column="87" selection-start-line="101" selection-start-column="87" selection-end-line="101" selection-end-column="87" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Shenqi_qiuhun.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_qiuhun.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" column="63" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#p#3;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#1014#1020#0" expanded="true" />
-                <element signature="e#1020#1026#0" expanded="true" />
-                <element signature="e#1026#1032#0" expanded="true" />
-                <element signature="e#1032#1038#0" expanded="true" />
-                <element signature="e#1038#1044#0" expanded="true" />
-                <element signature="e#1044#1050#0" expanded="true" />
-                <element signature="e#1050#1056#0" expanded="true" />
-                <element signature="e#1056#1062#0" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#p#6;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#1353#1359#0" expanded="true" />
-                <element signature="e#1359#1365#0" expanded="true" />
-                <element signature="e#1365#1371#0" expanded="true" />
-                <element signature="e#1371#1377#0" expanded="true" />
-                <element signature="e#1377#1383#0" expanded="true" />
-                <element signature="e#1383#1389#0" expanded="true" />
-                <element signature="e#1389#1395#0" expanded="true" />
-                <element signature="e#1395#1401#0" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#p#9;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#p#11;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Controller.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Think/Controller.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4720">
-              <caret line="244" column="23" selection-start-line="244" selection-start-column="23" selection-end-line="244" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -275,7 +235,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Tpl/Admin/Shop_set.html" />
         <option value="$PROJECT_DIR$/Tpl/App/Shop_footer.html" />
         <option value="$PROJECT_DIR$/Tpl/Home/Index_about.html" />
         <option value="$PROJECT_DIR$/Tpl/App/Vip_index.html" />
@@ -326,6 +285,7 @@
         <option value="$PROJECT_DIR$/Tpl/App/Shop_orderMake.html" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/FooController.class.php" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/WxpayController.class.php" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Tencent/Pay/WxPayApi.class.php" />
       </list>
     </option>
   </component>
@@ -578,7 +538,7 @@
       <workItem from="1480731693957" duration="20054000" />
       <workItem from="1480920487183" duration="8917000" />
       <workItem from="1480943050443" duration="24010000" />
-      <workItem from="1481422134567" duration="3863000" />
+      <workItem from="1481422134567" duration="4673000" />
     </task>
     <task id="LOCAL-00001" summary="tijiao">
       <created>1480463884771</created>
@@ -605,7 +565,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172547000" />
+    <option name="totallyTimeSpent" value="173357000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -615,7 +575,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06722055" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25830814" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879046" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22734138" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -655,20 +615,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Application/App/Controller/FxController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/App/Controller/AppController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1856">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tpl/App/Vip_about.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -1012,14 +958,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Tencent/Pay/WxPayApi.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="66" column="26" selection-start-line="66" selection-start-column="26" selection-end-line="66" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Tencent/Pay/WxPayData/WxPayDataBaseUnifiedOrder.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
@@ -1052,13 +990,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hprose/HproseHttpServer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="446" column="95" selection-start-line="446" selection-start-column="76" selection-end-line="446" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Util/Wx/Wechat.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="247" column="55" selection-start-line="247" selection-start-column="23" selection-end-line="247" selection-end-column="55" />
+          <folding>
+            <marker date="1480074830947" expanded="true" signature="36579:36720" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/WxpayController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="509" column="32" selection-start-line="509" selection-start-column="32" selection-end-line="509" selection-end-column="32" />
+        <state relative-caret-position="197">
+          <caret line="507" column="49" selection-start-line="507" selection-start-column="49" selection-end-line="507" selection-end-column="49" />
           <folding>
             <element signature="e#80#101#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Tencent/Pay/WxPayApi.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="577" column="51" selection-start-line="577" selection-start-column="51" selection-end-line="577" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>

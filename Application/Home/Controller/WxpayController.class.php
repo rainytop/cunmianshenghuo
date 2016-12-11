@@ -505,7 +505,7 @@ class WxpayController extends Controller
         $notify = new \Util\Wx\Wxpayndsdk();
 
         //存储微信的回调
-        $xml = $GLOBALS['HTTP_RAW_POST_DATA'];
+        $xml =  file_get_contents("php://input");// $GLOBALS['HTTP_RAW_POST_DATA'];
         CommonLoger::log("WXHTTP_RAW_POST_DATA",$xml);
         $notify->saveData($xml);
         //验证签名，并回应微信。
