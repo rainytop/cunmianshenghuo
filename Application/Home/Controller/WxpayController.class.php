@@ -96,7 +96,7 @@ class WxpayController extends Controller
         $timeStamp = time();
         $paysdk->setParameter("out_trade_no", $cache['oid']); //商户订单号
         $paysdk->setParameter("total_fee", intval($cache['payprice'] * 100)); //总金额单位为分，不允许有小数
-        $paysdk->setParameter("notify_url", 'http://' . $_SERVER['HTTP_HOST'] . __ROOT__ . '/Home/Wxpay/nd/'); //交易通知地址
+        $paysdk->setParameter("notify_url", 'http://' . $_SERVER['HTTP_HOST'] . __ROOT__ . '/index.php/Home/Wxpay/nd/'); //交易通知地址
         $paysdk->setParameter("trade_type", "JSAPI"); //交易类型
 
         $prepayid = $paysdk->getPrepayId();

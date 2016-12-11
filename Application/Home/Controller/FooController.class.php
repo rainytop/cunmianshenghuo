@@ -97,4 +97,8 @@ class FooController extends Controller
 
         DirHelper::surePathExist($path);
     }
+
+    public function aa(){
+        dump('http://' . $_SERVER['HTTP_HOST'] . __ROOT__ . '/index.php/Home/Wxpay/nd/');
+    }
 }
