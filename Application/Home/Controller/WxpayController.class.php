@@ -5,6 +5,7 @@
 namespace Home\Controller;
 
 use Think\Controller;
+use Vendor\Hiland\Biz\Loger\CommonLoger;
 
 class WxpayController extends Controller
 {
@@ -223,6 +224,7 @@ class WxpayController extends Controller
     //支付成功后后台接受方案
     public function nd()
     {
+        CommonLoger::log("wxPayNotify","111111111");
         $str = "";
         foreach ($_POST as $k => $v) {
             $str = $str . $k . "=>" . $v . '  ';
@@ -269,10 +271,13 @@ class WxpayController extends Controller
 
             }
 
+            CommonLoger::log("wxPayNotify","22222222");
             //商户自行增加处理流程,
             //例如：更新订单状态
             //例如：数据库操作
             //例如：推送支付完成信息
+        }else{
+            CommonLoger::log("wxPayNotify","bbbbbbbbb");
         }
     }
 
