@@ -27,7 +27,7 @@ class WxpayController extends Controller
         parent::__construct();
         header("Content-type: text/html; charset=utf-8");
         //刷新全局地址
-        self::$_url = "http://" . $_SERVER['HTTP_HOST'];
+        self::$_url = "http://" . $_SERVER['HTTP_HOST'].__APP__;
         //获取全局配置
         self::$SET = M('Set')->find();
         self::$SHOP = M('Shop_set')->find();

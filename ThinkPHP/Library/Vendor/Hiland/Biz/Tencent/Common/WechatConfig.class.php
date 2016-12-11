@@ -34,7 +34,7 @@ class WechatConfig
 
     // 微信公众平台商户的名称
     const MCHNAME = '老青岛';
-    const NOTIFYURL = 'http://app.rainytop.com/mm/index.php/tencent/pay/notify';
+    const NOTIFYURL = 'http://app.rainytop.com/lqd/index.php/tencent/pay/notify';
 
     // =======【证书路径设置】=====================================
     /**

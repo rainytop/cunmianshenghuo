@@ -53,7 +53,7 @@ class AlipaywapController extends Controller
         $this->alipay_config['transport'] = 'http';
 
         //刷新全局地址
-        self::$_url = "http://" . $_SERVER['HTTP_HOST'];
+        self::$_url = "http://" . $_SERVER['HTTP_HOST'].__APP__;
 
         // 刷新商城配置
         self::$_shop = M('Shop_set')->find();
