@@ -496,7 +496,6 @@ class WxpayController extends Controller
 
     public function nd()
     {
-        CommonLoger::log("wxPayNotify", "111111111");
         $str = "";
         foreach ($_POST as $k => $v) {
             $str = $str . $k . "=>" . $v . '  ';
@@ -507,6 +506,7 @@ class WxpayController extends Controller
 
         //存储微信的回调
         $xml = $GLOBALS['HTTP_RAW_POST_DATA'];
+        CommonLoger::log("WXHTTP_RAW_POST_DATA",$xml);
         $notify->saveData($xml);
         //验证签名，并回应微信。
         //对后台通知交互时，如果微信收到商户的应答不是成功或超时，微信认为通知失败，
