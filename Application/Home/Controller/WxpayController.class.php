@@ -28,7 +28,7 @@ class WxpayController extends Controller
         parent::__construct();
         header("Content-type: text/html; charset=utf-8");
         //刷新全局地址
-        self::$_url = "http://" . $_SERVER['HTTP_HOST'].__APP__;
+        self::$_url = "http://" . $_SERVER['HTTP_HOST'] . __APP__;
         //获取全局配置
         self::$SET = M('Set')->find();
         self::$SHOP = M('Shop_set')->find();
@@ -147,17 +147,6 @@ class WxpayController extends Controller
         //$this->display();
     }
 
-    public function createNoncestr($length = 32)
-    {
-        $chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-        $str = "";
-        for ($i = 0; $i < $length; $i++) {
-            $str .= substr($chars, mt_rand(0, strlen($chars) - 1), 1);
-        }
-        return $str;
-    }
-
-    //停止不动的信息通知页面处理
     public function diemsg($status, $msg)
     {
         //成功为1，失败为0
@@ -168,7 +157,20 @@ class WxpayController extends Controller
         die();
     }
 
+    //停止不动的信息通知页面处理
+
+    public function createNoncestr($length = 32)
+    {
+        $chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+        $str = "";
+        for ($i = 0; $i < $length; $i++) {
+            $str .= substr($chars, mt_rand(0, strlen($chars) - 1), 1);
+        }
+        return $str;
+    }
+
     //用户中断支付的跳转地址
+
     public function paycancel()
     {
         $url = self::$_url . '/App/Shop/orderList/sid/' . $_SESSION['wxpaysid'];
@@ -222,77 +224,7 @@ class WxpayController extends Controller
     }
 
     //支付成功后后台接受方案
-    public function nd()
-    {
-        CommonLoger::log("wxPayNotify","111111111");
-        $str = "";
-        foreach ($_POST as $k => $v) {
-            $str = $str . $k . "=>" . $v . '  ';
-        }
-        file_put_contents(self::$_logs . './Data/app_wxpaynd.txt', '响应参数:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:' . $str . PHP_EOL . PHP_EOL . PHP_EOL, FILE_APPEND);
-        //使用通用通知接口
-        $notify = new \Util\Wx\Wxpayndsdk();
 
-        //存储微信的回调
-        $xml = $GLOBALS['HTTP_RAW_POST_DATA'];
-        $notify->saveData($xml);
-        //验证签名，并回应微信。
-        //对后台通知交互时，如果微信收到商户的应答不是成功或超时，微信认为通知失败，
-        //微信会通过一定的策略（如30分钟共8次）定期重新发起通知，
-        //尽可能提高通知的成功率，但微信不保证通知最终能成功。
-        if ($notify->checkSign() == FALSE) {
-            $notify->setReturnParameter("return_code", "FAIL"); //返回状态码
-            $notify->setReturnParameter("return_msg", "签名失败"); //返回信息
-        } else {
-            $notify->setReturnParameter("return_code", "SUCCESS"); //设置返回码
-        }
-        $returnXml = $notify->returnXml();
-        echo $returnXml;
-
-        //==商户根据实际情况设置相应的处理流程，此处仅作举例=======
-
-        if ($notify->checkSign() == TRUE) {
-            //获取订单号
-            $out_trade_no = $notify->data["out_trade_no"];
-
-            if ($notify->data["return_code"] == "FAIL") {
-                //此处应该更新一下订单状态，商户自行增删操作
-                //$log_->log_result($log_name,"【通信出错】:\n".$xml."\n");
-                file_put_contents(self::$_logs . './Data/app_wxpayerr.txt', '通讯出错:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:' . $str . PHP_EOL . '订单号:' . $out_trade_no . PHP_EOL . '交易结果:通讯出错' . PHP_EOL . PHP_EOL, FILE_APPEND);
-            } elseif ($notify->data["result_code"] == "FAIL") {
-                //此处应该更新一下订单状态，商户自行增删操作
-                //$log_->log_result($log_name,"【业务出错】:\n".$xml."\n");
-                file_put_contents(self::$_logs . './Data/app_wxpayerr.txt', '业务出错:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:' . $str . PHP_EOL . '订单号:' . $out_trade_no . PHP_EOL . '交易结果:业务出错' . PHP_EOL . PHP_EOL, FILE_APPEND);
-            } else {
-                //此处应该更新一下订单状态，商户自行增删操作
-                //$log_->log_result($log_name,"【支付成功】:\n".$xml."\n");
-                $this->endpay($out_trade_no);
-                file_put_contents(self::$_logs . './Data/app_wxpayok.txt', '支付成功:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:' . $str . PHP_EOL . '订单号:' . $out_trade_no . PHP_EOL . '交易结果:交易成功' . PHP_EOL . PHP_EOL, FILE_APPEND);
-
-            }
-
-            CommonLoger::log("wxPayNotify","22222222");
-            //商户自行增加处理流程,
-            //例如：更新订单状态
-            //例如：数据库操作
-            //例如：推送支付完成信息
-        }else{
-            CommonLoger::log("wxPayNotify","bbbbbbbbb");
-        }
-    }
-
-    //支付成功后后台接受方案
-    public function nderr()
-    {
-        $str = "";
-        foreach ($_POST as $k => $v) {
-            $str = $str . $k . "=>" . $v . '  ';
-        }
-        file_put_contents(self::$_logs . 'App_wxpay_err.txt', '响应参数:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:' . $str . PHP_EOL . PHP_EOL . PHP_EOL, FILE_APPEND);
-
-    }
-
-    //付款成功后操作
     public function endpay($oid, $buyer_email)
     {
         $m = M('Shop_order');
@@ -394,7 +326,8 @@ class WxpayController extends Controller
         }
     }
 
-    //销量计算
+    //支付成功后后台接受方案
+
     private function doSells($order)
     {
         $mgoods = M('Shop_goods');
@@ -446,7 +379,8 @@ class WxpayController extends Controller
         return true;
     }
 
-    //代收花生米计算
+    //付款成功后操作
+
     public function doDs($order)
     {
         $commission = D('Commission');
@@ -558,7 +492,81 @@ class WxpayController extends Controller
         //逻辑完成
     }
 
+    //销量计算
+
+    public function nd()
+    {
+        CommonLoger::log("wxPayNotify", "111111111");
+        $str = "";
+        foreach ($_POST as $k => $v) {
+            $str = $str . $k . "=>" . $v . '  ';
+        }
+        file_put_contents(self::$_logs . './Data/app_wxpaynd.txt', '响应参数:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:' . $str . PHP_EOL . PHP_EOL . PHP_EOL, FILE_APPEND);
+        //使用通用通知接口
+        $notify = new \Util\Wx\Wxpayndsdk();
+
+        //存储微信的回调
+        $xml = $GLOBALS['HTTP_RAW_POST_DATA'];
+        $notify->saveData($xml);
+        //验证签名，并回应微信。
+        //对后台通知交互时，如果微信收到商户的应答不是成功或超时，微信认为通知失败，
+        //微信会通过一定的策略（如30分钟共8次）定期重新发起通知，
+        //尽可能提高通知的成功率，但微信不保证通知最终能成功。
+        if ($notify->checkSign() == FALSE) {
+            $notify->setReturnParameter("return_code", "FAIL"); //返回状态码
+            $notify->setReturnParameter("return_msg", "签名失败"); //返回信息
+        } else {
+            $notify->setReturnParameter("return_code", "SUCCESS"); //设置返回码
+        }
+        $returnXml = $notify->returnXml();
+        echo $returnXml;
+
+        //==商户根据实际情况设置相应的处理流程，此处仅作举例=======
+
+        if ($notify->checkSign() == TRUE) {
+            //获取订单号
+            $out_trade_no = $notify->data["out_trade_no"];
+
+            if ($notify->data["return_code"] == "FAIL") {
+                //此处应该更新一下订单状态，商户自行增删操作
+                //$log_->log_result($log_name,"【通信出错】:\n".$xml."\n");
+                file_put_contents(self::$_logs . './Data/app_wxpayerr.txt', '通讯出错:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:' . $str . PHP_EOL . '订单号:' . $out_trade_no . PHP_EOL . '交易结果:通讯出错' . PHP_EOL . PHP_EOL, FILE_APPEND);
+            } elseif ($notify->data["result_code"] == "FAIL") {
+                //此处应该更新一下订单状态，商户自行增删操作
+                //$log_->log_result($log_name,"【业务出错】:\n".$xml."\n");
+                file_put_contents(self::$_logs . './Data/app_wxpayerr.txt', '业务出错:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:' . $str . PHP_EOL . '订单号:' . $out_trade_no . PHP_EOL . '交易结果:业务出错' . PHP_EOL . PHP_EOL, FILE_APPEND);
+            } else {
+                //此处应该更新一下订单状态，商户自行增删操作
+                //$log_->log_result($log_name,"【支付成功】:\n".$xml."\n");
+                $this->endpay($out_trade_no);
+                file_put_contents(self::$_logs . './Data/app_wxpayok.txt', '支付成功:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:' . $str . PHP_EOL . '订单号:' . $out_trade_no . PHP_EOL . '交易结果:交易成功' . PHP_EOL . PHP_EOL, FILE_APPEND);
+
+            }
+
+            CommonLoger::log("wxPayNotify", "22222222");
+            //商户自行增加处理流程,
+            //例如：更新订单状态
+            //例如：数据库操作
+            //例如：推送支付完成信息
+        } else {
+            CommonLoger::log("wxPayNotify", "bbbbbbbbb");
+        }
+    }
+
+    //代收花生米计算
+
+    public function nderr()
+    {
+        $str = "";
+        foreach ($_POST as $k => $v) {
+            $str = $str . $k . "=>" . $v . '  ';
+        }
+        file_put_contents(self::$_logs . 'App_wxpay_err.txt', '响应参数:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:' . $str . PHP_EOL . PHP_EOL . PHP_EOL, FILE_APPEND);
+
+    }
+
     //根据当前经验计算等级信息
+
     public function getlevel($exp)
     {
         $data = M('vip_level')->order('exp')->select();
