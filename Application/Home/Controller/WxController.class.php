@@ -10,6 +10,7 @@ use Think\Controller;
 use Vendor\Hiland\Biz\Loger\CommonLoger;
 use Vendor\Hiland\Utils\Data\BoolHelper;
 use Vendor\Hiland\Utils\IO\Thread;
+use Vendor\Hiland\Utils\Web\WebHelper;
 
 class WxController extends Controller
 {
@@ -167,10 +168,10 @@ class WxController extends Controller
                 $mapkey['keyword'] = $key;
                 //用户自定义关键词
                 $keyword = M('Wx_keyword');
-                $ruser = $keyword->where($mapkey)->find();
-                if ($ruser) {
+                $record = $keyword->where($mapkey)->find();
+                if ($record) {
                     //进入用户自定义关键词回复
-                    $this->toUsersKeyWord($ruser);
+                    $this->toUsersKeyWord($record);
                 }
                 //*********************************************************************
 
@@ -245,26 +246,26 @@ class WxController extends Controller
 
 
 
-    public function toUsersKeyWord($ruser)
+    public function toUsersKeyWord($record)
     {
-        $type = $ruser['type'];
+        $type = $record['type'];
         switch ($type) {
             //文本
             case "1":
-                self::$_wx->text($ruser['summary'])->reply();
+                self::$_wx->text($record['summary'])->reply();
                 break;
             //单图文
             case "2":
-                $news[0]['Title'] = $ruser['name'];
-                $news[0]['Description'] = $ruser['summary'];
-                $img = $this->getPic($ruser['pic']);
+                $news[0]['Title'] = $record['name'];
+                $news[0]['Description'] = $record['summary'];
+                $img = $this->getPic($record['pic']);
                 $news[0]['PicUrl'] = $img['imgurl'];
-                $news[0]['Url'] = $ruser['url'];
+                $news[0]['Url'] = $record['url'];
                 self::$_wx->news($news)->reply();
                 break;
             //多图文
             case "3":
-                $pagelist = M('Wx_keyword_img')->where(array('kid' => $ruser['id']))->order('sorts desc')->select();
+                $pagelist = M('Wx_keyword_img')->where(array('kid' => $record['id']))->order('sorts desc')->select();
                 $news = array();
                 foreach ($pagelist as $k => $v) {
                     $news[$k]['Title'] = $v['name'];
@@ -281,12 +282,10 @@ class WxController extends Controller
         }
     }
 
-    /*获取单张图片 by App
-    return
-     */
 
+    //TODO:
     /**
-     *
+     * 获取单张图片
      * @param $id
      * @return bool|mixed
      */
@@ -295,7 +294,7 @@ class WxController extends Controller
         $m = M('Upload_img');
         $map['id'] = $id;
         $list = $m->where($map)->find();
-        $list['imgurl'] = self::$_url . "/Upload/" . $list['savepath'] . $list['savename'];
+        $list['imgurl'] = WebHelper::getHostNameFull().__ROOT__ . "/Upload/" . $list['savepath'] . $list['savename'];
         return $list ? $list : false;
     }
 
@@ -342,10 +341,8 @@ class WxController extends Controller
         //用户关注：判断是否已存在
         //检查用户是否已存在
         $old['openid'] = self::$_revdata['FromUserName'];
-        CommonLoger::log("subscribe",$old['openid']);
         $isold = self::$_ppvip->where($old)->find();
-        CommonLoger::log("isold-text",BoolHelper::getText($isold));
-        CommonLoger::log("isold",$isold);
+
         if ($isold) {
             $data['subscribe'] = 1;
             $re = self::$_ppvip->where($old)->setField('subscribe', 1);
