@@ -15,6 +15,22 @@ use Vendor\Hiland\Utils\IO\ImageHelper;
 
 class ShenqiBiz
 {
+    public static function daihe($name = "解然")
+    {
+        $bgFileName = PHYSICAL_ROOT_PATH . "\\Upload\\shenqi\\dididaihe\\dididaihe.jpg";
+        $fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\simhei.ttf";
+
+        $imagebg = ImageHelper::loadImage($bgFileName);;
+        $imagemegered = imagecreatetruecolor(imagesx($imagebg), imagesy($imagebg));
+        imagecopy($imagemegered, $imagebg, 0, 0, 0, 0, imagesx($imagebg), imagesy($imagebg));
+
+        $textcolor = imagecolorallocate($imagemegered, 35, 35, 35);
+        imagefttext($imagemegered, 18, 5, 160, 495, $textcolor, $fontFileName, $name);
+        $relativeFile = self::saveImageAndGetRelativePath($imagemegered);
+        return $relativeFile;
+    }
+
+
     public static function baoye($name = "解然")
     {
         $bgFileName = PHYSICAL_ROOT_PATH . "\\Upload\\shenqi\\baoye\\meinv.jpg";

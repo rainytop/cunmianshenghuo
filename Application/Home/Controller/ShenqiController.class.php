@@ -86,6 +86,12 @@ class ShenqiController extends Controller
         $this->detail("baoye");
     }
 
+    public function daihe()
+    {
+        $this->assign("title", "滴滴代喝");
+        $this->detail("daihe");
+    }
+
     private function detail($methodName)
     {
         if (IS_POST) {
