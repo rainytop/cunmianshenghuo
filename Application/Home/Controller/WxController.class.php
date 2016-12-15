@@ -282,8 +282,6 @@ class WxController extends Controller
         }
     }
 
-
-    //TODO:
     /**
      * 获取单张图片
      * @param $id
