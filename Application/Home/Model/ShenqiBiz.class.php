@@ -15,6 +15,35 @@ use Vendor\Hiland\Utils\IO\ImageHelper;
 
 class ShenqiBiz
 {
+    public static function mingxingliaotian($name = "解然",$secondValue='')
+    {
+        $bgFileName = PHYSICAL_ROOT_PATH . "\\Upload\\shenqi\\mingxingliaotian\\mingxingliaotian.jpg";
+        $fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\simhei.ttf";
+        //$fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\jiangangshouxie.ttf";
+
+        $imagebg = ImageHelper::loadImage($bgFileName);;
+        $imagemegered = imagecreatetruecolor(imagesx($imagebg), imagesy($imagebg));
+        imagecopy($imagemegered, $imagebg, 0, 0, 0, 0, imagesx($imagebg), imagesy($imagebg));
+
+        $textcolor = imagecolorallocate($imagemegered, 255, 255, 255);
+        imagefttext($imagemegered, 22, 0, 295, 843, $textcolor, $fontFileName, $name);
+
+        imagefttext($imagemegered, 22, 0, 85, 843, $textcolor, $fontFileName, $secondValue);
+        imagefttext($imagemegered, 22, 0, 85, 710, $textcolor, $fontFileName, $secondValue);
+        imagefttext($imagemegered, 22, 0, 85, 578, $textcolor, $fontFileName, $secondValue);
+        imagefttext($imagemegered, 22, 0, 85, 433, $textcolor, $fontFileName, $secondValue);
+
+
+        $sinDate = DateHelper::format(null, "Y年m月d日");
+        imagefttext($imagemegered, 22, 0, 225, 305, $textcolor, $fontFileName, $sinDate);
+
+        $sinTime = DateHelper::format(null, "H:i");
+        imagefttext($imagemegered, 88, 0, 200, 255, $textcolor, $fontFileName, $sinTime);
+
+        $relativeFile = self::saveImageAndGetRelativePath($imagemegered);
+        return $relativeFile;
+    }
+
     public static function daihe($name = "解然")
     {
         $bgFileName = PHYSICAL_ROOT_PATH . "\\Upload\\shenqi\\dididaihe\\dididaihe.jpg";

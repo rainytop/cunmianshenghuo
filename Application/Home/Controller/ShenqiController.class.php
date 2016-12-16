@@ -92,15 +92,25 @@ class ShenqiController extends Controller
         $this->detail("daihe");
     }
 
+    public function mingxingliaotian(){
+        $this->assign("secondUsing", "true");
+        $this->assign("secondTitle", "请输入聊天的明星姓名");
+
+        $this->assign("title", "明星聊天");
+        $this->detail("mingxingliaotian");
+    }
+
     private function detail($methodName)
     {
         if (IS_POST) {
-            $name = I("targetName");
-            if (empty($name)) {
-                $name = "老青岛";
+            $targetName = I("targetName");
+            if (empty($targetName)) {
+                $targetName = "老青岛";
             }
 
-            $methodArgs = array($name);
+            $secondValue= I("secondValue");
+
+            $methodArgs = array($targetName,$secondValue);
             $relativeFile = ReflectionHelper::executeMethod("Home\Model\ShenqiBiz", $methodName, null, $methodArgs);
 
             $webFile = __ROOT__ . $relativeFile;

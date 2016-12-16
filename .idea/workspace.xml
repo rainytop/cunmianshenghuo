@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eafe96d6-3fe8-4b6a-bea8-8dddedb70c6b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Upload/shenqi/dididaihe/dididaihe.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Upload/shenqi/mingxingliaotian/mingxingliaotian.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/ShenqiController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/ShenqiController.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Model/ShenqiBiz.class.php" afterPath="$PROJECT_DIR$/Application/Home/Model/ShenqiBiz.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tpl/Home/Shenqi_index.html" afterPath="$PROJECT_DIR$/Tpl/Home/Shenqi_index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tpl/Home/Shenqi_more.html" afterPath="$PROJECT_DIR$/Tpl/Home/Shenqi_more.html" />
     </list>
     <ignored path="wfx.iws" />
@@ -30,8 +31,8 @@
       <file leaf-file-name="ShenqiController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Home/Controller/ShenqiController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="88" column="25" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="25" />
+            <state relative-caret-position="220">
+              <caret line="110" column="40" selection-start-line="110" selection-start-column="29" selection-end-line="110" selection-end-column="40" />
               <folding>
                 <element signature="e#119#137#0#PHP" expanded="true" />
               </folding>
@@ -39,21 +40,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShenqiBiz.class.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ShenqiBiz.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Application/Home/Model/ShenqiBiz.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="17" column="32" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="32" />
+            <state relative-caret-position="313">
+              <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Shenqi_more.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Shenqi_more.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_more.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="33" column="76" selection-start-line="33" selection-start-column="76" selection-end-line="33" selection-end-column="76" />
+            <state relative-caret-position="180">
+              <caret line="33" column="78" selection-start-line="33" selection-start-column="78" selection-end-line="33" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Shenqi_index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="37" column="21" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -104,7 +115,6 @@
         <option value="$PROJECT_DIR$/Tpl/App/Shop_index.html" />
         <option value="$PROJECT_DIR$/Tpl/App/Vip_about.html" />
         <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/IO/DirHelper.class.php" />
-        <option value="$PROJECT_DIR$/Tpl/Home/Shenqi_index.html" />
         <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Biz/Tencent/Common/cert/placeholder.txt" />
         <option value="$PROJECT_DIR$/Upload/shenqi/qiuhun/news.css" />
         <option value="$PROJECT_DIR$/Upload/shenqi/gate/style.css" />
@@ -124,9 +134,10 @@
         <option value="$PROJECT_DIR$/Application/Home/Controller/WxpayController.class.php" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/WxController.class.php" />
         <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Hiland/Utils/Web/WebHelper.class.php" />
+        <option value="$PROJECT_DIR$/Tpl/Home/Shenqi_index.html" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/ShenqiController.class.php" />
-        <option value="$PROJECT_DIR$/Application/Home/Model/ShenqiBiz.class.php" />
         <option value="$PROJECT_DIR$/Tpl/Home/Shenqi_more.html" />
+        <option value="$PROJECT_DIR$/Application/Home/Model/ShenqiBiz.class.php" />
       </list>
     </option>
   </component>
@@ -280,6 +291,60 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Upload" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shenqi" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mingxingliaotian" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wfx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tpl" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wfx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tpl" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wfx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Application" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -364,11 +429,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\myworkspace\project-php\LaoQingDao\src\Upload\shenqi\mingxingliaotian" />
       <recent name="E:\myworkspace\project-php\LaoQingDao\src\Upload\shenqi\dididaihe" />
       <recent name="E:\myworkspace\project-php\LaoQingDao\src\Upload\shenqi\wurenji" />
       <recent name="E:\myworkspace\project-php\LaoQingDao\src\Upload\shenqi\biaobai" />
       <recent name="E:\myworkspace\project-php\LaoQingDao\src\Upload\shenqi\gate" />
-      <recent name="E:\myworkspace\project-php\LaoQingDao\src\Upload\shenqi\qiuhun" />
     </key>
   </component>
   <component name="RunManager">
@@ -455,7 +520,7 @@
       <workItem from="1480731693957" duration="20054000" />
       <workItem from="1480920487183" duration="8917000" />
       <workItem from="1480943050443" duration="24010000" />
-      <workItem from="1481422134567" duration="11385000" />
+      <workItem from="1481422134567" duration="14915000" />
     </task>
     <task id="LOCAL-00001" summary="tijiao">
       <created>1480463884771</created>
@@ -482,7 +547,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180069000" />
+    <option name="totallyTimeSpent" value="183599000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -532,13 +597,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Application/Runtime/Cache/Admin/edfa35e3053db16b24335984ed17aef4.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wfx.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
@@ -660,13 +718,6 @@
         <state relative-caret-position="280">
           <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="31" column="36" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -922,10 +973,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/_types.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="37" column="21" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_more.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="33" column="78" selection-start-line="33" selection-start-column="78" selection-end-line="33" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/ShenqiController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="88" column="25" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="25" />
+        <state relative-caret-position="220">
+          <caret line="110" column="40" selection-start-line="110" selection-start-column="29" selection-end-line="110" selection-end-column="40" />
           <folding>
             <element signature="e#119#137#0#PHP" expanded="true" />
           </folding>
@@ -934,16 +1009,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Model/ShenqiBiz.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="17" column="32" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tpl/Home/Shenqi_more.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="33" column="76" selection-start-line="33" selection-start-column="76" selection-end-line="33" selection-end-column="76" />
+        <state relative-caret-position="313">
+          <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
           <folding />
         </state>
       </provider>

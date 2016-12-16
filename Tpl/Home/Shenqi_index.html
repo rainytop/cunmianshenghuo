@@ -32,6 +32,14 @@
 <form method="post" action="{:U('')}">
     请输入你要整蛊的姓名
     <input type="text" name="targetName"/>
+
+    <if condition="$secondUsing eq true">
+        <br/>
+        {$secondTitle}
+        <input type="text" value="刘芳菲" name="secondValue"/>
+    </if>
+
+    <br/>
     <button type="submit" class="weui-btn weui-btn_mini weui-btn_primary">生成</button>
 </form>
 <?php
