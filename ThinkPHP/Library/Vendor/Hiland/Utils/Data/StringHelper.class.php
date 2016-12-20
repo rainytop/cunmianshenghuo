@@ -48,22 +48,6 @@ class StringHelper
             $length = $originalStringLength - $startPosition;
         }
 
-//        while ($length != ($count - $startPosition)) {
-//            if (ord($originalString[$sing]) > 0xa0) {
-//                if (!$startPosition || $startPosition <= $count) {
-//                    $content .= $originalString[$sing] . $originalString[$sing + 1] . $originalString[$sing + 2];
-//                }
-//                $sing += 3;
-//                $count++;
-//            } else {
-//                if (!$startPosition || $startPosition <= $count) {
-//                    $content .= $originalString[$sing];
-//                }
-//                $sing++;
-//                $count++;
-//            }
-//        }
-
         if (function_exists("mb_substr"))
             $slice = mb_substr($originalString, $startPosition, $length, $charset);
         elseif (function_exists('iconv_substr')) {
@@ -151,7 +135,7 @@ class StringHelper
     }
 
     /**
-     * 将一个字符串安装字符个数分组进行格式化
+     * 将一个字符串按照字符个数分组进行格式化
      * @param string $data
      * @param string $formater 字符串字符个数分组的格式，同一个分组内字符的个数用{}包围，各个分组之间可以自定义分隔符，例如
      *  '{4}-{2}-{2}'，或者'{4} {2} {2}'(中间用空格表示);

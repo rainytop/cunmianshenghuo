@@ -15,11 +15,10 @@ use Vendor\Hiland\Utils\IO\ImageHelper;
 
 class ShenqiBiz
 {
-    public static function mingxingliaotian($name = "解然",$secondValue='')
+    public static function mingxingliaotian($name = "解然", $starName = '')
     {
         $bgFileName = PHYSICAL_ROOT_PATH . "\\Upload\\shenqi\\mingxingliaotian\\mingxingliaotian.jpg";
         $fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\simhei.ttf";
-        //$fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\jiangangshouxie.ttf";
 
         $imagebg = ImageHelper::loadImage($bgFileName);;
         $imagemegered = imagecreatetruecolor(imagesx($imagebg), imagesy($imagebg));
@@ -28,10 +27,10 @@ class ShenqiBiz
         $textcolor = imagecolorallocate($imagemegered, 255, 255, 255);
         imagefttext($imagemegered, 22, 0, 295, 843, $textcolor, $fontFileName, $name);
 
-        imagefttext($imagemegered, 22, 0, 85, 843, $textcolor, $fontFileName, $secondValue);
-        imagefttext($imagemegered, 22, 0, 85, 710, $textcolor, $fontFileName, $secondValue);
-        imagefttext($imagemegered, 22, 0, 85, 578, $textcolor, $fontFileName, $secondValue);
-        imagefttext($imagemegered, 22, 0, 85, 433, $textcolor, $fontFileName, $secondValue);
+        imagefttext($imagemegered, 22, 0, 85, 843, $textcolor, $fontFileName, $starName);
+        imagefttext($imagemegered, 22, 0, 85, 710, $textcolor, $fontFileName, $starName);
+        imagefttext($imagemegered, 22, 0, 85, 578, $textcolor, $fontFileName, $starName);
+        imagefttext($imagemegered, 22, 0, 85, 433, $textcolor, $fontFileName, $starName);
 
 
         $sinDate = DateHelper::format(null, "Y年m月d日");
@@ -39,6 +38,44 @@ class ShenqiBiz
 
         $sinTime = DateHelper::format(null, "H:i");
         imagefttext($imagemegered, 88, 0, 200, 255, $textcolor, $fontFileName, $sinTime);
+
+        $relativeFile = self::saveImageAndGetRelativePath($imagemegered);
+        return $relativeFile;
+    }
+
+    private static function saveImageAndGetRelativePath($imageResource)
+    {
+        $relativePath = "\\Upload\\shenqitupian\\" . DateHelper::format(null, 'Y-m-d') . "\\";
+        $targetFilePath = PHYSICAL_ROOT_PATH . $relativePath;
+        DirHelper::surePathExist($targetFilePath);
+
+        $fileShortName = GuidHelper::newGuid() . ".jpg";
+        $relativeFile = $relativePath . $fileShortName;
+
+        $physicalFullName = PHYSICAL_ROOT_PATH . $relativeFile;
+        $physicalFullName = str_replace('/', '\\', $physicalFullName);
+
+        $physicalFullName = ImageHelper::save($imageResource, $physicalFullName);
+        return $relativeFile;
+    }
+
+    public static function ganen($name = "解然", $titleName = '', $content = '')
+    {
+        $bgFileName = PHYSICAL_ROOT_PATH . "\\Upload\\shenqi\\ganen\\main.jpg";
+        $fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\simhei.ttf";
+        //$fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\jiangangshouxie.ttf";
+
+        $imagebg = ImageHelper::loadImage($bgFileName);;
+        $imagemegered = imagecreatetruecolor(imagesx($imagebg), imagesy($imagebg));
+        imagecopy($imagemegered, $imagebg, 0, 0, 0, 0, imagesx($imagebg), imagesy($imagebg));
+
+        $textcolor = imagecolorallocate($imagemegered, 113, 136, 128);
+        imagefttext($imagemegered, 22, 0, 465, 933, $textcolor, $fontFileName, $name);
+
+        imagefttext($imagemegered, 22, 0, 115, 743, $textcolor, $fontFileName, $titleName);
+        //imagefttext($imagemegered, 22, 0, 85, 760, $textcolor, $fontFileName, $content);
+
+        ImageHelper:: fillText2Image($imagemegered, 22, 0, 165, 780, 430,$textcolor, $fontFileName, $content, 35,60);
 
         $relativeFile = self::saveImageAndGetRelativePath($imagemegered);
         return $relativeFile;
@@ -58,7 +95,6 @@ class ShenqiBiz
         $relativeFile = self::saveImageAndGetRelativePath($imagemegered);
         return $relativeFile;
     }
-
 
     public static function baoye($name = "解然")
     {
@@ -83,19 +119,20 @@ class ShenqiBiz
         return $relativeFile;
     }
 
-    private static function saveImageAndGetRelativePath($imageResource)
+
+    public static function zhaokannvhai($name = "解然")
     {
-        $relativePath = "\\Upload\\shenqitupian\\" . DateHelper::format(null, 'Y-m-d') . "\\";
-        $targetFilePath = PHYSICAL_ROOT_PATH . $relativePath;
-        DirHelper::surePathExist($targetFilePath);
+        $bgFileName = PHYSICAL_ROOT_PATH . "\\Upload\\shenqi\\zhaokannvhai\\main.jpg";
+        $fontFileName = PHYSICAL_ROOT_PATH . "\\Upload\\fonts\\jiangangshouxie.ttf";
 
-        $fileShortName = GuidHelper::newGuid() . ".jpg";
-        $relativeFile = $relativePath . $fileShortName;
+        $imagebg = ImageHelper::loadImage($bgFileName);;
+        $imagemegered = imagecreatetruecolor(imagesx($imagebg), imagesy($imagebg));
+        imagecopy($imagemegered, $imagebg, 0, 0, 0, 0, imagesx($imagebg), imagesy($imagebg));
 
-        $physicalFullName = PHYSICAL_ROOT_PATH . $relativeFile;
-        $physicalFullName = str_replace('/', '\\', $physicalFullName);
+        $textcolor = imagecolorallocate($imagemegered, 85, 85, 85);
+        imagefttext($imagemegered, 55, 0, 480, 685, $textcolor, $fontFileName, $name);
 
-        $physicalFullName = ImageHelper::save($imageResource, $physicalFullName);
+        $relativeFile = self::saveImageAndGetRelativePath($imagemegered);
         return $relativeFile;
     }
 

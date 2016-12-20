@@ -597,6 +597,59 @@ class ImageHelper
         return $result;
     }
 
+    public static function fillText2Image($backGroudImage, $fontSize, $angle, $startX, $startY, $lineWidth, $textColor, $fontFileName, $content, $linesDistance, $firstLineIndent = 0)
+    {
+        $length = mb_strlen($content);
+
+        $lineNumber = 0;
+        $charNumber = 0;
+        $lineContent = '';
+        for ($i = 0; $i < $length; $i++) {
+            $lineContent .= mb_substr($content, $i, 1);
+            $charNumber++;
+            $data = imagettfbbox($fontSize, $angle, $fontFileName, $lineContent);
+            $currentWidth = $data[2] - $data[0];
+            if ($lineNumber == 0) {
+                $currentWidth += $firstLineIndent;
+            }
+            if ($currentWidth > $lineWidth || $i == $length - 1) {
+                $posY = $startY + $lineNumber * $linesDistance;
+                $posX = $startX;
+                if ($lineNumber == 0) {
+                    $posX = $startX + $firstLineIndent;
+                }
+                imagefttext($backGroudImage, $fontSize, $angle, $posX, $posY, $textColor, $fontFileName, $lineContent);
+                $charNumber = 0;
+                $lineNumber++;
+                $lineContent = '';
+            }
+        }
+    }
+
+    public static function fillText2Image2($backGroudImage, $fontSize, $angle, $startX, $startY, $textColor, $fontFileName, $content, $charCountPerLine, $linesDistance, $noFirstLineStretch = 0)
+    {
+        $length = mb_strlen($content);
+
+        $lineNumber = 0;
+        $charNumber = 0;
+        $lineContent = '';
+        for ($i = 0; $i < $length; $i++) {
+            $lineContent .= mb_substr($content, $i, 1);
+            $charNumber++;
+            if ($charNumber > $charCountPerLine || $i == $length - 1) {
+                $posY = $startY + $lineNumber * $linesDistance;
+                $posX = $startX;
+                if ($lineNumber > 0) {
+                    $posX = $startX - $noFirstLineStretch;
+                }
+                imagefttext($backGroudImage, $fontSize, $angle, $posX, $posY, $textColor, $fontFileName, $lineContent);
+                $charNumber = 0;
+                $lineNumber++;
+                $lineContent = '';
+            }
+        }
+    }
+
     public static function imagebmp(&$im, $filename = '', $bit = 8, $compression = 0)
     {
         if (!in_array($bit, array(1, 4, 8, 16, 24, 32))) {
