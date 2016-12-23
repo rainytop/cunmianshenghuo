@@ -100,6 +100,4 @@ class IndexController extends InitController
             $this->ajaxReturn($result);
         }
     }
-
-
 }
