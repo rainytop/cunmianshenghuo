@@ -225,7 +225,7 @@
 				if(!vipid){
 					var fun=function(){
 						window.location.href=loginback;
-					}
+					};
 					App_gmuMsg('您还未登录，2秒后自动跳转登陆界面！',fun);
 					return false;
 				}
@@ -270,7 +270,7 @@
 				if(!vipid){
 					var fun=function(){
 						window.location.href=loginback;
-					}
+					};
 					App_gmuMsg('您还未登录，2秒后自动跳转登陆界面！',fun);
 					return false;
 				}
@@ -283,7 +283,7 @@
 				var orderurl="{:U('App/Shop/orderMake',array('sid'=>0,'lasturl'=>$lasturl))}";
 				var fun=function(){
 								window.location.href=orderurl;
-				}
+				};
 				$.ajax({
 					type:"post",
 					url:"{:U('App/Shop/fastbuy')}",

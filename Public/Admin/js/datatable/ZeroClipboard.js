@@ -194,9 +194,11 @@ ZeroClipboard_TableTools.Client.prototype = {
 			this.div.innerHTML = '';
 			
 			var body = document.getElementsByTagName('body')[0];
-			try { body.removeChild( this.div ); } catch(e) {;}
-			
-			this.domElement = null;
+            try {
+                body.removeChild(this.div);
+            } catch (e) {
+            }
+            this.domElement = null;
 			this.div = null;
 		}
 	},

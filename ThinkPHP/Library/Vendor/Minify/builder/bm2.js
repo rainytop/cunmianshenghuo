@@ -1,4 +1,4 @@
-javascript:(function(){
+(function(){
     var d = document
        ,c = d.cookie
        ,m = c.match(/\bminifyDebug=([^; ]+)/)

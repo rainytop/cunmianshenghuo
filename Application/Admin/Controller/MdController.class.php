@@ -238,5 +238,4 @@ class MdController extends BaseController
         }
         $this->ajaxReturn($info);
     }
-
 }

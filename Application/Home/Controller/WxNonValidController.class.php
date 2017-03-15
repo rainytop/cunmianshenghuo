@@ -296,4 +296,135 @@ class WxNonValidController extends Controller
             imagejpeg($headimg, './QRcode/headimg/' . $vip['openid'] . '.jpg');
         }
     }
+
+    public function reply4signon($openid)
+    {
+        // 获取用户信息
+        $map['openid'] = $openid;
+
+        $vipModel = M('Vip');
+        $vip = $vipModel->where($map)->find();
+
+        //CommonLoger::log("aaa", "22");
+        // 用户校正
+        if (!$vip) {
+            $msg = "用户信息缺失，请重新关注公众号";
+            //self::$_wx->text($msg)->reply();
+            WechatHelper::responseCustomerServiceText($openid, $msg);
+            exit();
+        }
+
+        //CommonLoger::log("aaa", "33");
+
+        // 过滤连续请求-打开
+        if (F($vip['openid']) != null) {
+            CommonLoger::log("aaa", "331");
+            $msg = "签到图片正在生成，请稍等！";
+            //self::$_wx->text($msg)->reply();
+            WechatHelper::responseCustomerServiceText($openid, $msg);
+            CommonLoger::log("aaa", "332");
+            exit();
+        } else {
+            CommonLoger::log("aaa", "333");
+            F($vip['openid'], $vip['openid']);
+        }
+
+        CommonLoger::log("aaa", "44");
+
+        // 生产二维码基本信息，存入本地文档，获取背景
+        $background = WxBiz::createSignOnBg(); //$this->createQrcodeBg();
+        //WechatHelper::responseCustomerServiceText($openid,$background);
+        $qrcode = WxBiz::createQrcode4Common($vip['id'], $vip['openid']);
+        if (!$qrcode) {
+            $msg = "专属二维码 生成失败";
+            //self::$_wx->text($msg)->reply();
+            WechatHelper::responseCustomerServiceText($openid, $msg);
+            F($vip['openid'], null);
+            exit();
+        }
+
+        CommonLoger::log("aaa", "55");
+        // 生产二维码基本信息，存入本地文档，获取背景 结束
+
+        // 获取头像信息
+        $mark = false; // 是否需要写入将图片写入文件
+
+//        //WechatHelper::responseCustomerServiceText($openid,$vip['headimgurl']);
+//        $imageUrl = $vip['headimgurl'];
+//        $wxAvatarIp = C('WX_AVATARSERVER_IP');
+//        if ($wxAvatarIp) {
+//            $imageUrl = str_replace('wx.qlogo.cn', $wxAvatarIp, $imageUrl);
+//        }
+//        $headimg = NetHelper::request($imageUrl);
+//        //WechatHelper::responseCustomerServiceText($openid,$headimg);
+//        if (!$headimg) {// 没有头像先从头像库查找，再没有就选择默认头像
+//            if (file_exists('./QRcode/headimg/' . $vip['openid'] . '.jpg')) { // 获取不到远程头像，但存在本地头像，需要更新
+//                $headimg = file_get_contents('./QRcode/headimg/' . $vip['openid'] . '.jpg');
+//            } else {
+//                $headimg = file_get_contents('./QRcode/headimg/' . 'default' . '.jpg');
+//            }
+//            $mark = true;
+//        }
+//
+//        $headimg = imagecreatefromstring($headimg);
+
+        CommonLoger::log("aaa", "662");
+        //$headimg = imagecreatefromstring($headimg);
+        // 获取头像信息 结束
+
+        // 生成二维码推广图片=======================
+
+        // Combine QRcode and background and HeadImg
+        $b_width = imagesx($background);
+        $b_height = imagesy($background);
+
+        $q_width = imagesx($qrcode);
+        $q_height = imagesy($qrcode);
+
+        imagecopyresampled($background, $qrcode, $b_width * 0.24, $b_height * 0.5, 0, 0, 297, 297, $q_width, $q_height);
+
+//        $h_width = imagesx($headimg);
+//        $h_height = imagesy($headimg);
+//        imagecopyresampled($background, $headimg, $b_width * 0.10, 12, 0, 0, 120, 120, $h_width, $h_height);
+
+        // Set Font Type And Color
+        $fonttype = './Public/Common/fonts/wqy-microhei.ttc';
+        $fontcolor = imagecolorallocate($background, 0x00, 0x00, 0x00);
+
+        // Combine All And Text, Then store in local
+        imagettftext($background, 18, 0, 280, 100, $fontcolor, $fonttype, $vip['nickname']);
+        imagejpeg($background, './Upload/shenqi/qiandao/datas/' . $vip['openid'] . '.jpg');
+
+        CommonLoger::log("aaa", "77");
+        // 生成二维码推广图片 结束==================
+
+        //WechatHelper::responseCustomerServiceText($openid,'dddddddddddddddd');
+        // 上传下载相应
+        $file = getcwd() . "/Upload/shenqi/qiandao/datas/" . $vip['openid'] . '.jpg';
+        if (file_exists($file)) {
+            CommonLoger::log('file', $file);
+            $mediaId = WechatHelper::uploadMedia($file);
+            WechatHelper::responseCustomerServiceImage($openid, $mediaId);
+        } else {
+            $msg = "专属二维码生成失败";
+            //self::$_wx->text($msg)->reply();
+            WechatHelper::responseCustomerServiceText($openid, $msg);
+        }
+        // 上传下载相应 结束
+
+        CommonLoger::log("aaa", "88");
+        // 过滤连续请求-关闭
+        F($vip['openid'], null);
+
+        // 后续数据操作（写入头像到本地，更新个人信息）
+        if ($mark) {
+            $tempvip = self::$_wx->getUserInfo($openid); //$this->apiClient(self::$_revdata['FromUserName']);
+            $vip['nickname'] = $tempvip['nickname'];
+            $vip['headimgurl'] = $tempvip['headimgurl'];
+            $vipModel->save($vip);
+        } else {
+            // 将头像文件写入
+            //imagejpeg($headimg, './QRcode/headimg/' . $vip['openid'] . '.jpg');
+        }
+    }
 }

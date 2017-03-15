@@ -902,7 +902,7 @@ SWFUpload.prototype.swfuploadPreload = function () {
 	}
 	
 	return !!returnValue;
-}
+};
 
 // Private: This event is called by Flash when it has finished loading. Don't modify this.
 // Use the swfupload_loaded_handler event setting to execute custom code when SWFUpload has loaded.

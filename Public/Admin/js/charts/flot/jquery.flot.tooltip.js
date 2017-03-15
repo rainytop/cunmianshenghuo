@@ -143,7 +143,7 @@
 
             return content;
         };
-    }
+    };
 
     $.plot.plugins.push({
         init: init,

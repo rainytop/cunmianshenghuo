@@ -279,7 +279,7 @@ var InitiateExpandableDataTable = function () {
                 }
                 else {
                     /* Open this row */
-                    $(this).addClass("fa-minus-square-o").removeClass("fa-plus-square-o");;
+                    $(this).addClass("fa-minus-square-o").removeClass("fa-plus-square-o");
                     oTable.fnOpen(nTr, fnFormatDetails(oTable, nTr), 'details');
                 }
             });

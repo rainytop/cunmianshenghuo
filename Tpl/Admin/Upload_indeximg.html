@@ -50,8 +50,15 @@
 	
 	//上传后回调
 	function doupimgcallback(info,upval) {
-		if(upval){$.App.alert('success',info);$(Jupbody).empty().data('page',1);$(Jupgetmore).trigger('click');$(Jupfindback).val('');}else{$.App.alert('danger',info)};
-		if(true){var cfile=$(Jupfile).clone().val("");$(Jupfile).remove();cfile.appendTo(Jupform);$(Jupresult).html('您还未选择任何图片.');}
+        if (upval) {
+            $.App.alert('success', info);
+            $(Jupbody).empty().data('page', 1);
+            $(Jupgetmore).trigger('click');
+            $(Jupfindback).val('');
+        } else {
+            $.App.alert('danger', info)
+        }
+        if(true){var cfile=$(Jupfile).clone().val("");$(Jupfile).remove();cfile.appendTo(Jupform);$(Jupresult).html('您还未选择任何图片.');}
     }
 	//图片选择函数
 	function checkupload(obj){

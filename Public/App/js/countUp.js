@@ -22,7 +22,7 @@ function countUp(target, endVal, decimals, duration) {
     // Robert Penner's easeOutExpo
     this.easeOutExpo = function(t, b, c, d) {
         return c * (-Math.pow(2, -10 * t / d) + 1) + b;
-    }
+    };
     this.stepUp = function(timestamp) {
         
         if (self.startTime === null) self.startTime = timestamp;
@@ -46,7 +46,7 @@ function countUp(target, endVal, decimals, duration) {
             // bc easing prevents endVal being reached
             self.d.innerHTML = self.addCommas(endVal.toFixed(decimals));
         }
-    }  
+    };  
     this.start = function() {
         // make sure endVal is a number
         if (!isNaN(endVal) && endVal !== null) {
@@ -56,10 +56,10 @@ function countUp(target, endVal, decimals, duration) {
             self.d.innerHTML = '--';
         }
         return false;
-    }   
+    };   
     this.reset = function() {
         this.d.innerHTML = 0;
-    }
+    };
     this.addCommas = function(nStr) {
         nStr += '';
         x = nStr.split('.');

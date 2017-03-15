@@ -32,7 +32,7 @@ $(document).ready(function () {
         if (action == "action/order.html") {
             $('#nav-user').click();
         }
-    };
+    }
 });
 function backToTop(){
     $("html,body").animate({scrollTop: 0}, 200);
@@ -90,7 +90,7 @@ function doCart(obj, id, name, price , attrIs) {
                 if (value.id == id) {
                     flag = 1;
                     value.num++;
-                    return;
+                    
                 }
             });
             if (flag == 0) {
@@ -108,7 +108,7 @@ function doCart(obj, id, name, price , attrIs) {
                 if (value.id == id && value.attr_id == attr.attr_id) {
                     flag = 1;
                     value.num++;
-                    return;
+                    
                 }
             });
             if (flag == 0) {
@@ -118,14 +118,14 @@ function doCart(obj, id, name, price , attrIs) {
         }
 
         initProduct();
-        return;
+        
     }else{
         var flag = 0;
         $.each(cartData, function (index, value) {
             if (value.id == id) {
                 flag = 1;
                 value.num++;
-                return;
+                
             }
         });
         if (flag == 0) {
@@ -133,7 +133,7 @@ function doCart(obj, id, name, price , attrIs) {
             cartData.push(JSON.parse(current));
         }
         initProduct();
-        return;
+        
     }
 }
 function initProduct() {
@@ -342,7 +342,7 @@ function deleteProduct(obj, id , attr_id) {
                 if (cartData.length == 0) {
                     $('#nav-product').click();
                 }
-                return;
+                
             }
         }else{
             if (value.id == id && value.attr_id == attr_id) {
@@ -354,7 +354,7 @@ function deleteProduct(obj, id , attr_id) {
                 if (cartData.length == 0) {
                     $('#nav-product').click();
                 }
-                return;
+                
             }
         }
     });
@@ -383,8 +383,7 @@ function cartNext() {
                         html += '<option value="' + value.name + '" label="' + index + '">' + value.name + '</option>';
                     });
                     $('#hat_city').html(html);
-                };
-
+                }
                 var html = '';
                 area = city;
                 if (city[0]["area"] != null) {
@@ -392,8 +391,7 @@ function cartNext() {
                         html += '<option value="' + value.name + '">' + value.name + '</option>';
                     });
                     $('#hat_area').html(html);
-                };
-
+                }
                 var html = '';
                 var deliveryTime = eval(data.config.delivery_time);
                 $.each(deliveryTime, function (index, value) {
@@ -416,8 +414,7 @@ function cartNext() {
                         $('#hat_area').html(html);
                     });
                     $('#hat_area').val(data.contact.area);
-                };
-                
+                }
             }
         },
         beforeSend: function () {
@@ -435,7 +432,7 @@ function submitOrder() {
     if (submitFlag == false) {
         alert("请不要重复操作!");
         return;
-    };
+    }
     var name = $('#username').val();
     var phone = $('#tel').val();
     var city = $('#hat_city').val();
@@ -447,11 +444,11 @@ function submitOrder() {
     if (payment == -1) {
         alert("请选择支付方式!");
         return;
-    };
+    }
     if (name.length == 0 || phone.length == 0 || address.length == 0) {
         alert("请核对输入的信息!");
         return;
-    };
+    }
     submitFlag = false;
     $.ajax({
         type: "post",
@@ -573,7 +570,7 @@ function commentOrder(id) {
         if ($('#comment-text').val().length == 0) {
             alert("请核对输入的信息!");
             return;
-        };
+        }
         $.ajax({
             type: "post",
             url: baseUrl + "/App/Index/comment",
@@ -612,7 +609,7 @@ function pay() {
         if ($('#pay-text').val().length == 0) {
             alert("请核对输入的信息!");
             return;
-        };
+        }
         $.ajax({
             type: "post",
             url: baseUrl + "/App/Index/pay",
@@ -822,5 +819,5 @@ jQuery.fn.shake = function(times,offset,delay) {//次数,偏移,间隔
 
     });
     return this;
-}
+};
 

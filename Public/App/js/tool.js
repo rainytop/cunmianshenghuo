@@ -166,7 +166,7 @@
 				   auto: 3000,
 				   callback: function(index, element) {
 					   $('.swipe-text p').html($(element).find('img').attr('title'));		   
-					   $('#slider_on li').removeClass('on')
+					   $('#slider_on li').removeClass('on');
 					   $('#slider_on li').eq(index).addClass('on');  
 				   }
 				});
@@ -174,7 +174,7 @@
 				window.mySwipe = Swipe(elem, {
 				   auto: 3000,
 				   callback: function(index, element) {
-					   $('#slider_on li').removeClass('on')
+					   $('#slider_on li').removeClass('on');
 					   $('#slider_on li').eq(index).addClass('on');  
 				   }
 				});

@@ -24,7 +24,7 @@
 	</head>
 	<body class="back5">
 		<div class="site-srch ovflw">
-			<i class="iconfont fl site-bck" onclick="javascript:history.go(-1)">&#xe679</i>
+			<i class="iconfont fl site-bck" onclick="history.go(-1)">&#xe679</i>
 			<div class="site-ipt fl"><i class="iconfont fl">&#xe65c</i><input type="text" placeholder="查找小区" id="search"/></div>
 		</div>
 		<div class="site-cc">
@@ -44,7 +44,7 @@
 		var xqid=$(this).data('id');
 		var url_attr=("{$addressid}"=='')?'':"/id/{$addressid}";
 		location.href="U('/App/Vip/addressSet')/xqid/"+xqid+url_attr;
-	})
+	});
 	
 	$("#search").on('input',function(e){
 		var search=$(this).val();

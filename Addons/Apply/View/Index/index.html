@@ -159,7 +159,7 @@
         if (submitFlag == false) {
             alert("请不要重复操作!");
             return;
-        };
+        }
         var name = $('#name').val();
         var phone = $('#mobile').val();
         var event = $('#event').val();
@@ -169,7 +169,7 @@
         if (!name || !phone) {
             alert("请核对输入的信息!");
             return;
-        };
+        }
         submitFlag = false;
 
         $.ajax({

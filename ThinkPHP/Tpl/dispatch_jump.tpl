@@ -42,7 +42,7 @@ var interval = setInterval(function(){
 	if(time <= 0) {
 		location.href = href;
 		clearInterval(interval);
-	};
+    }
 }, 1000);
 })();
 </script>

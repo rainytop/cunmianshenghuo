@@ -33,7 +33,7 @@ function FileProgress(file, targetID) {
         //by ue
         progressCancel.onclick = function(){
             alert(1);
-        }
+        };
 
 		var progressText = document.createElement("div");
 		progressText.className = "progressName";

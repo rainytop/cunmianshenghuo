@@ -11,6 +11,7 @@ namespace Home\Controller;
 
 use Home\Model\WxBiz;
 use Think\Controller;
+use Vendor\Hiland\Biz\Chinese\Calendar;
 use Vendor\Hiland\Biz\Tencent\WechatHelper;
 use Vendor\Hiland\Utils\IO\DirHelper;
 use Vendor\Hiland\Utils\IO\ImageHelper;
@@ -41,6 +42,12 @@ class FooController extends Controller
         $headimg = curl_exec($ch);
         curl_close($ch);
         dump($headimg);
+    }
+
+    public function calendarop($y=2017,$m=3,$d=15){
+        $cal= new Calendar();
+        $data= $cal->Calc($y,$m,$d);
+        dump($data);
     }
 
     public function uploadimg(){

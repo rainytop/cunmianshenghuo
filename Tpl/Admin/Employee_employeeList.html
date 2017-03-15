@@ -59,9 +59,9 @@
                                     <a href="{:U('Admin/Employee/employeeSet/',array('id'=>$vo['id']))}" class="btn btn-success btn-xs" data-loader="App-loader" data-loadername="员工设置"><i class="fa fa-edit"></i> 编辑</a>
                                     <a href="{:U('Admin/Employee/employeeList/')}" class="btn btn-danger btn-xs" data-type="del" data-ajax="{:U('Admin/Employee/employeeDel',array('id'=>$vo['id']))}"><i class="fa fa-trash-o"></i> 删除</a>
                                     <eq name='vo.vipid' value='0'>
-                                        <a href="javascript:;" class="btn btn-info btn-xs" data-id="{$vo.id}" onclick="showQrcode(this);"><i class="glyphicon glyphicon-resize-small"></i> 绑定</a>
+                                        <a href="javascript:" class="btn btn-info btn-xs" data-id="{$vo.id}" onclick="showQrcode(this);"><i class="glyphicon glyphicon-resize-small"></i> 绑定</a>
                                         <else />
-                                        <a href="javascript:;" class="btn btn-info btn-xs" data-id="{$vo.id}" onclick="showQrcode(this);"><i class="glyphicon glyphicon-resize-small"></i> 重绑</a>
+                                        <a href="javascript:" class="btn btn-info btn-xs" data-id="{$vo.id}" onclick="showQrcode(this);"><i class="glyphicon glyphicon-resize-small"></i> 重绑</a>
                                         <a href="{:U('Admin/Employee/employeeList/')}" class="btn btn-warning btn-xs" data-type="del" data-content="确定解绑，解绑后需重新绑定" data-ajax="{:U('Admin/Employee/unbindVip',array('eid'=>$vo['id']))}"><i class="glyphicon glyphicon-resize-full"></i> 解绑</a>
                                     </eq>
                                 </td>
@@ -88,7 +88,7 @@
                             </center>
                         </div>
                         <div class="modal-footer">
-                            <a href="javascript:;" class="pull-right btn btn-primary span2" data-dismiss="modal">关闭</a>
+                            <a href="javascript:" class="pull-right btn btn-primary span2" data-dismiss="modal">关闭</a>
                         </div>
                     </div>
                 </div>
@@ -146,7 +146,7 @@ $('#App-delall').on('click', function() {
             return false;
         };
         $.App.ajax('post', toajax, 'nodata', callok, callerr);
-    }
+    };
     $.App.confirm("确认要删除吗？", funok);
 });
 </script>

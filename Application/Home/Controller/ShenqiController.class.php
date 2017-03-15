@@ -22,6 +22,13 @@ class ShenqiController extends Controller
         $this->display();
     }
 
+    /**
+     * 签到
+     */
+    public function signon(){
+
+    }
+
     public function qiuhun()
     {
         if (IS_POST) {
@@ -199,5 +206,9 @@ class ShenqiController extends Controller
 
         $this->assign("title", "感恩");
         $this->detail("ganen", "请输入你的名字");
+    }
+
+    public function caimingxing(){
+        $this->display();
     }
 }

@@ -121,4 +121,18 @@ class WxBiz
 
         return $wechat;
     }
+
+    /**
+     * 创建签到的背景
+     */
+    public static function createSignOnBg(){
+//        if (!file_exists('./' . $autoset[$bgKeyWord])) {
+//            $background = imagecreatefromstring(file_get_contents('./QRcode/background/default.jpg'));
+//        } else {
+//            $background = imagecreatefromstring(file_get_contents('./' . $autoset[$bgKeyWord]));
+//        }
+
+        $background = imagecreatefromstring(file_get_contents('./Upload/shenqi/qiandao/qiandao-1.jpg'));
+        return $background;
+    }
 }

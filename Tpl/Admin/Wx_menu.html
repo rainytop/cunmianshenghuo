@@ -289,16 +289,16 @@ function replaceFuck(msg) {
                                 <td>
                                     <div class="parentmenu" data-type="{$vo.type}" data-url="{$vo.url}" data-key="{$vo.key}">
                                         <input type="text" class="form-control" style="display:inline-block;width:300px;" value="{$vo.name}">
-                                        <a href="javascript:;" onclick="setAction(this);" title="设置此菜单动作"><i class="glyphicon glyphicon-pencil"></i> 设置此菜单动作</a>
-                                        <a href="javascript:;" onclick="deleteMenu(this)" title="删除此菜单"><i class="glyphicon glyphicon-trash"></i> 删除此菜单</a>
-                                        <a href="javascript:;" onclick="addSubMenu(this);" title="添加子菜单"><i class=" glyphicon glyphicon-plus"></i> 添加子菜单</a>
+                                        <a href="javascript:" onclick="setAction(this);" title="设置此菜单动作"><i class="glyphicon glyphicon-pencil"></i> 设置此菜单动作</a>
+                                        <a href="javascript:" onclick="deleteMenu(this)" title="删除此菜单"><i class="glyphicon glyphicon-trash"></i> 删除此菜单</a>
+                                        <a href="javascript:" onclick="addSubMenu(this);" title="添加子菜单"><i class=" glyphicon glyphicon-plus"></i> 添加子菜单</a>
                                     </div>
                                     <div class="smlist">
                                         <volist name="vo.sub_button" id="sub">
                                             <div class="sonmenu" data-type="{$sub.type}" data-url="{$sub.url}" data-key="{$sub.key}">
                                                 <input type="text" class="form-control" style="display:inline-block;width:220px;" value="{$sub.name}">
-                                                <a href="javascript:;" onclick="setAction(this);" title="设置此菜单动作"><i class="glyphicon glyphicon-pencil"></i> 设置此菜单动作</a>
-                                                <a href="javascript:;" onclick="deleteMenu(this);" title="删除此菜单"><i class="glyphicon glyphicon-trash"></i> 删除此菜单</a>
+                                                <a href="javascript:" onclick="setAction(this);" title="设置此菜单动作"><i class="glyphicon glyphicon-pencil"></i> 设置此菜单动作</a>
+                                                <a href="javascript:" onclick="deleteMenu(this);" title="删除此菜单"><i class="glyphicon glyphicon-trash"></i> 删除此菜单</a>
                                             </div>
                                         </volist>
                                     </div>
@@ -309,7 +309,7 @@ function replaceFuck(msg) {
                 </table>
                 <div class="widget-header bg-gold">
                     <span class="widget-caption">
-                        <a href="javascript:;" onclick="addMenu();">添加菜单 <i class="fa fa-plus-circle" title="添加菜单"></i></a>
+                        <a href="javascript:" onclick="addMenu();">添加菜单 <i class="fa fa-plus-circle" title="添加菜单"></i></a>
                     </span>
                     <div class="widget-buttons">
                         <input type="button" value="保存菜单结构" class="btn btn-success" onclick="saveMenu();" />&nbsp;
@@ -329,14 +329,14 @@ function replaceFuck(msg) {
                         <div class="modal-body">
                             <input id="type" type="hidden">
                             <ul class="nav nav-pills">
-                                <li role="presentation" class="menutype" data-type="view"><a href="javascript:;">链接</a></li>
-                                <li role="presentation" class="menutype" data-type="click"><a href="javascript:;">模拟关键字</a></li>
-                                <li role="presentation" class="menutype" data-type="scancode_push"><a href="javascript:;">扫码</a></li>
-                                <li role="presentation" class="menutype" data-type="scancode_waitmsg"><a href="javascript:;">扫码（等待信息）</a></li>
-                                <li role="presentation" class="menutype" data-type="pic_sysphoto"><a href="javascript:;">系统拍照发图</a></li>
-                                <li role="presentation" class="menutype" data-type="pic_photo_or_album"><a href="javascript:;">拍照或者相册发图</a></li>
-                                <li role="presentation" class="menutype" data-type="pic_weixin"><a href="javascript:;">微信相册发图</a></li>
-                                <li role="presentation" class="menutype" data-type="location_select"><a href="javascript:;">地理位置</a></li>
+                                <li role="presentation" class="menutype" data-type="view"><a href="javascript:">链接</a></li>
+                                <li role="presentation" class="menutype" data-type="click"><a href="javascript:">模拟关键字</a></li>
+                                <li role="presentation" class="menutype" data-type="scancode_push"><a href="javascript:">扫码</a></li>
+                                <li role="presentation" class="menutype" data-type="scancode_waitmsg"><a href="javascript:">扫码（等待信息）</a></li>
+                                <li role="presentation" class="menutype" data-type="pic_sysphoto"><a href="javascript:">系统拍照发图</a></li>
+                                <li role="presentation" class="menutype" data-type="pic_photo_or_album"><a href="javascript:">拍照或者相册发图</a></li>
+                                <li role="presentation" class="menutype" data-type="pic_weixin"><a href="javascript:">微信相册发图</a></li>
+                                <li role="presentation" class="menutype" data-type="location_select"><a href="javascript:">地理位置</a></li>
                             </ul>
                             <!-- /input-group -->
                             <div id="url">
@@ -362,7 +362,7 @@ function replaceFuck(msg) {
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <a href="javascript:;" onclick="saveAction();" class="pull-right btn btn-primary span2">保存</a>
+                            <a href="javascript:" onclick="saveAction();" class="pull-right btn btn-primary span2">保存</a>
                         </div>
                     </div>
                 </div>

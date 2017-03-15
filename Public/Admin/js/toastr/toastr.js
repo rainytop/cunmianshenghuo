@@ -378,4 +378,4 @@ function isIE8orlower() {
         }
     }
     return msg
-};
+}

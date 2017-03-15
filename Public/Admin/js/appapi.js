@@ -8,7 +8,7 @@ jQuery.App = {
      App.help方法
      */
     help: function () {
-        var funarr = new Array;
+        var funarr = [];
         funarr = ["$.App.ajax", "$.App.loading", "$.App.buiAlert", "$.App.buiDialog", "$.App.buiForm", "$.App.uploadImg"];
         var output = '';
         $.each(funarr, function (key, val) {

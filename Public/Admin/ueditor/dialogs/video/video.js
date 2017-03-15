@@ -67,7 +67,7 @@
             }
             createPreviewVideo(url);
         })();
-    };
+    }
     /**
      * 监听确认和取消两个按钮事件，用户执行插入或者清空正在播放的视频实例操作
      */
@@ -466,6 +466,5 @@
             }
         };
         var swfupload = new SWFUpload( settings );
-    };
-
+    }
 })();

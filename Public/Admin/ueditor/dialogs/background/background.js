@@ -51,7 +51,7 @@
         var updateHandler = function () {
             updateFormState();
             updateBackground();
-        }
+        };
         domUtils.on($G('nocolorRadio'), 'click', updateBackground);
         domUtils.on($G('coloredRadio'), 'click', updateHandler);
         domUtils.on($G('url'), 'keyup', function(){
@@ -248,4 +248,4 @@
     dialog.oncancel = function () {
         editor.execCommand('background', backupStyle);
     };
-})()
+})();

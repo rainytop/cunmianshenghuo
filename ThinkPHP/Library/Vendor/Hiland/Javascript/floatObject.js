@@ -40,25 +40,25 @@ var floatObject = function () {
      *   {times:100, num: 314}
      */
     function toInteger(floatNum) {
-        var ret = {times: 1, num: 0}
+        var ret = {times: 1, num: 0};
         if (isInteger(floatNum)) {
-            ret.num = floatNum
+            ret.num = floatNum;
             return ret
         }
-        var strfi = floatNum + ''
-        var dotPos = strfi.indexOf('.')
-        var len = strfi.substr(dotPos + 1).length
-        var times = Math.pow(10, len)
-        var intNum = parseInt(floatNum * times + 0.5, 10)
-        ret.times = times
-        ret.num = intNum
+        var strfi = floatNum + '';
+        var dotPos = strfi.indexOf('.');
+        var len = strfi.substr(dotPos + 1).length;
+        var times = Math.pow(10, len);
+        var intNum = parseInt(floatNum * times + 0.5, 10);
+        ret.times = times;
+        ret.num = intNum;
         return ret
     }
 
     function toFixed(num, s) {
-        var times = Math.pow(10, s)
-        var des = num * times + 0.5
-        des = parseInt(des, 10) / times
+        var times = Math.pow(10, s);
+        var des = num * times + 0.5;
+        des = parseInt(des, 10) / times;
         return des + ''
     }
 

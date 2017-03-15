@@ -44,7 +44,7 @@ require.helper.semVerSort = function(a, b) {
       if (aLex === '' && bLex !== '') return 1;
       if (aLex !== '' && bLex === '') return -1;
       if (aLex !== '' && bLex !== '') return aLex > bLex ? 1 : -1;
-      continue;
+      
     } else if (aInt > bInt) {
       return 1;
     } else {
@@ -52,7 +52,7 @@ require.helper.semVerSort = function(a, b) {
     }
   }
   return 0;
-}
+};
 
 /**
  * Find and require a module which name starts with the provided name.
@@ -103,7 +103,7 @@ require.latest = function (name, returnPath) {
     return module;
   }
   return require(module);
-}
+};
 
 /**
  * Registered modules.
@@ -154,9 +154,8 @@ module.exports = Emitter;
 
 function Emitter(obj) {
   if (obj) return mixin(obj);
-};
-
-/**
+}
+    /**
  * Mixin the emitter properties.
  *
  * @param {Object} obj
@@ -420,7 +419,7 @@ require.register("dropzone/lib/dropzone.js", function (exports, module) {
           if (/(^| )dz-message($| )/.test(child.className)) {
             messageElement = child;
             child.className = "dz-message";
-            continue;
+            
           }
         }
         if (!messageElement) {
@@ -1692,7 +1691,7 @@ require.register("dropzone/lib/dropzone.js", function (exports, module) {
           regex = _ref[_i];
           if (regex.test(navigator.userAgent)) {
             capableBrowser = false;
-            continue;
+            
           }
         }
       }
@@ -1969,4 +1968,4 @@ if (typeof exports == "object") {
 } else {
   (this || window)["Dropzone"] = require("dropzone");
 }
-})()
+})();

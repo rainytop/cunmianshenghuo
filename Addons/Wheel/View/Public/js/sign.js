@@ -28,7 +28,7 @@ function signIn(obj){
         },
         success: function (data) {
             if(data){
-                var json = eval(data)
+                var json = eval(data);
                 $("#alert").show();
                 if (typeof json.score != "undefined") {
                     $("#alert_text").html("恭喜您获得"+json.score+"积分");
@@ -57,7 +57,7 @@ function submitOrder(){
     if (submitFlag == false) {
         alert("请不要重复操作!");
         return;
-    };
+    }
     var name = $('#name').val();
     var phone = $('#phone').val();
     var address = $('#address').val();
@@ -66,7 +66,7 @@ function submitOrder(){
     if (name.length == 0 || phone.length == 0 || address.length == 0) {
         alert("请核对输入的信息!");
         return;
-    };
+    }
     submitFlag = false;
 
     $.ajax({

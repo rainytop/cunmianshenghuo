@@ -162,6 +162,14 @@ class WxController extends Controller
                 self::$_wx->text("您的推广二维码生成之中，请稍等片刻。")->reply();
                 break;
             }
+            case '签到':
+            case 'qd':
+            {
+                $qrUrl = U("WxNonValid/reply4TuiGuangErWeiMa", array("openid" => self::$_revdata['FromUserName']));
+                Thread::asynExec($qrUrl);
+                self::$_wx->text("您的推广二维码生成之中，请稍等片刻。")->reply();
+                break;
+            }
             default: {
                 //用户自定义关键词匹配
                 //*********************************************************************

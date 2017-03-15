@@ -1039,12 +1039,10 @@ var gmu = gmu || {
                 function exec() {
                     last = Date.now();
                     fn.apply(that, args);
-                };
-
+                }
                 function clear() {
                     timeId = undefined;
-                };
-
+                }
                 if (debounce_mode && !timeId) {
                     // debounce模式 && 第一次调用
                     exec();
@@ -1058,7 +1056,7 @@ var gmu = gmu || {
                     // debounce, 如果是start就clearTimeout
                     timeId = setTimeout(debounce_mode ? clear : exec, debounce_mode === undefined ? delay - period : delay);
                 }
-            };
+            }
             // for event bind | unbind
             wrapper._zid = fn._zid = fn._zid || $.proxy(fn)._zid;
             return wrapper;
@@ -1748,76 +1746,76 @@ $(function () {
 //     (c) 2010-2012 Thomas Fuchs
 //     Zepto.js may be freely distributed under the MIT license.
 
-;(function($){
-  var touch = {},
+(function ($) {
+    var touch = {},
     touchTimeout, tapTimeout, swipeTimeout,
-    longTapDelay = 750, longTapTimeout
+    longTapDelay = 750, longTapTimeout;
 
   function parentIfText(node) {
     return 'tagName' in node ? node : node.parentNode
   }
 
   function swipeDirection(x1, x2, y1, y2) {
-    var xDelta = Math.abs(x1 - x2), yDelta = Math.abs(y1 - y2)
+    var xDelta = Math.abs(x1 - x2), yDelta = Math.abs(y1 - y2);
     return xDelta >= yDelta ? (x1 - x2 > 0 ? 'Left' : 'Right') : (y1 - y2 > 0 ? 'Up' : 'Down')
   }
 
   function longTap() {
-    longTapTimeout = null
+    longTapTimeout = null;
     if (touch.last) {
-      touch.el.trigger('longTap')
+      touch.el.trigger('longTap');
       touch = {}
     }
   }
 
   function cancelLongTap() {
-    if (longTapTimeout) clearTimeout(longTapTimeout)
+    if (longTapTimeout) clearTimeout(longTapTimeout);
     longTapTimeout = null
   }
 
   function cancelAll() {
-    if (touchTimeout) clearTimeout(touchTimeout)
-    if (tapTimeout) clearTimeout(tapTimeout)
-    if (swipeTimeout) clearTimeout(swipeTimeout)
-    if (longTapTimeout) clearTimeout(longTapTimeout)
-    touchTimeout = tapTimeout = swipeTimeout = longTapTimeout = null
+    if (touchTimeout) clearTimeout(touchTimeout);
+    if (tapTimeout) clearTimeout(tapTimeout);
+    if (swipeTimeout) clearTimeout(swipeTimeout);
+    if (longTapTimeout) clearTimeout(longTapTimeout);
+    touchTimeout = tapTimeout = swipeTimeout = longTapTimeout = null;
     touch = {}
   }
 
   $(document).ready(function(){
-    var now, delta
+    var now, delta;
 
     $(document.body)
       .bind('touchstart', function(e){
-        now = Date.now()
-        delta = now - (touch.last || now)
-        touch.el = $(parentIfText(e.touches[0].target))
-        touchTimeout && clearTimeout(touchTimeout)
-        touch.x1 = e.touches[0].pageX
-        touch.y1 = e.touches[0].pageY
-        if (delta > 0 && delta <= 250) touch.isDoubleTap = true
-        touch.last = now
+        now = Date.now();
+        delta = now - (touch.last || now);
+        touch.el = $(parentIfText(e.touches[0].target));
+        touchTimeout && clearTimeout(touchTimeout);
+        touch.x1 = e.touches[0].pageX;
+        touch.y1 = e.touches[0].pageY;
+        if (delta > 0 && delta <= 250) touch.isDoubleTap = true;
+        touch.last = now;
         longTapTimeout = setTimeout(longTap, longTapDelay)
       })
       .bind('touchmove', function(e){
-        cancelLongTap()
-        touch.x2 = e.touches[0].pageX
-        touch.y2 = e.touches[0].pageY
+        cancelLongTap();
+        touch.x2 = e.touches[0].pageX;
+        touch.y2 = e.touches[0].pageY;
         if (Math.abs(touch.x1 - touch.x2) > 10)
           e.preventDefault()
       })
       .bind('touchend', function(e){
-         cancelLongTap()
+         cancelLongTap();
 
         // swipe
         if ((touch.x2 && Math.abs(touch.x1 - touch.x2) > 30) ||
             (touch.y2 && Math.abs(touch.y1 - touch.y2) > 30))
 
           swipeTimeout = setTimeout(function() {
-            touch.el.trigger('swipe')
-            touch.el.trigger('swipe' + (swipeDirection(touch.x1, touch.x2, touch.y1, touch.y2)))
+            touch.el.trigger('swipe');
+            touch.el.trigger('swipe' + (swipeDirection(touch.x1, touch.x2, touch.y1, touch.y2)));
             touch = {}
-          }, 0)
+          }, 0);
 
         // normal tap
         else if ('last' in touch)
@@ -1828,21 +1826,21 @@ $(function () {
 
             // trigger universal 'tap' with the option to cancelTouch()
             // (cancelTouch cancels processing of single vs double taps for faster 'tap' response)
-            var event = $.Event('tap')
-            event.cancelTouch = cancelAll
-            touch.el.trigger(event)
+            var event = $.Event('tap');
+            event.cancelTouch = cancelAll;
+            touch.el.trigger(event);
 
             // trigger double tap immediately
             if (touch.isDoubleTap) {
-              touch.el.trigger('doubleTap')
+              touch.el.trigger('doubleTap');
               touch = {}
             }
 
             // trigger single tap after 250ms of inactivity
             else {
               touchTimeout = setTimeout(function(){
-                touchTimeout = null
-                touch.el.trigger('singleTap')
+                touchTimeout = null;
+                touch.el.trigger('singleTap');
                 touch = {}
               }, 250)
             }
@@ -1850,7 +1848,7 @@ $(function () {
           }, 0)
 
       })
-      .bind('touchcancel', cancelAll)
+      .bind('touchcancel', cancelAll);
 
     $(window).bind('scroll', cancelAll)
   })
@@ -2357,7 +2355,7 @@ $(function () {
         formatDate: function(date) {
             return date.getFullYear() + '-' + formatNumber(date.getMonth() + 1, 2) + '-' + formatNumber(date.getDate(), 2);
         }
-    }
+    };
 
     /**
      * @event ready
@@ -2606,7 +2604,7 @@ $(function () {
                 marginLeft: -round(size.width/2) +'px',
                 top: isBody?round($win.height() / 2) + window.pageYOffset:'50%',
                 marginTop: -round(size.height/2) +'px'
-            }
+            };
             return ret;
         },
 
@@ -2623,7 +2621,7 @@ $(function () {
                     ret = me._calculate();
                     ret.mask && opts._mask.css(ret.mask);
                     opts._wrap.css(ret.wrap);
-                }
+                };
 
                 //如果有键盘在，需要多加延时
                 if( $.os.ios &&
@@ -3198,7 +3196,7 @@ $(function () {
             props = {
               top:  round( coords.top - (pos.top || 0)  - parentOffset.top ),
               left: round( coords.left - (pos.left || 0) - parentOffset.left )
-            }
+            };
 
             if ( position == 'static' ){
                 props['position'] = 'relative';
@@ -3681,7 +3679,7 @@ $(function () {
                 if ( _item.id === id ) {
                     callback.call( me, _item, index );
 
-                    return;
+
                 }
             } );
         },
@@ -3928,7 +3926,7 @@ $(function () {
                     me.items.splice( index, 1);
                     $( me.$wrap.children()[index] ).remove();
 
-                    return;
+
                 }
             } );
 
@@ -8049,7 +8047,7 @@ $(function () {
 
         _fitToContent: function(div) {
             var _opts = this._options, $content = _opts._content;
-            _opts._plus === undefined && (_opts._plus = parseFloat($content.css('border-top-width'))+parseFloat($content.css('border-bottom-width')))
+            _opts._plus === undefined && (_opts._plus = parseFloat($content.css('border-top-width'))+parseFloat($content.css('border-bottom-width')));
             $content.height( div.height() + _opts._plus);
             return this;
         },
@@ -8086,7 +8084,7 @@ $(function () {
                     _opts._content.addClass('ui-viewport-transitioning');
                     from.div.addClass('out'+reverse);
                     to.div.addClass('in'+reverse).on(endEvent, function(e){
-                        if (e.target != e.currentTarget) return //如果是冒泡上来的，则不操作
+                        if (e.target != e.currentTarget) return; //如果是冒泡上来的，则不操作
                         to.div.off(endEvent, arguments.callee);//解除绑定
                         _opts._buzy = false;
                         from.div.removeClass('out reverse');
@@ -8332,8 +8330,7 @@ $(function () {
             }
 
             $el.addClass( 'ui-toolbar' );
-            $(me.title).length ? $(me.title).addClass( 'ui-toolbar-title' ) : $('<h1 class="ui-toolbar-title">' + opts.title + '</h1>').insertAfter(leftBtnContainer);;
-
+            $(me.title).length ? $(me.title).addClass('ui-toolbar-title') : $('<h1 class="ui-toolbar-title">' + opts.title + '</h1>').insertAfter(leftBtnContainer);
             me.btnContainer = {
                 'left': leftBtnContainer,
                 'right': rightBtnContainer

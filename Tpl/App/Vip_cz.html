@@ -92,7 +92,7 @@
             }
             if (zxtype == '') {
                 zbb_msg("请选择在线付款方式！");
-                return;
+
             } else {
                 var tourl = "{:U('App/Vip/zxczSet')}/type/" + zxtype + "/money/" + money;
                 location.href = tourl;
@@ -118,7 +118,7 @@
                         });
                     } else {
                         zbb_msg(e.msg);
-                        return;
+
                     }
                 },
                 error: function () {
