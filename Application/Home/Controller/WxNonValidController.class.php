@@ -404,6 +404,9 @@ class WxNonValidController extends Controller
         imagettftext($background, 136, 0, 210, 850, $fontcolor, $fonttype, date('d'));
         imagettftext($background, 36, 0, 260, 895, $fontcolor, $fonttype, date('H:i'));
 
+        $fontcolor = imagecolorallocate($background, 0x55, 0x55, 0x55);
+        imagettftext($background, 20, 0, 200, 925, $fontcolor, $fonttype, "你是今日第一位签到成功的用户");
+
         imagejpeg($background, './Upload/shenqi/qiandao/datas/' . $vip['openid'] . '.jpg');
         // 生成二维码推广图片 结束==================
 
