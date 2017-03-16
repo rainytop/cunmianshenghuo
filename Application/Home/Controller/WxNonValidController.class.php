@@ -339,7 +339,7 @@ class WxNonValidController extends Controller
         $q_width = imagesx($qrcode);
         $q_height = imagesy($qrcode);
 
-        imagecopyresampled($background, $qrcode, $b_width * 0.24, $b_height * 0.5, 0, 0, 297, 197, $q_width, $q_height);
+        imagecopyresampled($background, $qrcode, $b_width * 0.24, $b_height * 0.5, 0, 0, 150, 150, $q_width, $q_height);
 
 //        $h_width = imagesx($headimg);
 //        $h_height = imagesy($headimg);
