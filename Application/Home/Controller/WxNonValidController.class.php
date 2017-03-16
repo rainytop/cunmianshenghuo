@@ -362,12 +362,12 @@ class WxNonValidController extends Controller
         imagettftext($background, 26, 0, 180, 860, $fontcolor, $fonttype, '期');
         imagettftext($background, 26, 0, 180, 895, $fontcolor, $fonttype, DateHelper::getWeekName('c'));
 
-//        $lunar= CalendarHelper::convertSolarToLunar(date('y'),date('m'),data('d'));
-//        imagettftext($background, 26, 0, 480, 750, $fontcolor, $fonttype, '农');
-//        imagettftext($background, 26, 0, 480, 785, $fontcolor, $fonttype, $lunar[1][0]);
-//        imagettftext($background, 26, 0, 480, 820, $fontcolor, $fonttype, '月');
-//        imagettftext($background, 26, 0, 480, 860, $fontcolor, $fonttype, $lunar[2][0]);
-//        imagettftext($background, 26, 0, 480, 895, $fontcolor, $fonttype, $lunar[2][1]);
+        $lunar= CalendarHelper::convertSolarToLunar(date('y'),date('m'),data('d'));
+        imagettftext($background, 26, 0, 480, 750, $fontcolor, $fonttype, '农');
+        imagettftext($background, 26, 0, 480, 785, $fontcolor, $fonttype, $lunar[1][0]);
+        imagettftext($background, 26, 0, 480, 820, $fontcolor, $fonttype, '月');
+        imagettftext($background, 26, 0, 480, 860, $fontcolor, $fonttype, $lunar[2][0]);
+        imagettftext($background, 26, 0, 480, 895, $fontcolor, $fonttype, $lunar[2][1]);
 
         imagejpeg($background, './Upload/shenqi/qiandao/datas/' . $vip['openid'] . '.jpg');
         // 生成二维码推广图片 结束==================
