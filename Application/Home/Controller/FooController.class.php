@@ -16,6 +16,7 @@ use Vendor\Hiland\Utils\Data\Calendar;
 use Vendor\Hiland\Utils\Data\CalendarHelper;
 use Vendor\Hiland\Utils\Data\DateHelper;
 use Vendor\Hiland\Utils\Data\StringHelper;
+use Vendor\Hiland\Utils\DataModel\ModelMate;
 use Vendor\Hiland\Utils\IO\DirHelper;
 use Vendor\Hiland\Utils\IO\ImageHelper;
 use Vendor\Hiland\Utils\Web\NetHelper;
@@ -62,6 +63,15 @@ class FooController extends Controller
         //dump(substr($lunar[1],0,1)) ;
         dump(StringHelper::subString($lunar[1],0,1)) ;
         dump(StringHelper::subString($lunar[1],1,1)) ;
+    }
+
+    public function vipfixedop($openid='oZeE8w2pliOkFLhoeVYzMu3PP09A'){
+        $vipFixed= new ModelMate("vip_fixed");
+        $condition= array(
+            "openid"=>$openid,
+        );
+        $entity= $vipFixed->find($condition);
+        dump($entity);
     }
 
     public function uploadimg()

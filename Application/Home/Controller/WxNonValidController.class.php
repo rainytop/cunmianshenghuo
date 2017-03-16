@@ -288,7 +288,7 @@ class WxNonValidController extends Controller
             exit();
         }
 
-        $cacheKey= 'reply4signon-'.$vip['openid'];
+        $cacheKey= 'reply4signon--'.$vip['openid'];
 
         // 过滤连续请求-打开
         if (F($cacheKey) != null) {
@@ -363,9 +363,12 @@ class WxNonValidController extends Controller
         $signName= '';
         $contactInfo= '';
         $vipFixed= new ModelMate("vip_fixed");
-        $entity= $vipFixed->find(array("openid",$openid));
+        $condition= array(
+            "openid"=>$openid,
+        );
+        $entity= $vipFixed->find($condition);
         if($entity){
-            $displayName= $entity["namefixed"];
+            $displayName= $entity['namefixed'];
             $signName= $entity['signname'];
             $contactInfo= $entity['contactinfo'];
         }
