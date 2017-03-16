@@ -283,14 +283,14 @@ class WxNonValidController extends Controller
         }
 
 
-//        // 过滤连续请求-打开
-//        if (F($vip['openid']) != null) {
-//            $msg = "签到图片正在生成，请稍等！";
-//            WechatHelper::responseCustomerServiceText($openid, $msg);
-//            exit();
-//        } else {
-//            F($vip['openid'], $vip['openid']);
-//        }
+        // 过滤连续请求-打开
+        if (F($vip['openid']) != null) {
+            $msg = "签到图片正在生成，请稍等！";
+            WechatHelper::responseCustomerServiceText($openid, $msg);
+            exit();
+        } else {
+            F($vip['openid'], $vip['openid']);
+        }
 
         // 生产二维码基本信息，存入本地文档，获取背景
         $background = WxBiz::createSignOnBg();
