@@ -1,5 +1,5 @@
 <?php
-namespace Vendor\Hiland\Biz\Chinese;
+namespace Vendor\Hiland\Utils\Data;
 
 /**
  * Created by PhpStorm.

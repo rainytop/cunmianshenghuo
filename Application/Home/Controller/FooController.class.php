@@ -11,8 +11,9 @@ namespace Home\Controller;
 
 use Home\Model\WxBiz;
 use Think\Controller;
-use Vendor\Hiland\Biz\Chinese\Calendar;
 use Vendor\Hiland\Biz\Tencent\WechatHelper;
+use Vendor\Hiland\Utils\Data\Calendar;
+use Vendor\Hiland\Utils\Data\CalendarHelper;
 use Vendor\Hiland\Utils\Data\DateHelper;
 use Vendor\Hiland\Utils\IO\DirHelper;
 use Vendor\Hiland\Utils\IO\ImageHelper;
@@ -50,6 +51,9 @@ class FooController extends Controller
         $cal = new Calendar();
         $data = $cal->Calc($y, $m, $d);
         dump($data);
+
+        $bb = CalendarHelper::convertSolarToLunar(2017, 3, 15);
+        dump($bb);
     }
 
     public function uploadimg()
@@ -107,9 +111,9 @@ class FooController extends Controller
 
     public function weeknameop()
     {
-        $time = mktime(9,1,1,3,15,2017);
+        $time = mktime(9, 1, 1, 3, 15, 2017);
 
-        dump(DateHelper::getWeekName('c',$time));
+        dump(DateHelper::getWeekName('c', $time));
     }
 
     private function ss($url)

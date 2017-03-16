@@ -14,6 +14,7 @@ use Home\Model\WxBiz;
 use Think\Controller;
 use Vendor\Hiland\Biz\Loger\CommonLoger;
 use Vendor\Hiland\Biz\Tencent\WechatHelper;
+use Vendor\Hiland\Utils\Data\CalendarHelper;
 use Vendor\Hiland\Utils\Web\NetHelper;
 
 class WxNonValidController extends Controller
@@ -353,8 +354,8 @@ class WxNonValidController extends Controller
         imagettftext($background, 18, 0, 280, 1000, $fontcolor, $fonttype, $vip['nickname']);
 
         //日历信息
-        imagettftext($background, 30, 0, 300, 750, $fontcolor, $fonttype, date("m"));
-        imagettftext($background, 30, 0, 300, 800, $fontcolor, $fonttype, '月');
+        imagettftext($background, 30, 0, 200, 750, $fontcolor, $fonttype, CalendarHelper::getMonthChineseName());
+        imagettftext($background, 30, 0, 200, 800, $fontcolor, $fonttype, '月');
 
         imagejpeg($background, './Upload/shenqi/qiandao/datas/' . $vip['openid'] . '.jpg');
         // 生成二维码推广图片 结束==================
