@@ -339,7 +339,7 @@ class WxNonValidController extends Controller
         $q_width = imagesx($qrcode);
         $q_height = imagesy($qrcode);
 
-        imagecopyresampled($background, $qrcode, $b_width * 0.20, $b_height * 0.86, 0, 0, 150, 150, $q_width, $q_height);
+        imagecopyresampled($background, $qrcode, $b_width * 0.20, $b_height * 0.80, 0, 0, 150, 150, $q_width, $q_height);
 
 //        $h_width = imagesx($headimg);
 //        $h_height = imagesy($headimg);
@@ -350,7 +350,7 @@ class WxNonValidController extends Controller
         $fontcolor = imagecolorallocate($background, 0x00, 0x00, 0x00);
 
         // Combine All And Text, Then store in local
-        imagettftext($background, 18, 0, 280, 100, $fontcolor, $fonttype, $vip['nickname']);
+        imagettftext($background, 18, 0, 280, 900, $fontcolor, $fonttype, $vip['nickname']);
         imagejpeg($background, './Upload/shenqi/qiandao/datas/' . $vip['openid'] . '.jpg');
 
         // 生成二维码推广图片 结束==================
