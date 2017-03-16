@@ -2,6 +2,7 @@
 
 namespace Home\Model;
 
+use Vendor\Hiland\Utils\IO\DirHelper;
 use Vendor\Hiland\Utils\Web\NetHelper;
 
 /**
@@ -125,14 +126,25 @@ class WxBiz
     /**
      * 创建签到的背景
      */
-    public static function createSignOnBg(){
+    public static function createSignOnBg()
+    {
 //        if (!file_exists('./' . $autoset[$bgKeyWord])) {
 //            $background = imagecreatefromstring(file_get_contents('./QRcode/background/default.jpg'));
 //        } else {
 //            $background = imagecreatefromstring(file_get_contents('./' . $autoset[$bgKeyWord]));
 //        }
 
-        $background = imagecreatefromstring(file_get_contents('./Upload/shenqi/qiandao/qiandao-1.jpg'));
+        $dir = './Upload/shenqi/qiandao/';
+
+        $file = '';
+        while (is_file($file) == false) {
+            $fileCount = DirHelper::getFileCount($dir);
+            $randValue = mt_rand(1, $fileCount);
+
+            $file = $dir . "qiandao-$randValue.jpg";
+        }
+
+        $background = imagecreatefromstring(file_get_contents($file));
         return $background;
     }
 }

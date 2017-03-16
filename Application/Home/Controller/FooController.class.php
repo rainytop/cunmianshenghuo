@@ -74,6 +74,11 @@ class FooController extends Controller
         dump($entity);
     }
 
+    public function filecountop(){
+        $count= DirHelper::getFileCount('./Upload/shenqi/qiandao/');
+        dump($count);
+    }
+
     public function uploadimg()
     {
         $wechat = WxBiz::getWechat();
