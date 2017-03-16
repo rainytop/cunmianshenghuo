@@ -52,6 +52,8 @@ class WxNonValidController extends Controller
             exit();
         }
 
+        $cacheKey= 'employee-'.$vip['openid'];
+
         // 获取员工信息
         $employee = M('Employee')->where(array('vipid' => $vip['id']))->find();
 
@@ -63,12 +65,12 @@ class WxNonValidController extends Controller
         }
 
         // 过滤连续请求-打开
-        if (F("employee" . $vip['openid']) != null) {
+        if (F($cacheKey) != null) {
             $msg = "员工二维码正在生成，请稍等！";
             WechatHelper::responseCustomerServiceText($openid, $msg);
             exit();
         } else {
-            F("employee" . $vip['openid'], $vip['openid']);
+            F($cacheKey, $vip['openid']);
         }
 
         // 生产二维码基本信息，存入本地文档，获取背景
@@ -78,7 +80,7 @@ class WxNonValidController extends Controller
         if (!$qrcode) {
             $msg = "员工二维码 生成失败";
             WechatHelper::responseCustomerServiceText($openid, $msg);
-            F("employee" . $vip['openid'], null);
+            F($cacheKey, null);
             exit();
         }
         // 生产二维码基本信息，存入本地文档，获取背景 结束
@@ -136,7 +138,7 @@ class WxNonValidController extends Controller
         // 上传下载相应 结束
 
         // 过滤连续请求-关闭
-        F("employee" . $vip['openid'], null);
+        F($cacheKey, null);
 
         // 后续数据操作（写入头像到本地，更新个人信息）
         if ($mark) {
@@ -172,14 +174,16 @@ class WxNonValidController extends Controller
             exit();
         }
 
+        $cacheKey= 'reply4TuiGuangErWeiMa-'.$vip['openid'];
+
         // 过滤连续请求-打开
-        if (F($vip['openid']) != null) {
+        if (F($cacheKey) != null) {
             $msg = "推广二维码正在生成，请稍等！";
             //self::$_wx->text($msg)->reply();
             WechatHelper::responseCustomerServiceText($openid, $msg);
             exit();
         } else {
-            F($vip['openid'], $vip['openid']);
+            F($cacheKey, $vip['openid']);
         }
 
         // 生产二维码基本信息，存入本地文档，获取背景
@@ -190,7 +194,7 @@ class WxNonValidController extends Controller
             $msg = "专属二维码 生成失败";
             //self::$_wx->text($msg)->reply();
             WechatHelper::responseCustomerServiceText($openid, $msg);
-            F($vip['openid'], null);
+            F($cacheKey, null);
             exit();
         }
         // 生产二维码基本信息，存入本地文档，获取背景 结束
@@ -254,7 +258,7 @@ class WxNonValidController extends Controller
         // 上传下载相应 结束
 
         // 过滤连续请求-关闭
-        F($vip['openid'], null);
+        F($cacheKey, null);
 
         // 后续数据操作（写入头像到本地，更新个人信息）
         if ($mark) {
@@ -283,14 +287,15 @@ class WxNonValidController extends Controller
             exit();
         }
 
+        $cacheKey= 'reply4signon-'.$vip['openid'];
 
         // 过滤连续请求-打开
-        if (F($vip['openid']) != null) {
+        if (F($cacheKey) != null) {
             $msg = "签到图片正在生成，请稍等！";
             WechatHelper::responseCustomerServiceText($openid, $msg);
             exit();
         } else {
-            F($vip['openid'], $vip['openid']);
+            F($cacheKey, $vip['openid']);
         }
 
         // 生产二维码基本信息，存入本地文档，获取背景
@@ -302,7 +307,7 @@ class WxNonValidController extends Controller
             $msg = "专属二维码 生成失败";
             //self::$_wx->text($msg)->reply();
             WechatHelper::responseCustomerServiceText($openid, $msg);
-            F($vip['openid'], null);
+            F($cacheKey, null);
             exit();
         }
 
@@ -387,7 +392,7 @@ class WxNonValidController extends Controller
 
 
         // 过滤连续请求-关闭
-        F($vip['openid'], null);
+        F($cacheKey, null);
 
         // 后续数据操作（写入头像到本地，更新个人信息）
         if ($mark) {
