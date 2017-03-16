@@ -375,7 +375,7 @@ class WxNonValidController extends Controller
         imagettftext($background, 26, 0, 430, 860, $fontcolor, $fonttype, StringHelper::subString($lunar[2],0,1));
         imagettftext($background, 26, 0, 430, 895, $fontcolor, $fonttype, StringHelper::subString($lunar[2],1,1));
 
-        imagettftext($background, 136, 0, 280, 850, $fontcolor, $fonttype, date('d'));
+        imagettftext($background, 136, 0, 240, 850, $fontcolor, $fonttype, date('d'));
 
         imagejpeg($background, './Upload/shenqi/qiandao/datas/' . $vip['openid'] . '.jpg');
         // 生成二维码推广图片 结束==================
