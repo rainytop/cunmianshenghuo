@@ -349,10 +349,14 @@ class WxNonValidController extends Controller
         $fonttype = './Public/Common/fonts/wqy-microhei.ttc';
         $fontcolor = imagecolorallocate($background, 0x00, 0x00, 0x00);
 
-        // Combine All And Text, Then store in local
+        //用户的昵称和签名信息
         imagettftext($background, 18, 0, 280, 1000, $fontcolor, $fonttype, $vip['nickname']);
-        imagejpeg($background, './Upload/shenqi/qiandao/datas/' . $vip['openid'] . '.jpg');
 
+        //日历信息
+        imagettftext($background, 30, 0, 300, 750, $fontcolor, $fonttype, date("m"));
+        imagettftext($background, 30, 0, 300, 800, $fontcolor, $fonttype, '月');
+
+        imagejpeg($background, './Upload/shenqi/qiandao/datas/' . $vip['openid'] . '.jpg');
         // 生成二维码推广图片 结束==================
 
         // 上传下载相应

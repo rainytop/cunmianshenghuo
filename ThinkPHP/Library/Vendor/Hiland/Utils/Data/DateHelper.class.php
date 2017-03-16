@@ -48,10 +48,10 @@ class DateHelper
      *            时间间隔值
      * @return int int类型的时间戳
      */
-    public static function addInterval($originalTimestamp=null, $intervalType="d", $intervalValue=1)
+    public static function addInterval($originalTimestamp = null, $intervalType = "d", $intervalValue = 1)
     {
-        if(empty($originalTimestamp)){
-            $originalTimestamp= time();
+        if (empty($originalTimestamp)) {
+            $originalTimestamp = time();
         }
         $datetimearray = getdate($originalTimestamp);
         $hours = $datetimearray["hours"];
@@ -141,7 +141,68 @@ class DateHelper
         return strtotime($date);
     }
 
+    /**
+     * 获取某个制定的日期是星期几
+     * @param $timestamp 指定的日期（默认为当前日期）
+     * @param string $format 返回星期几的格式
+     * （默认（或者number,N,n）为数组0-7；
+     * chinese,C,c:汉字 一，。。。日；
+     * chinesefull,CF,cf:汉字全称 星期一。。。星期天）
+     * @return string
+     */
+    public static function getWeekName($format = 'number', $timestamp = null)
+    {
+        if ($format == 'number' || $format == 'N' || $format == 'n') {
+            $format = 'n';
+        }
 
+        if ($format == 'chinese' || $format == 'C' || $format == 'c') {
+            $format = 'c';
+        }
+
+        if ($format == 'chinesefull' || $format == 'CF' || $format == 'cf') {
+            $format = 'cf';
+        }
+
+        $week = date("w", $timestamp);
+
+        $result = '';
+        switch ($week) {
+            case 1:
+                $result = "一";
+                break;
+            case 2:
+                $result = "二";
+                break;
+            case 3:
+                $result = "三";
+                break;
+            case 4:
+                $result = "四";
+                break;
+            case 5:
+                $result = "五";
+                break;
+            case 6:
+                $result = "六";
+                break;
+            case 0:
+                $result = "日";
+                break;
+        }
+
+        switch ($format) {
+            case "n":
+                return $week;
+                break;
+            case 'c':
+                return $result;
+                break;
+            case 'cf':
+                return '星期' . $result;
+                break;
+        }
+    }
 
 }
 

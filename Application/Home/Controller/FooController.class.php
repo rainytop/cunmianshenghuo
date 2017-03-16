@@ -13,6 +13,7 @@ use Home\Model\WxBiz;
 use Think\Controller;
 use Vendor\Hiland\Biz\Chinese\Calendar;
 use Vendor\Hiland\Biz\Tencent\WechatHelper;
+use Vendor\Hiland\Utils\Data\DateHelper;
 use Vendor\Hiland\Utils\IO\DirHelper;
 use Vendor\Hiland\Utils\IO\ImageHelper;
 use Vendor\Hiland\Utils\Web\NetHelper;
@@ -31,7 +32,7 @@ class FooController extends Controller
 
     public function wximg()
     {
-        $headimgurl= "http://wx.qlogo.cn/mmopen/Ib5852jAybibhPd6DV1FzXCgLicqMreYh8LTWtFje4ePscFDPl8KMc2jAo65z5IjNluaQBBwkIVS2oxX67eqFBaoRnjoesVAWL/0";
+        $headimgurl = "http://wx.qlogo.cn/mmopen/Ib5852jAybibhPd6DV1FzXCgLicqMreYh8LTWtFje4ePscFDPl8KMc2jAo65z5IjNluaQBBwkIVS2oxX67eqFBaoRnjoesVAWL/0";
 //        $data = NetHelper::get($headimgurl);
 //        dump($data);
         $ch = curl_init();
@@ -44,44 +45,75 @@ class FooController extends Controller
         dump($headimg);
     }
 
-    public function calendarop($y=2017,$m=3,$d=15){
-        $cal= new Calendar();
-        $data= $cal->Calc($y,$m,$d);
+    public function calendarop($y = 2017, $m = 3, $d = 15)
+    {
+        $cal = new Calendar();
+        $data = $cal->Calc($y, $m, $d);
         dump($data);
     }
 
-    public function uploadimg(){
-        $wechat= WxBiz::getWechat();
+    public function uploadimg()
+    {
+        $wechat = WxBiz::getWechat();
 
-        $file= PHYSICAL_ROOT_PATH . "\\QRcode\\promotion\\oinMwxGi-Ok20PEf5lUn6TtPaQXg.jpg";
+        $file = PHYSICAL_ROOT_PATH . "\\QRcode\\promotion\\oinMwxGi-Ok20PEf5lUn6TtPaQXg.jpg";
         dump($file);
         $data = array('media' => '@' . $file);
-        $result= $wechat->uploadMedia($data,'image');
+        $result = $wechat->uploadMedia($data, 'image');
         dump($result);
 
-        $rt= WechatHelper::uploadMedia($file);
+        $rt = WechatHelper::uploadMedia($file);
         dump($rt);
     }
 
-    public function wxav(){
-        $hostName= "http://wx.qlogo.cn";
+    public function wxav()
+    {
+        $hostName = "http://wx.qlogo.cn";
 
-        $ip= C('WX_AVATARSERVER_IP');
-        $hostName= "http://$ip";
-        $recommenduseravatar= "$hostName/mmopen/Ib5852jAybibhPd6DV1FzXCgLicqMreYh8LTWtFje4ePscFDPl8KMc2jAo65z5IjNluaQBBwkIVS2oxX67eqFBaoRnjoesVAWL/0";
+        $ip = C('WX_AVATARSERVER_IP');
+        $hostName = "http://$ip";
+        $recommenduseravatar = "$hostName/mmopen/Ib5852jAybibhPd6DV1FzXCgLicqMreYh8LTWtFje4ePscFDPl8KMc2jAo65z5IjNluaQBBwkIVS2oxX67eqFBaoRnjoesVAWL/0";
 
         //$headimg = ImageHelper::loadImage($recommenduseravatar, 'non');
 
-        $headimg= NetHelper::request($recommenduseravatar,null,30);
+        $headimg = NetHelper::request($recommenduseravatar, null, 30);
         //$headimg= NetHelper::get($recommenduseravatar,true);
         //$headimg= $this-> ss($recommenduseravatar);
 
-        $headimg= imagecreatefromstring($headimg);
+        $headimg = imagecreatefromstring($headimg);
         ImageHelper::display($headimg);
         //dump($headimg);
     }
 
-    private function ss($url){
+    public function jsop()
+    {
+        $this->display();
+    }
+
+    public function dirop()
+    {
+        $path = "E:\\aa\\bb\\cc\\dd";
+//        if(is_dir($path)==false){
+//            mkdir($path);
+//        }
+
+        DirHelper::surePathExist($path);
+    }
+
+    public function aa()
+    {
+        dump('http://' . $_SERVER['HTTP_HOST'] . __ROOT__ . '/index.php/Home/Wxpay/nd/');
+    }
+
+    public function weeknameop()
+    {
+        $time = mktime(9,1,1,3,15,2017);
+
+        dump(DateHelper::getWeekName('c',$time));
+    }
+
+    private function ss($url)
+    {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -90,22 +122,5 @@ class FooController extends Controller
         curl_close($ch);
 
         return $output;
-    }
-
-    public function jsop(){
-        $this->display();
-    }
-
-    public function dirop(){
-        $path= "E:\\aa\\bb\\cc\\dd";
-//        if(is_dir($path)==false){
-//            mkdir($path);
-//        }
-
-        DirHelper::surePathExist($path);
-    }
-
-    public function aa(){
-        dump('http://' . $_SERVER['HTTP_HOST'] . __ROOT__ . '/index.php/Home/Wxpay/nd/');
     }
 }
