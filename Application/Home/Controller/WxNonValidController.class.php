@@ -17,6 +17,7 @@ use Vendor\Hiland\Biz\Tencent\WechatHelper;
 use Vendor\Hiland\Utils\Data\CalendarHelper;
 use Vendor\Hiland\Utils\Data\DateHelper;
 use Vendor\Hiland\Utils\Data\StringHelper;
+use Vendor\Hiland\Utils\DataModel\ModelMate;
 use Vendor\Hiland\Utils\Web\NetHelper;
 
 class WxNonValidController extends Controller
@@ -358,7 +359,29 @@ class WxNonValidController extends Controller
         $fontcolor = imagecolorallocate($background, 0x00, 0x00, 0x00);
 
         //用户的昵称和签名信息
-        imagettftext($background, 18, 0, 280, 1000, $fontcolor, $fonttype, $vip['nickname']);
+        $displayName= $vip['nickname'];
+        $signName= '';
+        $contactInfo= '';
+        $vipFixed= new ModelMate("vip_fixed");
+        $entity= $vipFixed->find(array("openid",$openid));
+        if($entity){
+            $displayName= $entity["namefixed"];
+            $signName= $entity['signname'];
+            $contactInfo= $entity['contactinfo'];
+        }
+        imagettftext($background, 18, 0, 280, 1000, $fontcolor, $fonttype, $displayName);
+        if($contactInfo){
+            imagettftext($background, 18, 0, 280, 1040, $fontcolor, $fonttype, $contactInfo);
+
+            if($signName){
+                imagettftext($background, 18, 0, 280, 1080, $fontcolor, $fonttype, $signName);
+            }
+        }else{
+            if($signName){
+                imagettftext($background, 18, 0, 280, 1040, $fontcolor, $fonttype, $signName);
+            }
+        }
+
 
         //日历信息
         imagettftext($background, 26, 0, 180, 750, $fontcolor, $fonttype, date('m'));
