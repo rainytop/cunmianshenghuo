@@ -333,6 +333,13 @@ class WxNonValidController extends Controller
 
         // 生产二维码基本信息，存入本地文档，获取背景
         $background = WxBiz::createSignOnBg(); //$this->createQrcodeBg();
+
+        if($background){
+            CommonLoger::log("background","bg_ok");
+        }else{
+            CommonLoger::log("background","bg_error");
+        }
+
         //WechatHelper::responseCustomerServiceText($openid,$background);
         $qrcode = WxBiz::createQrcode4Common($vip['id'], $vip['openid']);
         if (!$qrcode) {
