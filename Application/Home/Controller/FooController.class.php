@@ -15,6 +15,7 @@ use Vendor\Hiland\Biz\Tencent\WechatHelper;
 use Vendor\Hiland\Utils\Data\Calendar;
 use Vendor\Hiland\Utils\Data\CalendarHelper;
 use Vendor\Hiland\Utils\Data\DateHelper;
+use Vendor\Hiland\Utils\Data\StringHelper;
 use Vendor\Hiland\Utils\IO\DirHelper;
 use Vendor\Hiland\Utils\IO\ImageHelper;
 use Vendor\Hiland\Utils\Web\NetHelper;
@@ -54,6 +55,13 @@ class FooController extends Controller
 
         $bb = CalendarHelper::convertSolarToLunar(2017, 3, 15);
         dump($bb);
+
+        $lunar= CalendarHelper::convertSolarToLunar(date('Y'),date('m'),date('d'));
+        dump($lunar);
+        dump($lunar[1]);
+        //dump(substr($lunar[1],0,1)) ;
+        dump(StringHelper::subString($lunar[1],0,1)) ;
+        dump(StringHelper::subString($lunar[1],1,1)) ;
     }
 
     public function uploadimg()
