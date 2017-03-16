@@ -147,7 +147,6 @@ class WxNonValidController extends Controller
         }
     }
 
-
     public function reply4TuiGuangErWeiMa($openid)
     {
         // 获取用户信息
@@ -156,7 +155,6 @@ class WxNonValidController extends Controller
         $vipModel = M('Vip');
         $vip = $vipModel->where($map)->find();
 
-        CommonLoger::log("aaa", "22");
         // 用户校正
         if (!$vip) {
             $msg = "用户信息缺失，请重新关注公众号";
@@ -171,22 +169,15 @@ class WxNonValidController extends Controller
             exit();
         }
 
-        CommonLoger::log("aaa", "33");
-
         // 过滤连续请求-打开
         if (F($vip['openid']) != null) {
-            CommonLoger::log("aaa", "331");
             $msg = "推广二维码正在生成，请稍等！";
             //self::$_wx->text($msg)->reply();
             WechatHelper::responseCustomerServiceText($openid, $msg);
-            CommonLoger::log("aaa", "332");
             exit();
         } else {
-            CommonLoger::log("aaa", "333");
             F($vip['openid'], $vip['openid']);
         }
-
-        CommonLoger::log("aaa", "44");
 
         // 生产二维码基本信息，存入本地文档，获取背景
         $background = WxBiz::createQrcodeBg4Common(); //$this->createQrcodeBg();
@@ -199,8 +190,6 @@ class WxNonValidController extends Controller
             F($vip['openid'], null);
             exit();
         }
-
-        CommonLoger::log("aaa", "55");
         // 生产二维码基本信息，存入本地文档，获取背景 结束
 
         // 获取头像信息
@@ -224,24 +213,6 @@ class WxNonValidController extends Controller
         }
 
         $headimg = imagecreatefromstring($headimg);
-
-//        $recommenduseravatar = $vip['headimgurl'];
-//        if (empty($recommenduseravatar)) {
-//            if (file_exists('./QRcode/headimg/' . $vip['openid'] . '.jpg')) { // 获取不到远程头像，但存在本地头像，需要更新
-//                $recommenduseravatar = PHYSICAL_ROOT_PATH.'/QRcode/headimg/' . $vip['openid'] . '.jpg';
-//            } else {
-//                $recommenduseravatar = PHYSICAL_ROOT_PATH.'/QRcode/headimg/' . 'default' . '.jpg';
-//            }
-//
-//            $recommenduseravatar = str_replace('/', '\\', $recommenduseravatar);
-//            $mark = true;
-//        }
-//
-//        CommonLoger::log("aaa", "661");
-//        $headimg = ImageHelper::loadImage($recommenduseravatar, 'non');
-
-        CommonLoger::log("aaa", "662");
-        //$headimg = imagecreatefromstring($headimg);
         // 获取头像信息 结束
 
         // 生成二维码推广图片=======================
@@ -264,14 +235,12 @@ class WxNonValidController extends Controller
         imagettftext($background, 18, 0, 280, 100, $fontcolor, $fonttype, $vip['nickname']);
         imagejpeg($background, './QRcode/promotion/' . $vip['openid'] . '.jpg');
 
-        CommonLoger::log("aaa", "77");
         // 生成二维码推广图片 结束==================
 
         //WechatHelper::responseCustomerServiceText($openid,'dddddddddddddddd');
         // 上传下载相应
         $file = getcwd() . "/QRcode/promotion/" . $vip['openid'] . '.jpg';
         if (file_exists($file)) {
-            CommonLoger::log('file', $file);
             $mediaId = WechatHelper::uploadMedia($file);
             WechatHelper::responseCustomerServiceImage($openid, $mediaId);
         } else {
@@ -281,7 +250,6 @@ class WxNonValidController extends Controller
         }
         // 上传下载相应 结束
 
-        CommonLoger::log("aaa", "88");
         // 过滤连续请求-关闭
         F($vip['openid'], null);
 
@@ -305,40 +273,25 @@ class WxNonValidController extends Controller
         $vipModel = M('Vip');
         $vip = $vipModel->where($map)->find();
 
-        //CommonLoger::log("aaa", "22");
         // 用户校正
         if (!$vip) {
             $msg = "用户信息缺失，请重新关注公众号";
-            //self::$_wx->text($msg)->reply();
             WechatHelper::responseCustomerServiceText($openid, $msg);
             exit();
         }
 
-        //CommonLoger::log("aaa", "33");
 
         // 过滤连续请求-打开
         if (F($vip['openid']) != null) {
-            CommonLoger::log("aaa", "331");
             $msg = "签到图片正在生成，请稍等！";
-            //self::$_wx->text($msg)->reply();
             WechatHelper::responseCustomerServiceText($openid, $msg);
-            CommonLoger::log("aaa", "332");
             exit();
         } else {
-            CommonLoger::log("aaa", "333");
             F($vip['openid'], $vip['openid']);
         }
 
-        CommonLoger::log("aaa", "44");
-
         // 生产二维码基本信息，存入本地文档，获取背景
-        $background = WxBiz::createSignOnBg(); //$this->createQrcodeBg();
-
-        if($background){
-            CommonLoger::log("background","bg_ok");
-        }else{
-            CommonLoger::log("background","bg_error");
-        }
+        $background = WxBiz::createSignOnBg();
 
         //WechatHelper::responseCustomerServiceText($openid,$background);
         $qrcode = WxBiz::createQrcode4Common($vip['id'], $vip['openid']);
@@ -350,7 +303,6 @@ class WxNonValidController extends Controller
             exit();
         }
 
-        CommonLoger::log("aaa", "55");
         // 生产二维码基本信息，存入本地文档，获取背景 结束
 
         // 获取头像信息
@@ -375,7 +327,6 @@ class WxNonValidController extends Controller
 //
 //        $headimg = imagecreatefromstring($headimg);
 
-        CommonLoger::log("aaa", "662");
         //$headimg = imagecreatefromstring($headimg);
         // 获取头像信息 结束
 
@@ -388,7 +339,7 @@ class WxNonValidController extends Controller
         $q_width = imagesx($qrcode);
         $q_height = imagesy($qrcode);
 
-        imagecopyresampled($background, $qrcode, $b_width * 0.24, $b_height * 0.5, 0, 0, 297, 297, $q_width, $q_height);
+        imagecopyresampled($background, $qrcode, $b_width * 0.24, $b_height * 0.5, 0, 0, 297, 197, $q_width, $q_height);
 
 //        $h_width = imagesx($headimg);
 //        $h_height = imagesy($headimg);
@@ -402,14 +353,11 @@ class WxNonValidController extends Controller
         imagettftext($background, 18, 0, 280, 100, $fontcolor, $fonttype, $vip['nickname']);
         imagejpeg($background, './Upload/shenqi/qiandao/datas/' . $vip['openid'] . '.jpg');
 
-        CommonLoger::log("aaa", "77");
         // 生成二维码推广图片 结束==================
 
-        //WechatHelper::responseCustomerServiceText($openid,'dddddddddddddddd');
         // 上传下载相应
         $file = getcwd() . "/Upload/shenqi/qiandao/datas/" . $vip['openid'] . '.jpg';
         if (file_exists($file)) {
-            CommonLoger::log('file', $file);
             $mediaId = WechatHelper::uploadMedia($file);
             WechatHelper::responseCustomerServiceImage($openid, $mediaId);
         } else {
@@ -419,7 +367,7 @@ class WxNonValidController extends Controller
         }
         // 上传下载相应 结束
 
-        CommonLoger::log("aaa", "88");
+
         // 过滤连续请求-关闭
         F($vip['openid'], null);
 
