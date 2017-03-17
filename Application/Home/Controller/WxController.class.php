@@ -9,6 +9,7 @@ use Home\Model\WxBiz;
 use Think\Controller;
 use Vendor\Hiland\Biz\Loger\CommonLoger;
 use Vendor\Hiland\Utils\Data\BoolHelper;
+use Vendor\Hiland\Utils\DataModel\ModelMate;
 use Vendor\Hiland\Utils\IO\Thread;
 use Vendor\Hiland\Utils\Web\WebHelper;
 
@@ -418,6 +419,22 @@ class WxController extends Controller
                 $revip = self::$_ppvip->add($user);
 
                 if ($revip) {
+                    if ($old['id']) {
+                        //----------------------------------------------------
+                        //添加朋友关系（将主邀请人自动设置为被邀请人的朋友）
+                        $viprelation = array();
+                        $viprelation['a_vipid'] =$old['id'];
+                        $viprelation['b_vipid'] =$revip;
+
+                        $relationtime= date('Y-m-d H:i:s',time());
+                        $viprelation['invitetime'] = $relationtime;
+                        $viprelation['accepttime'] =$relationtime;
+                        $viprelation['friendstatus'] =10;
+                        $modal= new ModelMate("vip_friends");
+                        $modal->interact($viprelation);
+                        //----------------------------------------------------
+                    }
+
                     //赠送操作
                     if ($vipset['isgift']) {
                         $gift = explode(",", $vipset['gift_detail']);
