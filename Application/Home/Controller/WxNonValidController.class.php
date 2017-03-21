@@ -401,7 +401,7 @@ class WxNonValidController extends Controller
         imagettftext($background, 26, 0, 430, 860, $fontcolor, $fonttype, StringHelper::subString($lunar[2],0,1));
         imagettftext($background, 26, 0, 430, 895, $fontcolor, $fonttype, StringHelper::subString($lunar[2],1,1));
 
-        imagettftext($background, 136, 0, 210, 850, $fontcolor, $fonttype, date('d'));
+        imagettftext($background, 136, 0, 230, 850, $fontcolor, $fonttype, date('d'));
         imagettftext($background, 36, 0, 260, 895, $fontcolor, $fonttype, date('H:i'));
 
         $fontcolor = imagecolorallocate($background, 0x55, 0x55, 0x55);
