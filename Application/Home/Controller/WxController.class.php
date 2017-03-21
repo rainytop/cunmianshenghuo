@@ -537,7 +537,7 @@ class WxController extends Controller
                     $msg['touser'] = $old['openid'];
                     $msg['msgtype'] = 'text';
                     $newUserName= $user['nickname'];
-                    $str = "通过您的推广，用户[$newUserName]成为了您的[" . $shopset['fx1name'] . "]，" . $customerup['value'];
+                    $str = "通过您的推广，用户[$newUserName]成为了您的[" . $shopset['fx1name'] . "](" . $customerup['value'].")";
                     $msg['text'] = array('content' => $str);
                     $ree = self::$_wx->sendCustomMessage($msg);
                     // 发送消息完成============
@@ -549,7 +549,7 @@ class WxController extends Controller
                         $msg = array();
                         $msg['touser'] = $oldold['openid'];
                         $msg['msgtype'] = 'text';
-                        $str = "通过您的推广，用户[$newUserName]成为了您的[" . $shopset['fx2name'] . "]，" . $customerup['value'];
+                        $str = "通过您的推广，用户[$newUserName]成为了您的[" . $shopset['fx2name'] . "](" . $customerup['value'].")";
                         $msg['text'] = array('content' => $str);
                         $ree = self::$_wx->sendCustomMessage($msg);
                         // 发送消息完成============
@@ -561,7 +561,7 @@ class WxController extends Controller
                             $msg = array();
                             $msg['touser'] = $oldoldold['openid'];
                             $msg['msgtype'] = 'text';
-                            $str = "通过您的推广，用户[$newUserName]成为了您的[" . $shopset['fx3name'] . "]，" . $customerup['value'];
+                            $str = "通过您的推广，用户[$newUserName]成为了您的[" . $shopset['fx3name'] . "](" . $customerup['value'].")";
                             $msg['text'] = array('content' => $str);
                             $ree = self::$_wx->sendCustomMessage($msg);
                             // 发送消息完成============
@@ -576,7 +576,7 @@ class WxController extends Controller
                             $msg = array();
                             $msg['touser'] = $empvip['openid'];
                             $msg['msgtype'] = 'text';
-                            $str = "通过您的推广，用户[$newUserName]成为了您的[" . $shopset['fxname'] . "]，" . $customeremp['value'];
+                            $str = "通过您的推广，用户[$newUserName]成为了您的[" . $shopset['fxname'] . "](" . $customeremp['value'].")";
                             $msg['text'] = array('content' => $str);
                             $ree = self::$_wx->sendCustomMessage($msg);
                         }
