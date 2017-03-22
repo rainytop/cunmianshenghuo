@@ -88,28 +88,35 @@ class VipSignonBiz
 
         //dump($signArray);
 
-        return self::ss($signArray);
+        //先计算不包括当前日的连续天数
+        $result= self::calcContinuousDayCount($signArray);
+
+        //再计算包括当前日的连续天数
+        if($result==0){
+            $nextDate=  DateHelper::addInterval(null,'d',1);
+            $nextDate= DateHelper::format($nextDate,'Y-m-d 0:0:0');
+            $result= self::calcContinuousDayCount($signArray,$nextDate);
+        }
+
+        return $result;
     }
 
-    private static function ss($signArray)
+    private static function calcContinuousDayCount($signArray, $comparingDate = null)
     {
+        if ($comparingDate == null) {
+            $comparingDate = DateHelper::format(null, 'Y-m-d 0:0:0');
+        }
 
-        $comparingDate = DateHelper::format(null, 'Y-m-d 0:0:0');
         $comparingDate = DateHelper::getTimestamp($comparingDate);
 
-        dump($comparingDate);
         $recordCount = count($signArray);
-
         $continuousDays = 0;
         for ($i = 0; $i < $recordCount; $i++) {
             $record = strtotime($signArray[$i]['signtime']);
-            dump($record);
 
             $beginTime = DateHelper::addInterval($comparingDate, 'd', -$i - 1);
             $endTime = DateHelper::addInterval($comparingDate, 'd', -$i);
 
-            dump($beginTime);
-            dump($endTime);
             if ($record >= $beginTime && $record < $endTime) {
                 $continuousDays++;
             } else {
