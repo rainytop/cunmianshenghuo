@@ -57,6 +57,12 @@ $config = array(
         'REPLY_EMAIL' => '', //回复EMAIL（留空则为发件人EMAIL）
         'REPLY_NAME' => '', //回复名称（留空则为发件人名称）
     ),
+
+
+    /**
+     * 用户签到时的基础积分
+     */
+    'VIP_SIGNON_BASICSCORE'=> 10,
 );
 
 

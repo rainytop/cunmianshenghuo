@@ -9,6 +9,7 @@
 namespace Home\Controller;
 
 
+use Home\Model\VipSignonBiz;
 use Home\Model\WxBiz;
 use Think\Controller;
 use Vendor\Hiland\Biz\Tencent\WechatHelper;
@@ -63,6 +64,32 @@ class FooController extends Controller
         //dump(substr($lunar[1],0,1)) ;
         dump(StringHelper::subString($lunar[1],0,1)) ;
         dump(StringHelper::subString($lunar[1],1,1)) ;
+    }
+
+    public function vipsignop($vipid=0){
+        VipSignonBiz::signOn($vipid);
+    }
+
+    public function stampop(){
+        $str_5= date('Y-m-d').' 5:0:0';
+        $timestamp_5= DateHelper::getTimestamp($str_5);
+
+        $str_8= date('Y-m-d').' 8:0:0';
+        $timestamp_8= DateHelper::getTimestamp($str_8);
+        $timestamp_10= DateHelper::getTimestamp(date('Y-m-d').' 10:0:0');
+
+        $currentTime= time();
+
+        dump($str_5);
+        dump($timestamp_5);
+        dump($currentTime);
+        dump($str_8);
+        dump($timestamp_8);
+    }
+
+    public function continuousdaycountop($vipid=1){
+        $days= VipSignonBiz::getContinuousDayCount($vipid);
+        dump($days);
     }
 
     public function vipfixedop($openid='oZeE8w2pliOkFLhoeVYzMu3PP09A'){
