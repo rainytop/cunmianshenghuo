@@ -10,6 +10,7 @@ namespace Home\Controller;
 
 
 use App\QRcode;
+use Home\Model\VipSignonBiz;
 use Home\Model\WxBiz;
 use Think\Controller;
 use Vendor\Hiland\Biz\Loger\CommonLoger;
@@ -53,7 +54,7 @@ class WxNonValidController extends Controller
             exit();
         }
 
-        $cacheKey= 'employee-'.$vip['openid'];
+        $cacheKey = 'employee-' . $vip['openid'];
 
         // 获取员工信息
         $employee = M('Employee')->where(array('vipid' => $vip['id']))->find();
@@ -175,7 +176,7 @@ class WxNonValidController extends Controller
             exit();
         }
 
-        $cacheKey= 'reply4TuiGuangErWeiMa-'.$vip['openid'];
+        $cacheKey = 'reply4TuiGuangErWeiMa-' . $vip['openid'];
 
         // 过滤连续请求-打开
         if (F($cacheKey) != null) {
@@ -288,7 +289,27 @@ class WxNonValidController extends Controller
             exit();
         }
 
-        $cacheKey= 'reply4signon--'.$vip['openid'];
+//        $timestamp_5 = DateHelper::getTimestamp(date('Y-m-d') . ' 5:0:0');
+//        $currentTime = time();
+//
+//        if ($currentTime < $timestamp_5) {
+//            $msg = "目前签到时间尚未开始,请每天早上5点后前来签到.";
+//            WechatHelper::responseCustomerServiceText($openid, $msg);
+//            exit();
+//        }
+        $vipid = $vip['id'];
+        $returnMessage = '';
+        $signOrder = 0;
+        $score = 0;
+        $signResult = VipSignonBiz::signOn($vipid, $signOrder, $score, $returnMessage);
+
+        WechatHelper::responseCustomerServiceText($openid, $returnMessage);
+        if (!$signResult) {
+            exit();
+        }
+
+
+        $cacheKey = 'reply4signon--' . $vip['openid'];
 
         // 过滤连续请求-打开
         if (F($cacheKey) != null) {
@@ -298,6 +319,7 @@ class WxNonValidController extends Controller
         } else {
             F($cacheKey, $vip['openid']);
         }
+
 
         // 生产二维码基本信息，存入本地文档，获取背景
         $background = WxBiz::createSignOnBg();
@@ -359,28 +381,28 @@ class WxNonValidController extends Controller
         $fontcolor = imagecolorallocate($background, 0x00, 0x00, 0x00);
 
         //用户的昵称和签名信息
-        $displayName= $vip['nickname'];
-        $signName= '';
-        $contactInfo= '';
-        $vipFixed= new ModelMate("vip_fixed");
-        $condition= array(
-            "openid"=>$openid,
+        $displayName = $vip['nickname'];
+        $signName = '';
+        $contactInfo = '';
+        $vipFixed = new ModelMate("vip_fixed");
+        $condition = array(
+            "openid" => $openid,
         );
-        $entity= $vipFixed->find($condition);
-        if($entity){
-            $displayName= $entity['namefixed'];
-            $signName= $entity['signname'];
-            $contactInfo= $entity['contactinfo'];
+        $entity = $vipFixed->find($condition);
+        if ($entity) {
+            $displayName = $entity['namefixed'];
+            $signName = $entity['signname'];
+            $contactInfo = $entity['contactinfo'];
         }
         imagettftext($background, 18, 0, 280, 1000, $fontcolor, $fonttype, $displayName);
-        if($contactInfo){
+        if ($contactInfo) {
             imagettftext($background, 18, 0, 280, 1040, $fontcolor, $fonttype, $contactInfo);
 
-            if($signName){
+            if ($signName) {
                 imagettftext($background, 18, 0, 280, 1080, $fontcolor, $fonttype, $signName);
             }
-        }else{
-            if($signName){
+        } else {
+            if ($signName) {
                 imagettftext($background, 18, 0, 280, 1040, $fontcolor, $fonttype, $signName);
             }
         }
@@ -394,18 +416,18 @@ class WxNonValidController extends Controller
         imagettftext($background, 26, 0, 180, 860, $fontcolor, $fonttype, '期');
         imagettftext($background, 26, 0, 180, 895, $fontcolor, $fonttype, DateHelper::getWeekName('c'));
 
-        $lunar= CalendarHelper::convertSolarToLunar(date('Y'),date('m'),date('d'));
+        $lunar = CalendarHelper::convertSolarToLunar(date('Y'), date('m'), date('d'));
         imagettftext($background, 26, 0, 430, 750, $fontcolor, $fonttype, '农');
-        imagettftext($background, 26, 0, 430, 785, $fontcolor, $fonttype, StringHelper::subString($lunar[1],0,1));
+        imagettftext($background, 26, 0, 430, 785, $fontcolor, $fonttype, StringHelper::subString($lunar[1], 0, 1));
         imagettftext($background, 26, 0, 430, 820, $fontcolor, $fonttype, '月');
-        imagettftext($background, 26, 0, 430, 860, $fontcolor, $fonttype, StringHelper::subString($lunar[2],0,1));
-        imagettftext($background, 26, 0, 430, 895, $fontcolor, $fonttype, StringHelper::subString($lunar[2],1,1));
+        imagettftext($background, 26, 0, 430, 860, $fontcolor, $fonttype, StringHelper::subString($lunar[2], 0, 1));
+        imagettftext($background, 26, 0, 430, 895, $fontcolor, $fonttype, StringHelper::subString($lunar[2], 1, 1));
 
         imagettftext($background, 136, 0, 230, 850, $fontcolor, $fonttype, date('d'));
         imagettftext($background, 36, 0, 260, 895, $fontcolor, $fonttype, date('H:i'));
 
         $fontcolor = imagecolorallocate($background, 0x55, 0x55, 0x55);
-        imagettftext($background, 14, 0, 190, 930, $fontcolor, $fonttype, "你是今日第一位签到成功的用户");
+        imagettftext($background, 14, 0, 190, 930, $fontcolor, $fonttype, "在您朋友圈中,你是今日第($signOrder)位签到成功的用户");
 
         imagejpeg($background, './Upload/shenqi/qiandao/datas/' . $vip['openid'] . '.jpg');
         // 生成二维码推广图片 结束==================

@@ -9,6 +9,7 @@
 namespace Home\Controller;
 
 
+use Home\Model\VipFriendsBiz;
 use Home\Model\VipSignonBiz;
 use Home\Model\WxBiz;
 use Think\Controller;
@@ -58,27 +59,29 @@ class FooController extends Controller
         $bb = CalendarHelper::convertSolarToLunar(2017, 3, 15);
         dump($bb);
 
-        $lunar= CalendarHelper::convertSolarToLunar(date('Y'),date('m'),date('d'));
+        $lunar = CalendarHelper::convertSolarToLunar(date('Y'), date('m'), date('d'));
         dump($lunar);
         dump($lunar[1]);
         //dump(substr($lunar[1],0,1)) ;
-        dump(StringHelper::subString($lunar[1],0,1)) ;
-        dump(StringHelper::subString($lunar[1],1,1)) ;
+        dump(StringHelper::subString($lunar[1], 0, 1));
+        dump(StringHelper::subString($lunar[1], 1, 1));
     }
 
-    public function vipsignop($vipid=0){
+    public function vipsignop($vipid = 0)
+    {
         VipSignonBiz::signOn($vipid);
     }
 
-    public function stampop(){
-        $str_5= date('Y-m-d').' 5:0:0';
-        $timestamp_5= DateHelper::getTimestamp($str_5);
+    public function stampop()
+    {
+        $str_5 = date('Y-m-d') . ' 5:0:0';
+        $timestamp_5 = DateHelper::getTimestamp($str_5);
 
-        $str_8= date('Y-m-d').' 8:0:0';
-        $timestamp_8= DateHelper::getTimestamp($str_8);
-        $timestamp_10= DateHelper::getTimestamp(date('Y-m-d').' 10:0:0');
+        $str_8 = date('Y-m-d') . ' 8:0:0';
+        $timestamp_8 = DateHelper::getTimestamp($str_8);
+        $timestamp_10 = DateHelper::getTimestamp(date('Y-m-d') . ' 10:0:0');
 
-        $currentTime= time();
+        $currentTime = time();
 
         dump($str_5);
         dump($timestamp_5);
@@ -87,22 +90,36 @@ class FooController extends Controller
         dump($timestamp_8);
     }
 
-    public function continuousdaycountop($vipid=1){
-        $days= VipSignonBiz::getContinuousDayCount($vipid);
+    public function continuousdaycountop($vipid = 1)
+    {
+        $days = VipSignonBiz::getContinuousDayCount($vipid);
         dump($days);
     }
 
-    public function vipfixedop($openid='oZeE8w2pliOkFLhoeVYzMu3PP09A'){
-        $vipFixed= new ModelMate("vip_fixed");
-        $condition= array(
-            "openid"=>$openid,
+    public function getMyFriendsOp($vipid = 1, $includeSelf = 0, $makeFriedsType = 0, $friendStatus = 10)
+    {
+        $result = VipFriendsBiz::getMyFriends($vipid, $includeSelf, $makeFriedsType, $friendStatus);
+        dump($result);
+    }
+
+    public function getFriendsSignonCountOp($vipid = 1){
+        $result= VipSignonBiz::getFriendsSignonCount($vipid);
+        dump($result);
+    }
+
+    public function vipfixedop($openid = 'oZeE8w2pliOkFLhoeVYzMu3PP09A')
+    {
+        $vipFixed = new ModelMate("vip_fixed");
+        $condition = array(
+            "openid" => $openid,
         );
-        $entity= $vipFixed->find($condition);
+        $entity = $vipFixed->find($condition);
         dump($entity);
     }
 
-    public function filecountop(){
-        $count= DirHelper::getFileCount('./Upload/shenqi/qiandao/');
+    public function filecountop()
+    {
+        $count = DirHelper::getFileCount('./Upload/shenqi/qiandao/');
         dump($count);
     }
 
@@ -137,6 +154,32 @@ class FooController extends Controller
         $headimg = imagecreatefromstring($headimg);
         ImageHelper::display($headimg);
         //dump($headimg);
+    }
+
+    public function eggOp($max = 5000)
+    {
+//        for($i=0;$i<$max;$i++){
+//           if( $i%2==1 &&
+//               $i%3==0 &&
+//               $i%4==1 &&
+//               $i%5==4 &&
+//               $i%6==3 &&
+//               $i%7==0 &&
+//               $i%8==1 &&
+//               $i%9==0 )
+//
+//               dump($i);
+//        }
+
+        dump(441 % 1);
+        dump(441 % 2);
+        dump(441 % 3);
+        dump(441 % 4);
+        dump(441 % 5);
+        dump(441 % 6);
+        dump(441 % 7);
+        dump(441 % 8);
+        dump(441 % 9);
     }
 
     public function jsop()
